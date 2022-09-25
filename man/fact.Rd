@@ -15,32 +15,44 @@
 \alias{fact.haven_labelled}
 \title{Factor}
 \usage{
-fact(x)
+fact(x, ...)
 
-\method{fact}{default}(x)
+\method{fact}{default}(x, ...)
 
-\method{fact}{character}(x)
+\method{fact}{character}(x, levels = NULL, ...)
 
-\method{fact}{numeric}(x)
+\method{fact}{numeric}(x, ...)
 
-\method{fact}{integer}(x)
+\method{fact}{integer}(x, range = NULL, ...)
 
-\method{fact}{Date}(x)
+\method{fact}{Date}(x, ...)
 
-\method{fact}{POSIXt}(x)
+\method{fact}{POSIXt}(x, ...)
 
-\method{fact}{logical}(x)
+\method{fact}{logical}(x, ...)
 
-\method{fact}{factor}(x)
+\method{fact}{factor}(x, ...)
 
-\method{fact}{fact}(x)
+\method{fact}{fact}(x, ...)
 
-\method{fact}{pseudo_id}(x)
+\method{fact}{pseudo_id}(x, ...)
 
-\method{fact}{haven_labelled}(x)
+\method{fact}{haven_labelled}(x, ...)
 }
 \arguments{
 \item{x}{A vector of values}
+
+\item{...}{Additional arguments passed to methods}
+
+\item{levels}{Optional specification of levels for `x`.  When `NULL`, will
+default to all the unique values of `x` in the order they appear.
+Duplicated values are silently dropped.}
+
+\item{range}{Controls setting of additional labels.  Accepts a numeric vector
+that can be safely coerced to an `integer`.  A sequence of `integers` is
+reconstructed from `range` and used as all the `fact` levels.  All `NA` and
+`Inf` values are dropped.  At least one non-missing and finite value must
+be present.}
 }
 \value{
 A vector of equal length of `x` with class `fact` and `factor`.  If
