@@ -4,7 +4,7 @@ new_fact <- function(
     ordered = FALSE,
     na = if (anyNA(levels)) length(levels) else 0L
 ) {
-  struct(
+  mark::struct(
     as.integer(x),
     class = c("fact", if (ordered) "ordered", "factor"),
     levels = as.character(levels),
