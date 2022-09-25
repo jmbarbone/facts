@@ -25,19 +25,20 @@
 #' }
 #'
 #' @param x A vector of values
+#' @param ... Additional arguments passed to methods
 #' @return A vector of equal length of `x` with class `fact` and `factor`.  If
 #'   `x` was `ordered`, that class is added in between.
 #'
 #' @seealso [as_ordered()]
 #' @family factors
 #' @export
-fact <- function(x) {
+fact <- function(x, ...) {
   UseMethod("fact", x)
 }
 
 #' @rdname fact
 #' @export
-fact.default <- function(x) {
+fact.default <- function(x, ...) {
   stop(
     "No fact method for class(es) ",
     mark::collapse0(class(x), sep = ", "),
@@ -46,15 +47,18 @@ fact.default <- function(x) {
 }
 
 #' @rdname fact
+#' @param levels Optional specification of levels for `x`.  When `NULL`, will
+#'   default to all the unique values of `x` in the order they appear.
+#'   Duplicated values are silently dropped.
 #' @export
-fact.character <- function(x) {
+fact.character <- function(x, levels = NULL, ...) {
   out <- pseudo_id(x)
-  new_fact(out, .uniques(out))
+  new_fact(out, if (is.null(levels)) .uniques(out) else vec_unique(as.character(levels)))
 }
 
 #' @rdname fact
 #' @export
-fact.numeric <- function(x) {
+fact.numeric <- function(x, ...) {
   # Don't bother NaN
   x[is.nan(x)] <- NA
   u <- vec_sort(vec_unique(x))
@@ -62,8 +66,35 @@ fact.numeric <- function(x) {
 }
 
 #' @rdname fact
+#' @param range Controls setting of additional labels.  Accepts a numeric vector
+#'   that can be safely coerced to an `integer`.  A sequence of `integers` is
+#'   reconstructed from `range` and used as all the `fact` levels.  All `NA` and
+#'   `Inf` values are dropped.  At least one non-missing and finite value must
+#'   be present.
 #' @export
-fact.integer <- fact.numeric
+fact.integer <- function(x, range = NULL, ...) {
+  u <- if (is.null(range)) vec_sort(vec_unique(x)) else range_safe(range)
+  new_fact(vec_match(x, u), u)
+}
+
+range_safe <- function(x) {
+  if (!is.numeric(x)) {
+    stop("range must be a numeric vector", call. = FALSE)
+  }
+
+  x <- as.integer(x)
+  x <- x[!is.na(x)]
+  if (!length(x)) {
+    stop("No non-missing arguments in range", call. = FALSE)
+  }
+
+  x <- x[is.finite(x)]
+  if (!length(x)) {
+    stop("Not enough finite values in range", call. = FALSE)
+  }
+
+  seq.int(min(x), max(x))
+}
 
 #' @rdname fact
 #' @export
@@ -75,7 +106,7 @@ fact.POSIXt <- fact.numeric
 
 #' @rdname fact
 #' @export
-fact.logical <- function(x) {
+fact.logical <- function(x, ...) {
   out <- as.integer(x)
   w <- which(!x)
   out[w] <- out[w] + 2L
@@ -91,7 +122,7 @@ fact.logical <- function(x) {
 
 #' @rdname fact
 #' @export
-fact.factor <- function(x) {
+fact.factor <- function(x, ...) {
   old_levels <- levels(x)
   new_levels <- fact_coerce_levels(old_levels)
   # new_levels <- type_convert2(old_levels)
@@ -133,13 +164,13 @@ fact.factor <- function(x) {
 
 #' @rdname fact
 #' @export
-fact.fact <- function(x) {
+fact.fact <- function(x, ...) {
   x
 }
 
 #' @rdname fact
 #' @export
-fact.pseudo_id <- function(x) {
+fact.pseudo_id <- function(x, ...) {
   u <- .uniques(x)
 
   # check if numeric and already ordered
@@ -156,7 +187,7 @@ fact.pseudo_id <- function(x) {
 
 #' @rdname fact
 #' @export
-fact.haven_labelled <- function(x) {
+fact.haven_labelled <- function(x, ...) {
   require_namespace("haven")
   lvls <- attr(x, "labels")
 
