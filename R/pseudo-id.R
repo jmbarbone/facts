@@ -31,7 +31,7 @@ pseudo_id.pseudo_id <- function(x, ...) {
 pseudo_id.default <- function(x, na_last = TRUE, ...) {
   ux <- unique(x)
   if (na_last) ux <- na_last(ux)
-  make_pseudo_id(match(x, ux), ux)
+  make_pseudo_id(vec_match(as.character(x), as.character(ux)), ux)
 }
 
 #' @export
@@ -71,7 +71,7 @@ make_pseudo_id <- function(x, u) {
 na_last <- function(x) {
   if (anyNA(x)) {
     nas <- is.na(x)
-    c(x[!nas], x[nas])
+    vec_c(x[!nas], x[nas])
   } else {
     x
   }

@@ -57,18 +57,10 @@ fact.character <- function(x) {
 #' @rdname fact
 #' @export
 fact.numeric <- function(x) {
-  u <- sort.int(unique(x), method = "radix", na.last = TRUE)
-
   # Don't bother NaN
-  nas <- is.na(u)
-  u[nas] <- NA
-
-  if (sum(nas) > 1) {
-    u <- u[-length(u)]
-  }
-
   x[is.nan(x)] <- NA
-  new_fact(match(x, u), u)
+  u <- vec_sort(vec_unique(x))
+  new_fact(vec_match(x, u), u)
 }
 
 #' @rdname fact
@@ -107,23 +99,23 @@ fact.factor <- function(x) {
   # new_levels <- type_convert2(old_levels)
 
   if (is.logical(new_levels)) {
-    m <- match(new_levels[x], c(TRUE, FALSE, NA))
+    m <- vec_match(new_levels[x], c(TRUE, FALSE, NA))
     res <- new_fact(m, c(TRUE, FALSE, if (anyNA(new_levels[x])) NA))
     return(res)
   }
 
   if (is.numeric(new_levels) | inherits(x, c("Date", "POSIXt"))) {
-    ord_levels <- sort(new_levels, na.last = TRUE)
-    o <- match(old_levels, as.character(ord_levels))
+    ord_levels <- vec_sort(new_levels)
+    o <- vec_match(old_levels, as.character(ord_levels))
 
-    levels <- c(ord_levels, if (anyNA(x) && !anyNA(ord_levels)) NA)
+    levels <- vec_c(ord_levels, if (anyNA(x) && !anyNA(ord_levels)) NA)
 
     if (identical(o, seq_along(o))) {
       res <- new_fact(x, levels, is.ordered(x))
       return(res)
     }
 
-    m <- match(order(old_levels), o)[x]
+    m <- vec_match(vec_order(old_levels), o)[x]
     res <- new_fact(m, levels, is.ordered(x))
     return(res)
   }
@@ -137,7 +129,7 @@ fact.factor <- function(x) {
       }
   }
 
-  m <- match(old_levels, as.character(new_levels))[x]
+  m <- vec_match(old_levels, as.character(new_levels))[x]
   new_fact(m, new_levels, is.ordered(x))
 }
 
@@ -154,9 +146,9 @@ fact.pseudo_id <- function(x) {
 
   # check if numeric and already ordered
   if (is.numeric(u)) {
-    o <- order(u)
+    o <- vec_order(u)
     if (!identical(o, u)) {
-      x <- match(u[o], u)[x]
+      x <- vec_match(u[o], u)[x]
       u <- u[o]
     }
   }
@@ -173,8 +165,8 @@ fact.haven_labelled <- function(x) {
   if (length(lvls)) {
     ux <- unclass(x)
     uniques <- sort.int(unique(c(ux, lvls)))
-    m <- match(ux, uniques)
-    ml <- match(lvls, uniques)
+    m <- vec_match(ux, uniques)
+    ml <- vec_match(lvls, uniques)
     uniques[ml] <- names(lvls)
     res <- new_fact(m, uniques)
   } else {
@@ -331,8 +323,8 @@ drop_levels.factor <- function(x, ...) {
   chr <- as.character(x)
   lvl <- levels(x) %wi% chr
   mark::struct(
-    match(chr, lvl),
-    class = c(if (is.fact(x)) "fact", if (is.ordered(x)) "ordered", "factor"),
+    vec_match(chr, lvl),
+    class = vec_c(if (is.fact(x)) "fact", if (is.ordered(x)) "ordered", "factor"),
     levels = lvl
   )
 }
@@ -477,7 +469,7 @@ try_numeric <- function(x) {
     return(x)
   }
 
-  out <- rep.int(NA_real_, length(x))
+  out <- rep(NA_real_, length(x))
   out[!nas] <- nums
   out
 }
@@ -507,7 +499,6 @@ fact_coerce_levels <- function(x) {
       tz         = tz,
       optional   = TRUE
     )
-
   })
 
   n <- length(x)
@@ -535,8 +526,8 @@ fact_coerce_levels <- function(x) {
 `fact_levels<-` <- function(x, value) {
   x <- fact(x)
   levels <- levels(x)
-  value <- c(value, if (!anyNA(value) & (anyNA(x) | anyNA(levels))) NA)
-  new_fact(match(levels, value)[x], value, is.ordered(x))
+  value <- vec_c(value, if (!anyNA(value) & (anyNA(x) | anyNA(levels))) NA)
+  new_fact(vec_match(levels, as.character(value))[x], value, is.ordered(x))
 }
 
 is.fact <- function(x) {
