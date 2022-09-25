@@ -73,14 +73,25 @@ fact.numeric <- function(x, ...) {
 #'   be present.
 #' @export
 fact.integer <- function(x, range = NULL, ...) {
-  u <- if (is.null(range)) vec_sort(vec_unique(x)) else range_safe(range)
+  u <- if (is.null(range)) vec_sort(vec_unique(x)) else range_safe(range, x)
   new_fact(vec_match(x, u), u)
 }
 
-range_safe <- function(x) {
-  if (!is.numeric(x)) {
-    stop("range must be a numeric vector", call. = FALSE)
+range_safe <- function(x, y) {
+  if (is.numeric(y)) {
+    date <- FALSE
+    if (!is.numeric(x)) {
+      stop("range must be a numeric vector", call. = FALSE)
+    }
+  } else if (inherits(y, "Date")) {
+    date <- TRUE
+    if (!inherits(x, "Date")) {
+      stop("range must be a Date vector", call. = FALSE)
+    }
+  } else {
+    stop("Incompatible types for x and range", call. = FALSE)
   }
+
 
   x <- as.integer(x)
   x <- x[!is.na(x)]
@@ -93,12 +104,18 @@ range_safe <- function(x) {
     stop("Not enough finite values in range", call. = FALSE)
   }
 
-  seq.int(min(x), max(x))
+  res <- seq.int(min(x), max(x))
+
+  if (date) {
+    res <- as.Date(res, origin = "1950-01-01")
+  }
+
+  res
 }
 
 #' @rdname fact
 #' @export
-fact.Date <- fact.numeric
+fact.Date <- fact.integer
 
 #' @rdname fact
 #' @export
