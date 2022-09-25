@@ -138,41 +138,51 @@ fact.logical <- function(x, ...) {
 }
 
 #' @rdname fact
+#' @param convert When `TRUE` tries to convert levels to a more suitable value.
+#'   When passed a `function`, will attempt to use that as the conversion
+#'   method.  Otherwise, `levels` remain as `character`.
 #' @export
-fact.factor <- function(x, ...) {
+fact.factor <- function(x, convert = NULL, ...) {
   old_levels <- levels(x)
-  new_levels <- fact_coerce_levels(old_levels)
-  # new_levels <- type_convert2(old_levels)
 
-  if (is.logical(new_levels)) {
-    m <- vec_match(new_levels[x], c(TRUE, FALSE, NA))
-    res <- new_fact(m, c(TRUE, FALSE, if (anyNA(new_levels[x])) NA))
-    return(res)
-  }
+  if (isTRUE(convert)) {
+    new_levels <- fact_coerce_levels(old_levels)
+    # new_levels <- type_convert2(old_levels)
 
-  if (is.numeric(new_levels) | inherits(x, c("Date", "POSIXt"))) {
-    ord_levels <- vec_sort(new_levels)
-    o <- vec_match(old_levels, as.character(ord_levels))
-
-    levels <- vec_c(ord_levels, if (anyNA(x) && !anyNA(ord_levels)) NA)
-
-    if (identical(o, seq_along(o))) {
-      res <- new_fact(x, levels, is.ordered(x))
+    if (is.logical(new_levels)) {
+      m <- vec_match(new_levels[x], c(TRUE, FALSE, NA))
+      res <- new_fact(m, c(TRUE, FALSE, if (anyNA(new_levels[x])) NA))
       return(res)
     }
 
-    m <- vec_match(vec_order(old_levels), o)[x]
-    res <- new_fact(m, levels, is.ordered(x))
-    return(res)
-  }
+    if (is.numeric(new_levels) | inherits(x, c("Date", "POSIXt"))) {
+      ord_levels <- vec_sort(new_levels)
+      o <- vec_match(old_levels, as.character(ord_levels))
 
-  if (anyNA(x) || anyNA(old_levels)) {
-    new_levels <-
-      if (!anyNA(new_levels)) {
-        c(new_levels, NA)
-      } else {
-        na_last(new_levels)
+      levels <- vec_c(ord_levels, if (anyNA(x) && !anyNA(ord_levels)) NA)
+
+      if (identical(o, seq_along(o))) {
+        res <- new_fact(x, levels, is.ordered(x))
+        return(res)
       }
+
+      m <- vec_match(vec_order(old_levels), o)[x]
+      res <- new_fact(m, levels, is.ordered(x))
+      return(res)
+    }
+
+    if (anyNA(x) || anyNA(old_levels)) {
+      new_levels <-
+        if (!anyNA(new_levels)) {
+          c(new_levels, NA)
+        } else {
+          na_last(new_levels)
+        }
+    }
+  } else if (is.function(convert)) {
+    new_levels <- convert(old_levels)
+  } else {
+    new_levels <- old_levels
   }
 
   m <- vec_match(old_levels, as.character(new_levels))[x]
