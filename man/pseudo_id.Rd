@@ -24,7 +24,7 @@ pseudo_id(x, ...)
 }
 \value{
 A `pseudo_id` object where the `integer` value of the vector
-correspond to the position of the unique values in the attribute `"uniques"`.
+correspond to the position of the unique values in the attribute `"values"`.
 }
 \description{
 Transforms a vector into an integer of IDs.
@@ -33,6 +33,6 @@ Transforms a vector into an integer of IDs.
 set.seed(42)
 (x <- sample(letters, 10, TRUE))
 (pid <- pseudo_id(x))
-attr(pid, "uniques")[pid]
+attr(pid, "values")[pid]
 
 }

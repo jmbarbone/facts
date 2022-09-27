@@ -10,7 +10,7 @@ fact_na(x, remove = FALSE)
 \item{x}{A `fact` or object cohered to `fact`}
 
 \item{remove}{If `TRUE` removes `NA` value from the `fact` `levels` and
-`uniques` attributes}
+`values` attributes}
 }
 \value{
 A `fact` vector

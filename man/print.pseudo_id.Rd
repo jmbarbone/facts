@@ -11,8 +11,8 @@
 
 \item{...}{Not implemented}
 
-\item{all}{if `TRUE` will print all uniques.  This is not recommend for many
-uniques as it will crowd the console output}
+\item{all}{if `TRUE` will print all values  This is not recommend for many
+values as it will crowd the console output}
 }
 \value{
 `x`, invisibly.  Called for its side effects.
