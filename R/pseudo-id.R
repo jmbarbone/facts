@@ -6,13 +6,13 @@
 #' @param ... Additional arguments passed to methods
 #'
 #' @returns A `pseudo_id` object where the `integer` value of the vector
-#' correspond to the position of the unique values in the attribute `"uniques"`.
+#' correspond to the position of the unique values in the attribute `"values"`.
 #'
 #' @examples
 #' set.seed(42)
 #' (x <- sample(letters, 10, TRUE))
 #' (pid <- pseudo_id(x))
-#' attr(pid, "uniques")[pid]
+#' attr(pid, "values")[pid]
 #'
 #' @export
 pseudo_id <- function(x, ...) {
@@ -44,13 +44,13 @@ pseudo_id.factor <- function(x, ...) {
 #' @export
 #' @param x An object of class [pseudo_id]
 #' @param ... Not implemented
-#' @param all if `TRUE` will print all uniques.  This is not recommend for many
-#'   uniques as it will crowd the console output
+#' @param all if `TRUE` will print all values  This is not recommend for many
+#'   values as it will crowd the console output
 #' @returns `x`, invisibly.  Called for its side effects.
 #' @seealso [pseudo_id()]
 print.pseudo_id <- function(x, ..., all = FALSE) {
   print(as.integer(x))
-  out <- mark::collapse0("Uniques: ", paste0(attr(x, "uniques"), sep = " "), sep = "")
+  out <- mark::collapse0("values: ", paste0(values(x), sep = " "), sep = "")
   if (!all) {
     width <- getOption("width", 180)
     if (nchar(out) > width) {
@@ -65,7 +65,7 @@ print.pseudo_id <- function(x, ..., all = FALSE) {
 # helpers -----------------------------------------------------------------
 
 make_pseudo_id <- function(x, u) {
-  mark::struct(x, class = c("pseudo_id", "integer"), uniques = u)
+  mark::struct(x, class = c("pseudo_id", "integer"), values = u)
 }
 
 na_last <- function(x) {
@@ -76,8 +76,3 @@ na_last <- function(x) {
     x
   }
 }
-
-.uniques <- function(x) {
-  attr(x, "uniques")
-}
-

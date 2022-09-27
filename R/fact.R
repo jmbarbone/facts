@@ -53,12 +53,22 @@ fact.default <- function(x, ...) {
 #' @export
 fact.character <- function(x, levels = NULL, ...) {
   out <- pseudo_id(x)
-  new_fact(out, if (is.null(levels)) .uniques(out) else vec_unique(as.character(levels)))
+  new_fact(
+    out,
+    values = values(out),
+    levels = if (!is.null(levels)) vec_unique(levels)
+  )
 }
 
 #' @rdname fact
 #' @export
 fact.numeric <- function(x, ...) {
+  if (isTRUE(getOption("fact.guess.integer", FALSE))) {
+    if (is_integerish(x)) {
+      return(fact(as.integer(x), ...))
+    }
+  }
+
   # Don't bother NaN
   x[is.nan(x)] <- NA
   u <- vec_sort(vec_unique(x))
@@ -73,8 +83,12 @@ fact.numeric <- function(x, ...) {
 #'   be present.
 #' @export
 fact.integer <- function(x, range = NULL, ...) {
-  u <- if (is.null(range)) vec_sort(vec_unique(x)) else range_safe(range, x)
-  new_fact(vec_match(x, u), u)
+  u <- vec_sort(vec_unique(x))
+  new_fact(
+    vec_match(x, u),
+    values = u,
+    levels = if (!is.null(range)) range_safe(range, x)
+  )
 }
 
 range_safe <- function(x, y) {
@@ -132,7 +146,7 @@ fact.logical <- function(x, ...) {
 
   new_fact(
     out,
-    levels = c(TRUE, FALSE, if (any(nas)) NA),
+    values = c(TRUE, FALSE, if (any(nas)) NA),
     na = if (any(nas)) 3L else 0L
   )
 }
@@ -186,7 +200,7 @@ fact.factor <- function(x, convert = NULL, ...) {
   }
 
   m <- vec_match(old_levels, as.character(new_levels))[x]
-  new_fact(m, new_levels, is.ordered(x))
+  new_fact(m, new_levels, ordered = is.ordered(x))
 }
 
 #' @rdname fact
@@ -198,7 +212,7 @@ fact.fact <- function(x, ...) {
 #' @rdname fact
 #' @export
 fact.pseudo_id <- function(x, ...) {
-  u <- .uniques(x)
+  u <- values(x)
 
   # check if numeric and already ordered
   if (is.numeric(u)) {
@@ -209,7 +223,7 @@ fact.pseudo_id <- function(x, ...) {
     }
   }
 
-  new_fact(x, levels = u)
+  new_fact(x, u)
 }
 
 #' @rdname fact
@@ -220,11 +234,11 @@ fact.haven_labelled <- function(x, ...) {
 
   if (length(lvls)) {
     ux <- unclass(x)
-    uniques <- sort.int(unique(c(ux, lvls)))
-    m <- vec_match(ux, uniques)
-    ml <- vec_match(lvls, uniques)
-    uniques[ml] <- names(lvls)
-    res <- new_fact(m, uniques)
+    vals <- sort.int(values(c(ux, lvls)))
+    m <- vec_match(ux, vals)
+    ml <- vec_match(lvls, vals)
+    vals[ml] <- names(lvls)
+    res <- new_fact(m, vals)
   } else {
     res <- fact(unclass(x))
   }
@@ -235,12 +249,13 @@ fact.haven_labelled <- function(x, ...) {
 
 #' @export
 print.fact <- function(
-  x,
-  max_levels = getOption("mark.fact.max_levels", TRUE),
-  width = getOption("width"),
-  ...
+    x,
+    max_levels = getOption("mark.fact.max_levels", TRUE),
+    width = getOption("width"),
+    ...
 ) {
   # mostly a reformatted base::print.factor()
+  # TODO check for `range` attribute and print something a bit nicer
   ord <- is.ordered(x)
   if (length(x) == 0L) {
     cat(if (ord) "ordered" else "factor", "(0)\n", sep = "")
@@ -252,39 +267,49 @@ print.fact <- function(
     lev <- encodeString(levels(x), quote = "")
     n <- length(lev)
     colsep <- if (ord) " < " else " "
-    T0 <- "Levels: "
-    if (is.logical(max_levels)) {
-      max_levels <- {
-        width <- width - (nchar(T0, "w") + 3L +  1L + 3L)
-        lenl <- cumsum(nchar(lev, "w") + nchar(colsep, "w"))
 
-        if (n <= 1L || lenl[n] <= width) {
-          n
-        } else {
-          max(1L, which.max(lenl > width) - 1L)
+    if (length(range <- exattr(x, "range")) == 2L) {
+      lab <- cat(
+        "range: ", range[1L], " to ", range[2L],
+        if (na <- exattr(x, "na")) c(", ", levels(x)[na]),
+        "\n",
+        sep = ""
+      )
+    } else {
+      T0 <- "levels: "
+      if (is.logical(max_levels)) {
+        max_levels <- {
+          width <- width - (nchar(T0, "w") + 3L +  1L + 3L)
+          lenl <- cumsum(nchar(lev, "w") + nchar(colsep, "w"))
+
+          if (n <= 1L || lenl[n] <= width) {
+            n
+          } else {
+            max(1L, which.max(lenl > width) - 1L)
+          }
         }
       }
+      drop <- n > max_levels
+      cat(
+        if (drop) paste(format(n), ""),
+        T0,
+        paste(
+          if (drop) {
+            c(lev[1L:max(1, max_levels - 1)], "...", if (max_levels >  1) lev[n])
+          } else {
+            lev
+          },
+          collapse = colsep
+        ),
+        "\n",
+        sep = ""
+      )
     }
-    drop <- n > max_levels
-    cat(
-      if (drop) paste(format(n), ""),
-      T0,
-      paste(
-        if (drop) {
-          c(lev[1L:max(1, max_levels - 1)], "...", if (max_levels >  1) lev[n])
-        } else {
-          lev
-        },
-        collapse = colsep
-      ),
-      "\n",
-      sep = ""
-    )
 
     # Be nice to haven_labelled
     lab <- exattr(x, "label")
     if (!is.null(lab)) {
-      cat("Label: ", paste(format(lab), ""), "\n", sep = "")
+      cat("label: ", paste(format(lab), ""), "\n", sep = "")
     }
   }
 

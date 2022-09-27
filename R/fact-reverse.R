@@ -5,7 +5,7 @@
 #' @param x A `fact` object (or passed to [fact()])
 fact_reverse  <- function(x) {
   x <- fact(x)
-  lvls <- mark::flip(attr(x, "uniques"))
+  lvls <- mark::flip(values(x))
   seq <- mark::flip(seq_along(lvls))
   na <- attr(x, "na")
 
@@ -16,4 +16,3 @@ fact_reverse  <- function(x) {
 
   new_fact(seq[x], levels = lvls, ordered = is.ordered(x), na = na)
 }
-

@@ -8,7 +8,7 @@
 #'
 #' @param x A `fact` or object cohered to `fact`
 #' @param remove If `TRUE` removes `NA` value from the `fact` `levels` and
-#'   `uniques` attributes
+#'   `values` attributes
 #' @returns A `fact` vector
 #' @family factors
 #' @export
@@ -21,8 +21,8 @@ fact_na <- function(x, remove = FALSE) {
   }
 
   if (remove) {
-    attr(x, "levels")  <- attr(x, "levels")[-na]
-    attr(x, "uniques") <- attr(x, "uniques")[-na]
+    attr(x, "levels")  <- exattr(x, "levels")[-na]
+    attr(x, "values") <- exattr(x, "values")[-na]
   }
 
   a <- attributes(x)

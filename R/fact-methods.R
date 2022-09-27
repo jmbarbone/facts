@@ -16,7 +16,7 @@ as.double.fact <- function(x, ...) {
 
 #' @export
 as.character.fact <- function(x, ...) {
-  as.character(attr(x, "uniques")[x])
+  as.character(as_values(x))
 }
 
 # because unique.factor() remakes factor
@@ -28,14 +28,14 @@ unique.fact <- function(x, incomparables = FALSE, ...) {
     unique(unclass(x)),
     class = att$class,
     levels = att$levels,
-    uniques = att$uniques,
+    values = att$values,
     na = att$na
   )
 }
 
 #' @export
 as.Date.fact <- function(x, ...) {
-  as.Date(attr(x, "uniques"), ...)[x]
+  as.Date(as_values(x), ...)[x]
 }
 
 #' @export

@@ -1,20 +1,23 @@
 new_fact <- function(
     x,
-    levels,
+    values,
+    levels = to_levels(values),
     ordered = FALSE,
-    na = if (anyNA(levels)) length(levels) else 0L
+    range = NULL,
+    na = if (anyNA(values)) length(values) else 0L
 ) {
   mark::struct(
     as.integer(x),
     class = c("fact", if (ordered) "ordered", "factor"),
-    levels = as.character(levels),
-    uniques = levels,
+    levels = if (is.null(levels)) to_levels(values) else to_levels(levels),
+    values = values,
+    range = range,
     na = na
   )
 }
 
 try_numeric <- function(x) {
-  if (is.numeric(x)) {
+  if (is.numeric(x))
     return(x)
   }
 
@@ -35,12 +38,25 @@ try_numeric <- function(x) {
   out
 }
 
+# Safely transform values into labels and use a replacement for NA values
+to_levels <- function(x, na = getOption("fact.na.label", "(na)")) {
+  if (length(na) != 1L & is.character(na)) {
+    stop("na label must be a character vector of length 1", call. = FALSE)
+  }
+
+  nas <- is.na(x)
+  x <- as.character(x)
+  x[nas] <- na
+  x
+}
+
 fact_values <- function(x) {
   if (!is.fact(x)) {
     stop("x must be a fact object", call. = FALSE)
   }
 
-  attr(x, "uniques")[as.integer(x)]
+  .Deprecated("as_values")
+  as_values(x)
 }
 
 fact_coerce_levels <- function(x) {
@@ -82,6 +98,10 @@ fact_coerce_levels <- function(x) {
   }
 
   x
+}
+
+fact_set_levels <- function(x, levels = NULL, range = NULL) {
+
 }
 
 `fact_levels<-` <- function(x, value) {
