@@ -11,20 +11,6 @@ modified, and coerced. `[base::factor()]` contains added sugar for
 recoding values and managing multiple constraints. `facts()` takes a
 simplified approach and moves these nice-to-haves to separate functions.
 
-## Todos
-
--   [ ] Use default `NA` label (`"(null)"`) or something
--   [ ] Be consistent about `values()`
--   [ ] Bench mark a bit more
--   [ ] Determine best way to adjust `values` (and `labels`) (e.g.,
-    `values<-()`) and special cases of `range`
-    -   `values(f, "levels") <- new_levels` for `character`
-    -   `values(f, "range") <- values_range` for `integer` and `Date`
-    -   `values(f, "levels", "remove") <- bad_values` for `character`
-    -   `drop_levels(f)` for undoing these things
-    -   `range_levels(f)` should add add a range for `integer` and
-        `Date`
-
 ## Installation
 
 You can install the development version of facts like so:
@@ -120,8 +106,8 @@ x <- c("blue", "green", "red", "purple", "black", "white")
 x <- sample(x, 100, TRUE)
 id <- pseudo_id(x)
 id
-#>   [1] 1 2 1 2 1 3 1 2 1 3 4 4 2 3 3 3 4 3 4 1 1 5 2 3 1 3 6 2 2 1 3 2 6 1 3 1 2
-#>  [38] 2 6 6 3 3 6 2 2 2 2 2 2 1 1 2 6 2 1 4 3 6 4 3 4 3 6 1 6 4 2 4 5 5 1 5 3 3
-#>  [75] 6 2 4 3 4 2 5 4 1 3 4 1 6 4 3 2 6 6 2 2 5 3 4 4 3 5
+#>   [1] 1 2 3 3 4 5 1 3 2 3 2 2 4 1 1 3 2 4 6 5 1 3 5 5 5 6 4 2 6 2 5 5 5 2 1 2 6
+#>  [38] 3 6 4 1 2 3 2 6 1 6 2 3 3 3 3 3 4 2 4 4 4 2 2 5 2 3 2 2 6 1 1 1 1 4 6 6 2
+#>  [75] 2 3 4 1 6 5 5 6 1 2 6 4 4 1 1 5 4 3 1 4 4 5 3 4 2 6
 #> Uniques:
 ```

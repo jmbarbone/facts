@@ -22,18 +22,6 @@ The goal of facts is to simplify how the `factor` class is created, modified, an
 `[base::factor()]` contains added sugar for recoding values and managing multiple constraints.
 `facts()` takes a simplified approach and moves these nice-to-haves to separate functions.
 
-## Todos
-
-- [ ] Use default `NA` label (`"(null)"`) or something
-- [ ] Be consistent about `values()`
-- [ ] Bench mark a bit more
-- [ ] Determine best way to adjust `values` (and `labels`) (e.g., `values<-()`) and special cases of `range`
-    - `values(f, "levels") <- new_levels` for `character`
-    - `values(f, "range") <- values_range` for `integer` and `Date`
-    - `values(f, "levels", "remove") <- bad_values` for `character`
-    - `drop_levels(f)` for undoing these things
-    - `range_levels(f)` should add add a range for `integer` and `Date`
-
 ## Installation
 
 You can install the development version of facts like so:
