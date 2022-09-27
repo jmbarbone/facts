@@ -17,7 +17,7 @@ new_fact <- function(
 }
 
 try_numeric <- function(x) {
-  if (is.numeric(x))
+  if (is.numeric(x)) {
     return(x)
   }
 
