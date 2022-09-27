@@ -7,8 +7,8 @@
 fact_reverse(x)
 }
 \arguments{
-\item{x}{A `fact` object (or passed to [fact()])}
+\item{x}{A `fact` vector (or passed to [fact()])}
 }
 \description{
-Reverse the levels of a `fact`
+Reverse the levels of a `fact` vector
 }

@@ -1,19 +1,19 @@
-#' `facts` with `NA`
+#' `fact`s with `NA`
 #'
-#' Included `NA` values into `facts()`
+#' Included `NA` values into `fact()`
 #'
 #' @details
 #' This re-formats the `x` value so that `NA`s are found immediately within the
 #' object rather than accessed through its attributes.
 #'
-#' @param x A `facts` or object cohered to `facts`
-#' @param remove If `TRUE` removes `NA` value from the `facts` `levels` and
+#' @param x A `fact` or object cohered to `fact`
+#' @param remove If `TRUE` removes `NA` value from the `fact` `levels` and
 #'   `values` attributes
-#' @returns A `facts` vector
+#' @returns A `fact` vector
 #' @family factors
 #' @export
 fact_na <- function(x, remove = FALSE) {
-  x <- facts(x)
+  x <- fact(x)
   na <- attr(x, "na")
 
   if (na == 0L) {

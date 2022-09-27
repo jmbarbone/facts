@@ -2,7 +2,7 @@
 % Please edit documentation in R/fact-na.R
 \name{fact_na}
 \alias{fact_na}
-\title{`fact` with `NA`}
+\title{`fact`s with `NA`}
 \usage{
 fact_na(x, remove = FALSE)
 }

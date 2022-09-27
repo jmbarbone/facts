@@ -1,6 +1,6 @@
 
 #' @export
-as.integer.facts <- function(x, ...) {
+as.integer.fact <- function(x, ...) {
   x <- fact_na(x)
   nas <- is.na(x)
   attributes(x) <- NULL
@@ -10,19 +10,19 @@ as.integer.facts <- function(x, ...) {
 }
 
 #' @export
-as.double.facts <- function(x, ...) {
+as.double.fact <- function(x, ...) {
   as.double(as.integer(x))
 }
 
 #' @export
-as.character.facts <- function(x, ...) {
+as.character.fact <- function(x, ...) {
   as.character(as_values(x))
 }
 
 # because unique.factor() remakes factor
 # this won't drop levels
 #' @export
-unique.facts <- function(x, incomparables = FALSE, ...) {
+unique.fact <- function(x, incomparables = FALSE, ...) {
   att <- attributes(x)
   mark::struct(
     unique(unclass(x)),
@@ -34,12 +34,12 @@ unique.facts <- function(x, incomparables = FALSE, ...) {
 }
 
 #' @export
-as.Date.facts <- function(x, ...) {
+as.Date.fact <- function(x, ...) {
   as.Date(as_values(x), ...)[x]
 }
 
 #' @export
-`[.facts` <- function(x, ...)  {
+`[.fact` <- function(x, ...)  {
   y <- NextMethod("[")
   attributes(y) <- attributes(x)
   y

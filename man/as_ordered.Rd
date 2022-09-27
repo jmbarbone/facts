@@ -21,7 +21,7 @@ As ordered
 \details{
 Simple implementation of `ordered`.  If `x` is `ordered` it is
 simply returned.  If `x` is a `factor` the `ordered` class is added.
-Otherwise, `x` is made into a `factor` with [mark::fact()] and then the
+Otherwise, `x` is made into a `factor` with [fact::fact()] and then the
 `ordered` class is added. Unlike just `fact`, `ordered` will replace the `NA`
 levels with `NA_integer_` to work appropriately with other functions.
 }

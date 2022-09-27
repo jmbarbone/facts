@@ -26,7 +26,7 @@ as_values.psuedo_id <- function(x, ...) {
 
 #' @export
 #' @rdname as_values
-as_values.facts <- function(x, ...) {
+as_values.fact <- function(x, ...) {
   values(x)[x]
 }
 

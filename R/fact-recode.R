@@ -9,7 +9,7 @@ fact_recode <- function(x, ..., old = NULL, new = NULL) {
     stop("no!")
   }
 
-  # x <- facts(sample(1:10, 100, TRUE))
+  # x <- fact(sample(1:10, 100, TRUE))
   # old <- c(2, 4)
   # new <- c(1, 3)
   new_vals <- old_vals <- values(x)
@@ -23,8 +23,8 @@ fact_recode <- function(x, ..., old = NULL, new = NULL) {
     new_vals[old_vals == old[i]] <- new[i]
   }
 
-  facts(new_vals[x])
+  fact(new_vals[x])
 }
 
-# x <- facts(sample(1:10, 100, TRUE))
+# x <- fact(sample(1:10, 100, TRUE))
 # fact_recode(x, "2" = list(1:3), "0" = list(9:10))
