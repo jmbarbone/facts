@@ -1,0 +1,101 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# fact
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of fact is to simplify how the `factor` class is created, modified, and coerced.
+`[base::factor()]` contains added sugar for recoding values and managing multiple constraints.
+`fact()` takes a simplified approach and moves these nice-to-haves to separate functions.
+
+## Todos
+
+- [ ] Use default `NA` label (`"(null)"`) or something
+- [ ] Be consistent about `values()`
+- [ ] Bench mark a bit more
+- [ ] Determine best way to adjust `values` (and `labels`) (e.g., `values<-()`) and special cases of `range`
+    - `values(f, "levels") <- new_levels` for `character`
+    - `values(f, "range") <- values_range` for `integer` and `Date`
+    - `values(f, "levels", "remove") <- bad_values` for `character`
+    - `drop_levels(f)` for undoing these things
+    - `range_levels(f)` should add add a range for `integer` and `Date`
+
+## Installation
+
+You can install the development version of fact like so:
+
+``` r
+remotes::install_github("jmbarbone/fact")
+```
+
+## Creating facts
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(fact)
+```
+
+A `fact` object looks very much like a `factor` object, with a few differences.
+
+```{r}
+f1 <- factor(c(1, NA))
+f2 <- fact(c(1, NA))
+
+f1
+f2
+
+str(f1)
+str(f2)
+
+f2
+levels(f2) <- c(1, "(null)")
+f2
+```
+
+
+In general, `factor()` will always sort `x` and by default doesn't add `NA` values to levels.
+`fact()`, however, will not sort character vectors, will use a reverse sort of logical, sorts numeric accordingly, and always includes `NA` labels when present in `x`.
+
+```{r}
+x <- c("a", "c", NA, "a", "b", NA, "a", "c")
+factor(x) # sorted, NA removed by default
+fact(x)   # unsorted, NA retained by default
+
+x <- c(-1, 5, 2, NA, 3)
+factor(x) # sorted
+fact(x)   # sorted, but NA retained by default
+
+x <- c(NA, FALSE, TRUE, FALSE, TRUE, NA)
+factor(x)
+fact(x)   # Sorted TRUE, FALSE, NA
+```
+
+## Modifying facts
+
+One benefit of `factor()` is that you an recode on the fly.
+This adds additional overhead to the function because there is a necessity in checking the `levels` and `labels` and matching up appropriate values.
+The philosophy taken in `{fact}` is that the additional work of modifying the object should take place prior to `fact()`.
+However, some cases, these sort of manipulations can benefit from reducing the number of unique values.
+
+```{r}
+x <- c("blue", "green", "red", "purple", "black", "white")
+x <- sample(x, 100, TRUE)
+id <- pseudo_id(x)
+id
+```
+
