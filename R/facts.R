@@ -3,14 +3,14 @@
 #'
 #' Quickly create a factor
 #'
-#' @details `fact()` can be about 5 times quicker than `factor()` or
+#' @details `facts()` can be about 5 times quicker than `factor()` or
 #'   `as.factor()` as it doesn't bother sorting the levels for non-numeric data
 #'   or have other checks or features.  It simply converts a vector to a factor
 #'   with all unique values as levels with `NA`s included.
 #'
-#'   `fact.factor()` will perform several checks on a factor to include `NA`
+#'   `facts.factor()` will perform several checks on a factor to include `NA`
 #'   levels and to check if the levels should be reordered to conform with the
-#'   other methods.  The `fact.fact()` method simple returns `x`.
+#'   other methods.  The `facts.facts()` method simple returns `x`.
 #'
 #' @section level orders:
 #'
@@ -26,32 +26,32 @@
 #'
 #' @param x A vector of values
 #' @param ... Additional arguments passed to methods
-#' @return A vector of equal length of `x` with class `fact` and `factor`.  If
+#' @return A vector of equal length of `x` with class `facts` and `factor`.  If
 #'   `x` was `ordered`, that class is added in between.
 #'
 #' @seealso [as_ordered()]
 #' @family factors
 #' @export
-fact <- function(x, ...) {
-  UseMethod("fact", x)
+facts <- function(x, ...) {
+  UseMethod("facts", x)
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.default <- function(x, ...) {
+facts.default <- function(x, ...) {
   stop(
-    "No fact method for class(es) ",
+    "No facts method for class(es) ",
     mark::collapse0(class(x), sep = ", "),
     call. = FALSE
   )
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @param levels Optional specification of levels for `x`.  When `NULL`, will
 #'   default to all the unique values of `x` in the order they appear.
 #'   Duplicated values are silently dropped.
 #' @export
-fact.character <- function(x, levels = NULL, ...) {
+facts.character <- function(x, levels = NULL, ...) {
   out <- pseudo_id(x)
   new_fact(
     out,
@@ -60,12 +60,12 @@ fact.character <- function(x, levels = NULL, ...) {
   )
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.numeric <- function(x, ...) {
-  if (isTRUE(getOption("fact.guess.integer", FALSE))) {
+facts.numeric <- function(x, ...) {
+  if (isTRUE(getOption("facts.guess.integer", FALSE))) {
     if (is_integerish(x)) {
-      return(fact(as.integer(x), ...))
+      return(facts(as.integer(x), ...))
     }
   }
 
@@ -75,14 +75,14 @@ fact.numeric <- function(x, ...) {
   new_fact(vec_match(x, u), u)
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @param range Controls setting of additional labels.  Accepts a numeric vector
 #'   that can be safely coerced to an `integer`.  A sequence of `integers` is
-#'   reconstructed from `range` and used as all the `fact` levels.  All `NA` and
+#'   reconstructed from `range` and used as all the `facts` levels.  All `NA` and
 #'   `Inf` values are dropped.  At least one non-missing and finite value must
 #'   be present.
 #' @export
-fact.integer <- function(x, range = NULL, ...) {
+facts.integer <- function(x, range = NULL, ...) {
   u <- vec_sort(vec_unique(x))
   new_fact(
     vec_match(x, u),
@@ -127,17 +127,17 @@ range_safe <- function(x, y) {
   res
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.Date <- fact.integer
+facts.Date <- facts.integer
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.POSIXt <- fact.numeric
+facts.POSIXt <- facts.numeric
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.logical <- function(x, ...) {
+facts.logical <- function(x, ...) {
   out <- as.integer(x)
   w <- which(!x)
   out[w] <- out[w] + 2L
@@ -151,12 +151,12 @@ fact.logical <- function(x, ...) {
   )
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @param convert When `TRUE` tries to convert levels to a more suitable value.
 #'   When passed a `function`, will attempt to use that as the conversion
 #'   method.  Otherwise, `levels` remain as `character`.
 #' @export
-fact.factor <- function(x, convert = NULL, ...) {
+facts.factor <- function(x, convert = NULL, ...) {
   old_levels <- levels(x)
 
   if (isTRUE(convert)) {
@@ -203,15 +203,15 @@ fact.factor <- function(x, convert = NULL, ...) {
   new_fact(m, new_levels, ordered = is.ordered(x))
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.fact <- function(x, ...) {
+facts.facts <- function(x, ...) {
   x
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.pseudo_id <- function(x, ...) {
+facts.pseudo_id <- function(x, ...) {
   u <- values(x)
 
   # check if numeric and already ordered
@@ -226,9 +226,9 @@ fact.pseudo_id <- function(x, ...) {
   new_fact(x, u)
 }
 
-#' @rdname fact
+#' @rdname facts
 #' @export
-fact.haven_labelled <- function(x, ...) {
+facts.haven_labelled <- function(x, ...) {
   require_namespace("haven")
   lvls <- attr(x, "labels")
 
@@ -240,7 +240,7 @@ fact.haven_labelled <- function(x, ...) {
     vals[ml] <- names(lvls)
     res <- new_fact(m, vals)
   } else {
-    res <- fact(unclass(x))
+    res <- facts(unclass(x))
   }
 
   attr(res, "label") <- exattr(x, "label")
@@ -248,9 +248,9 @@ fact.haven_labelled <- function(x, ...) {
 }
 
 #' @export
-print.fact <- function(
+print.facts <- function(
     x,
-    max_levels = getOption("mark.fact.max_levels", TRUE),
+    max_levels = getOption("mark.facts.max_levels", TRUE),
     width = getOption("width"),
     ...
 ) {

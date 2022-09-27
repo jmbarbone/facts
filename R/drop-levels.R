@@ -21,11 +21,11 @@ drop_levels.data.frame <- function(x, ...) {
 
 #' @export
 #' @rdname drop_levels
-drop_levels.fact <- function(x, ...) {
+drop_levels.facts <- function(x, ...) {
   if (is.ordered(x)) {
     as_ordered(fact_values(x))
   } else {
-    fact(fact_values(x))
+    facts(fact_values(x))
   }
 }
 
@@ -36,7 +36,7 @@ drop_levels.factor <- function(x, ...) {
   lvl <- levels(x) %wi% chr
   mark::struct(
     vec_match(chr, lvl),
-    class = vec_c(if (is.fact(x)) "fact", if (is.ordered(x)) "ordered", "factor"),
+    class = vec_c(if (is.facts(x)) "facts", if (is.ordered(x)) "ordered", "factor"),
     levels = lvl
   )
 }

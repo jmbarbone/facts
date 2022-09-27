@@ -8,7 +8,7 @@ new_fact <- function(
 ) {
   mark::struct(
     as.integer(x),
-    class = c("fact", if (ordered) "ordered", "factor"),
+    class = c("facts", if (ordered) "ordered", "factor"),
     levels = if (is.null(levels)) to_levels(values) else to_levels(levels),
     values = values,
     range = range,
@@ -39,7 +39,7 @@ try_numeric <- function(x) {
 }
 
 # Safely transform values into labels and use a replacement for NA values
-to_levels <- function(x, na = getOption("fact.na.label", "(na)")) {
+to_levels <- function(x, na = getOption("facts.na.label", "(na)")) {
   if (length(na) != 1L & is.character(na)) {
     stop("na label must be a character vector of length 1", call. = FALSE)
   }
@@ -51,8 +51,8 @@ to_levels <- function(x, na = getOption("fact.na.label", "(na)")) {
 }
 
 fact_values <- function(x) {
-  if (!is.fact(x)) {
-    stop("x must be a fact object", call. = FALSE)
+  if (!is.facts(x)) {
+    stop("x must be a facts object", call. = FALSE)
   }
 
   .Deprecated("as_values")
@@ -105,12 +105,12 @@ fact_set_levels <- function(x, levels = NULL, range = NULL) {
 }
 
 `fact_levels<-` <- function(x, value) {
-  x <- fact(x)
+  x <- facts(x)
   levels <- levels(x)
   value <- vec_c(value, if (!anyNA(value) & (anyNA(x) | anyNA(levels))) NA)
   new_fact(vec_match(levels, as.character(value))[x], value, is.ordered(x))
 }
 
-is.fact <- function(x) {
-  inherits(x, "fact")
+is.facts <- function(x) {
+  inherits(x, "facts")
 }

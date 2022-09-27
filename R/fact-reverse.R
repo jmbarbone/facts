@@ -1,10 +1,10 @@
 #' Fact reverse levels
 #'
-#' Reverse the levels of a `fact`
+#' Reverse the levels of a `facts`
 #'
-#' @param x A `fact` object (or passed to [fact()])
+#' @param x A `facts` object (or passed to [facts()])
 fact_reverse  <- function(x) {
-  x <- fact(x)
+  x <- facts(x)
   lvls <- mark::flip(values(x))
   seq <- mark::flip(seq_along(lvls))
   na <- attr(x, "na")
