@@ -1,0 +1,73 @@
+---
+output: github_document
+---
+
+<!-- bench/bench.md is generated from bench/bench.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "bench/figures/bench-",
+  out.width = "100%"
+)
+
+requireNamespace("bench")
+requireNamespace("stringi")
+requireNamespace("ggplot2")
+requireNamespace("ggbeeswarm")
+```
+
+```{r}
+library(facts)
+```
+
+## Logical vectors
+
+```{r}
+# Logical is much faster because we only have to check for 3 values
+y <- x <- runif(1e6) > .5
+y[sample(seq_along(y), 1e4)] <- NA
+
+bench::mark(
+  factor(x),
+  fact(x),
+  factor(y),
+  fact(y),
+  check = FALSE
+)[1:9] |> 
+  transform(expression = sapply(expression, deparse)) |> 
+  gt::gt("expression")
+```
+
+## Character
+
+```{r}
+res <- bench::press(
+  n_unique = 10^(1:4),
+  n_values = 10^(2:6),
+  value_type = c("character", "double", "integer", "date"),
+  {
+    x <- switch(
+      value_type,
+      character = stringi::stri_rand_strings(n_unique, 5),
+      double = runif(n_unique),
+      integer = order(runif(n_unique)),
+      date = Sys.Date() + order(runif(n_unique))
+    )
+    x <- sample(x, n_values, TRUE)
+    bench::mark(
+      factor = factor(x),
+      fact = fact(x),
+      check = FALSE
+    )
+  }
+)
+
+res[1:9] |> 
+  transform(expression = sapply(expression, deparse)) |> 
+  gt::gt("expression")
+
+bench:::autoplot.bench_mark(res)
+```
+
