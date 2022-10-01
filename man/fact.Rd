@@ -31,7 +31,7 @@ fact(x, ...)
 
 \method{fact}{logical}(x, ...)
 
-\method{fact}{factor}(x, convert = NULL, ...)
+\method{fact}{factor}(x, convert = getOption("facts.factor.convert"), ...)
 
 \method{fact}{fact}(x, ...)
 

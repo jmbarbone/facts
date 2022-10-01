@@ -1,10 +1,10 @@
 test_that("as_ordered() works", {
   res <- fact(c(1:3, NA_integer_))
-  exp <- struct(
+  exp <- mark::struct(
     c(1:3, NA_integer_),
     c("fact", "ordered", "factor"),
     levels = as.character(1:3),
-    uniques = 1:3,
+    values = 1:3,
     na = 0L
   )
   expect_identical(as_ordered(res), exp)

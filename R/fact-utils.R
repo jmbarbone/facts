@@ -72,7 +72,10 @@ fact_coerce_levels <- function(x) {
     dates <- as.Date(x[!nas], optional = TRUE)
     posix <- as.POSIXct(
       x          = x[!nas],
-      tryFormats = try_formats(),
+      tryFormats = c("%Y-%m-%d %H:%M:%OS", "%Y/%m/%d %H:%M:%OS",
+                     "%Y-%m-%d %H %M %S", "%Y %m %d %H %M %S",
+                     "%Y-%m-%d %H%M%S", "%Y %m %d %H%M%S",
+                     "%Y%m%d %H %M %S", "%Y%m%d %H%M%S"),
       tz         = tz,
       optional   = TRUE
     )
@@ -81,7 +84,7 @@ fact_coerce_levels <- function(x) {
   n <- length(x)
 
   if (!anyNA(dates) && all(nchar(x[!nas]) == 10L)) {
-    x <- rep(NA_Date_, n)
+    x <- rep(as.Date(NA), n)
     x[!nas] <- dates
   } else if (!anyNA(posix)) {
     x <- rep(NA_real_, n)
@@ -108,7 +111,11 @@ fact_set_levels <- function(x, levels = NULL, range = NULL) {
   x <- fact(x)
   levels <- levels(x)
   value <- vec_c(value, if (!anyNA(value) & (anyNA(x) | anyNA(levels))) NA)
-  new_fact(vec_match(levels, as.character(value))[x], value, is.ordered(x))
+  new_fact(
+    x = vec_match(levels, as.character(value))[x],
+    values = value,
+    ordered = is.ordered(x)
+  )
 }
 
 is.fact <- function(x) {

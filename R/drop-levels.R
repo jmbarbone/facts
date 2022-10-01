@@ -23,9 +23,9 @@ drop_levels.data.frame <- function(x, ...) {
 #' @rdname drop_levels
 drop_levels.fact <- function(x, ...) {
   if (is.ordered(x)) {
-    as_ordered(fact_values(x))
+    as_ordered(as_values(x))
   } else {
-    fact(fact_values(x))
+    fact(as_values(x))
   }
 }
 

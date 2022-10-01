@@ -1,11 +1,11 @@
 test_that("`fact_levels<-`() works", {
   x <- fact(1:3)
   fact_levels(x) <- 1:4
-  exp <- struct(
+  exp <- mark::struct(
     1:3,
     class = c("fact", "factor"),
+    values = 1:4,
     levels = as.character(1:4),
-    uniques = 1:4,
     na = 0L
   )
   expect_identical(x, exp)

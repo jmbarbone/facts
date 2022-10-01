@@ -156,7 +156,7 @@ fact.logical <- function(x, ...) {
 #'   When passed a `function`, will attempt to use that as the conversion
 #'   method.  Otherwise, `levels` remain as `character`.
 #' @export
-fact.factor <- function(x, convert = NULL, ...) {
+fact.factor <- function(x, convert = getOption("facts.factor.convert"), ...) {
   old_levels <- levels(x)
 
   if (isTRUE(convert)) {
@@ -176,12 +176,12 @@ fact.factor <- function(x, convert = NULL, ...) {
       levels <- vec_c(ord_levels, if (anyNA(x) && !anyNA(ord_levels)) NA)
 
       if (identical(o, seq_along(o))) {
-        res <- new_fact(x, levels, is.ordered(x))
+        res <- new_fact(x, levels, ordered = is.ordered(x))
         return(res)
       }
 
       m <- vec_match(vec_order(old_levels), o)[x]
-      res <- new_fact(m, levels, is.ordered(x))
+      res <- new_fact(m, levels, ordered = is.ordered(x))
       return(res)
     }
 
@@ -229,7 +229,7 @@ fact.pseudo_id <- function(x, ...) {
 #' @rdname fact
 #' @export
 fact.haven_labelled <- function(x, ...) {
-  require_namespace("haven")
+  mark::require_namespace("haven")
   lvls <- attr(x, "labels")
 
   if (length(lvls)) {

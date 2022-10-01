@@ -35,7 +35,7 @@ unique.fact <- function(x, incomparables = FALSE, ...) {
 
 #' @export
 as.Date.fact <- function(x, ...) {
-  as.Date(as_values(x), ...)[x]
+  as.Date(values(x), ...)[x]
 }
 
 #' @export
