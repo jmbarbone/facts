@@ -64,11 +64,11 @@ test_that("fact.factor() works", {
   expect_identical(levels(fact(x)), c("1", "2"))
   converted <- fact(x, convert = TRUE)
   expect_identical(levels(converted), c("1", "2", "(na)"))
-  expect_identical(values(converted), c(1, 2, NA))
+  expect_identical(values(converted), c(1L, 2L, NA))
 
   # moves NA to the end and reordered when number
   x <- factor(c(1, NA, 2), c(2, NA, 1), exclude = NULL)
-  res <- new_fact(c(1, 3, 2), c(1, 2, NA))
+  res <- new_fact(c(1L, 3L, 2L), c(1L, 2L, NA))
   expect_identical(fact(x, convert = TRUE), res)
 
   x <- factor(c(NA, TRUE, FALSE))
@@ -83,17 +83,17 @@ test_that("fact.factor() works", {
 test_that("fact.haven_labelled() works", {
   skip_if_not_installed("haven")
   .haven_as_factor <- "haven" %colons% "as_factor.haven_labelled"
-  haven_as_fact <- function(...) {
-    res <- fact(.haven_as_factor(...))
+  haven_as_fact <- function(..., .convert = NULL) {
+    res <- fact(.haven_as_factor(...), convert = .convert)
     attr(res, "label") <- exattr(..1, "label")
     res
   }
 
-  expect_id_fact <- function(x) {
+  expect_id_fact <- function(x, convert = NULL) {
     testthat::expect_identical(
       fact(x),
-      haven_as_fact(x),
-      ignore_attr = c("uniques", "na")
+      haven_as_fact(x, .convert = convert),
+      ignore_attr = c("values", "na")
     )
   }
 
@@ -109,11 +109,11 @@ test_that("fact.haven_labelled() works", {
   expect_id_fact(x)
 
   x <- haven::labelled(r, label = "this")
-  expect_id_fact(x)
+  expect_id_fact(x, convert = TRUE)
 
   # Doubles
   x <- haven::labelled(c(0, 0.5, 1), c(a = 0, b = 1))
-  expect_id_fact(x)
+  expect_id_fact(x, convert = TRUE)
 
   # Character
   x <- haven::labelled(letters, c(good = "j", something = "m", cool = "b"))
@@ -156,8 +156,8 @@ test_that("fact() ignores NaN", {
   exp <- mark::struct(
     c(1L, 2L, 4L, 3L, 4L),
     class = c("fact", "factor"),
-    levels = c("1", "2", "3", NA),
-    uniques = c(1, 2, 3, NA),
+    values = c(1, 2, 3, NA),
+    levels = c("1", "2", "3", "(na)"),
     na = 4L
   )
 
