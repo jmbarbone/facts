@@ -66,6 +66,8 @@ fact_coerce_levels <- function(x) {
     return(as.logical(x))
   }
 
+  # TODO use utils::type.convert(as.is = TRUE) and then check if still character
+
   tz <- getOption("mark.default_tz", "UTC")
   wuffle({
     numbers <- as.numeric(x[!nas])
@@ -96,8 +98,14 @@ fact_coerce_levels <- function(x) {
       tz         = tz
     )
   } else if (!anyNA(numbers)) {
-    x <- rep(NA_real_, n)
-    x[!nas] <- numbers
+
+    if (is_integerish(numbers)) {
+      x <- rep(NA_integer_, n)
+      x[!nas] <- as.integer(numbers)
+    } else {
+      x <- rep(NA_real_, n)
+      x[!nas] <- numbers
+    }
   }
 
   x
