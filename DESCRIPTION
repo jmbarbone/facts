@@ -13,3 +13,6 @@ RoxygenNote: 7.2.1
 Imports: 
     mark,
     vctrs
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
