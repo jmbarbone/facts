@@ -234,7 +234,7 @@ fact.haven_labelled <- function(x, ...) {
 
   if (length(lvls)) {
     ux <- unclass(x)
-    vals <- sort.int(values(c(ux, lvls)))
+    vals <- sort.int(unique(c(ux, lvls)))
     m <- vec_match(ux, vals)
     ml <- vec_match(lvls, vals)
     vals[ml] <- names(lvls)
