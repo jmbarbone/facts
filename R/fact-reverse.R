@@ -3,6 +3,7 @@
 #' Reverse the levels of a `fact` vector
 #'
 #' @param x A `fact` vector (or passed to [fact()])
+#' @export
 fact_reverse  <- function(x) {
   x <- fact(x)
   lvls <- mark::flip(values(x))
