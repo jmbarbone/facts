@@ -6,8 +6,8 @@
 #' @export
 fact_reverse  <- function(x) {
   x <- fact(x)
-  lvls <- mark::flip(values(x))
-  seq <- mark::flip(seq_along(lvls))
+  lvls <- rev(values(x))
+  seq <- rev(seq_along(lvls))
   na <- exattr(x, "na")
 
   if (na > 0) {

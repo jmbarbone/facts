@@ -50,7 +50,7 @@ pseudo_id.factor <- function(x, ...) {
 #' @seealso [pseudo_id()]
 print.pseudo_id <- function(x, ..., all = FALSE) {
   print(as.integer(x))
-  out <- mark::collapse0("values: ", paste0(values(x), sep = " "), sep = "")
+  out <- collapse0("values: ", paste0(values(x), sep = " "), sep = "")
   if (!all) {
     width <- getOption("width", 180)
     if (nchar(out) > width) {
@@ -65,7 +65,7 @@ print.pseudo_id <- function(x, ..., all = FALSE) {
 # helpers -----------------------------------------------------------------
 
 make_pseudo_id <- function(x, u) {
-  mark::struct(x, class = c("pseudo_id", "integer"), values = u)
+  struct(x, class = c("pseudo_id", "integer"), values = u)
 }
 
 na_last <- function(x) {

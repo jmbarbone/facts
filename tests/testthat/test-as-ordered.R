@@ -1,6 +1,6 @@
 test_that("as_ordered() works", {
   res <- fact(c(1:3, NA_integer_))
-  exp <- mark::struct(
+  exp <- struct(
     c(1:3, NA_integer_),
     c("fact", "ordered", "factor"),
     levels = as.character(1:3),

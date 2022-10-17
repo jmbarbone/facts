@@ -24,7 +24,7 @@ as.character.fact <- function(x, ...) {
 #' @export
 unique.fact <- function(x, incomparables = FALSE, ...) {
   att <- attributes(x)
-  mark::struct(
+  struct(
     unique(unclass(x)),
     class = att$class,
     levels = att$levels,

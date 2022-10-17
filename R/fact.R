@@ -41,7 +41,7 @@ fact <- function(x, ...) {
 fact.default <- function(x, ...) {
   stop(
     "No fact method for class(es) ",
-    mark::collapse0(class(x), sep = ", "),
+    collapse0(class(x), sep = ", "),
     call. = FALSE
   )
 }
@@ -229,7 +229,7 @@ fact.pseudo_id <- function(x, ...) {
 #' @rdname fact
 #' @export
 fact.haven_labelled <- function(x, ...) {
-  mark::require_namespace("haven")
+  requireNamespace("haven", quietly = TRUE)
   lvls <- attr(x, "labels")
 
   if (length(lvls)) {

@@ -38,7 +38,8 @@ as_ordered.default <- function(x) {
   res <- fact_na(x, remove = TRUE)
 
   if (!is.ordered(x)) {
-    res <- mark:::add_class(res, "ordered", 2L)
+    # TODO add_class(pos = 2)
+    res <- add_class(res, "ordered")
   }
 
   res

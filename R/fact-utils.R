@@ -6,7 +6,7 @@ new_fact <- function(
     range = NULL,
     na = if (anyNA(values)) length(values) else 0L
 ) {
-  mark::struct(
+  struct(
     as.integer(x),
     class = c("fact", if (ordered) "ordered", "factor"),
     levels = if (is.null(levels)) to_levels(values) else to_levels(levels),
