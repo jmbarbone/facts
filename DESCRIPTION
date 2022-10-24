@@ -11,9 +11,10 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1
 Imports: 
-    vctrs
+    vctrs,
+    mark
 Suggests: 
-    mark,
     testthat (>= 3.0.0)
+Remotes:
+  github::jmbarbone/mark@91-facts
 Config/testthat/edition: 3
-Remotes: github::jmbarbone/mark@91-facts
