@@ -1,6 +1,6 @@
 
 test_that("fact.default() fails", {
-  expect_error(fact(mark::struct(NULL, "foo")))
+  expect_error(fact(struct(NULL, "foo")))
 })
 
 test_that("fact.logical() works", {
@@ -40,8 +40,8 @@ test_that("fact.pseudo_id() works", {
 
 test_that("fact.integer() works", {
   expect_equal(
-    fact(mark::struct(1L, c("foo", "integer"))),
-    new_fact(1L, mark::struct(1L, c("foo", "integer")))
+    fact(struct(1L, c("foo", "integer"))),
+    new_fact(1L, struct(1L, c("foo", "integer")))
   )
 })
 
@@ -56,7 +56,7 @@ test_that("fact.factor() works", {
   class(x) <- c("fact", "ordered", "factor")
   expect_identical(fact(x), x)
 
-  x <- mark::struct(1L, c("fact", "factor"), levels = c("a", NA_character_))
+  x <- struct(1L, c("fact", "factor"), levels = c("a", NA_character_))
   expect_identical(fact(x), x)
 
   # fact.fact() checks for NA and adds
@@ -153,7 +153,7 @@ test_that("fact() correctly labels NAs [mark#24]", {
 test_that("fact() ignores NaN", {
   # ignore NaN
   res <- fact(c(1, 2, NA, 3, NaN))
-  exp <- mark::struct(
+  exp <- struct(
     c(1L, 2L, 4L, 3L, 4L),
     class = c("fact", "factor"),
     values = c(1, 2, 3, NA),

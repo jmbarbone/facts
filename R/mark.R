@@ -26,3 +26,20 @@ collapse0 <- function (..., sep = "") {
   ls <- list(...)
   paste0(unlist(ls), collapse = sep)
 }
+
+`%colons%` <- function(package, name) {
+  tryCatch(
+    get(name, envir = asNamespace(package)),
+    error = function(e) {
+      stop(sprintf("`%s` not found in package `%s`",
+                   name, package),
+           call. = FALSE)
+    }
+  )
+}
+
+`%wi%` <- function(x, table) {
+  x[match(table, x, nomatch = 0L)]
+}
+
+wuffle <- suppressWarnings

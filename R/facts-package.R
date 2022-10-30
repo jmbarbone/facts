@@ -1,5 +1,4 @@
 #' @import vctrs
-#' @importFrom mark %wi% %colons% wuffle
 #' @keywords internal
 "_PACKAGE"
 

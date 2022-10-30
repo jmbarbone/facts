@@ -3,8 +3,8 @@ test_that("drop_levels() works", {
   exp <- factor(1, 1)
   expect_equal(drop_levels(x), exp)
 
-  df <- mark::quick_dfl(x = x, y = 1)
-  df_exp <- mark::quick_dfl(x = exp, y = 1)
+  df <- data.frame(x = x, y = 1)
+  df_exp <- data.frame(x = exp, y = 1)
   expect_equal(drop_levels(df), df_exp)
 
   # facts and ordered
@@ -12,7 +12,7 @@ test_that("drop_levels() works", {
   expect_identical(drop_levels(x), x)
 
   x <- as_ordered(factor(1, 1:2))
-  exp <- mark::struct(
+  exp <- struct(
     1L,
     class = c("fact", "ordered", "factor"),
     levels = "1",
