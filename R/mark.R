@@ -1,5 +1,5 @@
-add_class <- function(x, cl, pos = 1L) {
-  class(x) <- unique(c(class(x), cl), fromLast = TRUE)
+add_class <- function(x, cl, pos = 1L, from_last = TRUE) {
+  class(x) <- unique(append(class(x), cl, after = pos - 1L), fromLast = from_last)
   x
 }
 

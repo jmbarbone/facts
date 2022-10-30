@@ -39,7 +39,7 @@ as_ordered.default <- function(x) {
 
   if (!is.ordered(x)) {
     # TODO add_class(pos = 2)
-    res <- add_class(res, "ordered")
+    res <- add_class(res, c("fact", "ordered"), from_last = FALSE)
   }
 
   res
