@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/jmbarbone/facts/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jmbarbone/facts?branch=main)
 <!-- badges: end -->
 
 The goal of facts is to simplify how the `factor` class is created,
@@ -27,16 +29,6 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(facts)
-#> Registered S3 methods overwritten by 'facts':
-#>   method            from
-#>   [.fact            mark
-#>   as.Date.fact      mark
-#>   as.character.fact mark
-#>   as.double.fact    mark
-#>   as.integer.fact   mark
-#>   print.fact        mark
-#>   print.pseudo_id   mark
-#>   unique.fact       mark
 ```
 
 A `facts` object looks very much like a `factor` object, with a few
@@ -115,8 +107,8 @@ x <- c("blue", "green", "red", "purple", "black", "white")
 x <- sample(x, 100, TRUE)
 id <- pseudo_id(x)
 id
-#>   [1] 1 1 2 3 2 4 5 1 2 4 2 6 2 2 6 5 3 2 1 1 6 3 5 4 6 3 4 1 6 1 4 5 2 1 2 6 4
-#>  [38] 3 6 3 1 2 2 3 4 6 3 6 2 5 4 4 2 6 3 5 4 4 6 3 4 1 1 4 1 1 4 4 5 2 6 1 6 3
-#>  [75] 5 3 6 2 6 1 6 2 2 5 1 3 5 2 2 1 2 2 5 2 2 5 3 4 5 3
-#> values: red white blue green black purple
+#>   [1] 1 1 2 3 1 2 4 2 3 5 2 2 1 1 1 3 6 2 2 2 5 6 3 1 6 5 6 3 4 3 3 1 4 1 4 4 1
+#>  [38] 6 6 3 3 3 2 5 6 5 6 6 6 3 6 2 4 4 4 3 5 5 4 3 4 1 5 3 3 6 1 2 6 1 6 4 2 6
+#>  [75] 6 2 2 5 5 6 6 4 5 2 5 1 3 4 3 4 5 3 4 4 1 6 1 6 2 4
+#> values: purple green white red blue black
 ```

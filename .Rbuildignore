@@ -3,3 +3,4 @@
 ^README\.Rmd$
 ^bench/.*$
 ^\.github$
+^codecov\.yml$
