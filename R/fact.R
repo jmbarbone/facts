@@ -41,7 +41,7 @@ fact <- function(x, ...) {
 fact.default <- function(x, ...) {
   stop(
     "No fact method for class(es) ",
-    collapse0(class(x), sep = ", "),
+    collapse(class(x), sep = ", "),
     call. = FALSE
   )
 }
