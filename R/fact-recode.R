@@ -14,7 +14,7 @@ fact_recode <- function(x, ..., old = NULL, new = NULL) {
   # new <- c(1, 3)
   new_vals <- old_vals <- values(x)
 
-  if (is.numeric(u)) {
+  if (is.numeric(old_vals)) {
     old <- as.numeric(old)
     new <- as.numeric(new)
   }
