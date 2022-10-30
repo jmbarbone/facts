@@ -50,7 +50,7 @@ pseudo_id.factor <- function(x, ...) {
 #' @seealso [pseudo_id()]
 print.pseudo_id <- function(x, ..., all = FALSE) {
   print(as.integer(x))
-  out <- collapse0("values: ", paste0(values(x), sep = " "), sep = "")
+  out <- collapse("values: ", paste0(values(x), sep = " "), sep = "")
   if (!all) {
     width <- getOption("width", 180)
     if (nchar(out) > width) {

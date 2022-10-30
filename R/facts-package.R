@@ -1,4 +1,5 @@
 #' @import vctrs
+#' @import fuj
 #' @keywords internal
 "_PACKAGE"
 
