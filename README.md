@@ -4,6 +4,10 @@
 # facts
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/jmbarbone/facts/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jmbarbone/facts?branch=main)
 <!-- badges: end -->
 
 The goal of facts is to simplify how the `factor` class is created,
@@ -32,10 +36,7 @@ differences.
 
 ``` r
 f1 <- factor(c(1, NA))
-f2 <- facts(c(1, NA))
-#> Registered S3 method overwritten by 'mark':
-#>   method          from 
-#>   print.pseudo_id facts
+f2 <- fact(c(1, NA))
 
 f1
 #> [1] 1    <NA>
@@ -70,7 +71,7 @@ x <- c("a", "c", NA, "a", "b", NA, "a", "c")
 factor(x) # sorted, NA removed by default
 #> [1] a    c    <NA> a    b    <NA> a    c   
 #> Levels: a b c
-facts(x)   # unsorted, NA retained by default
+fact(x)   # unsorted, NA retained by default
 #> [1] a    c    <NA> a    b    <NA> a    c   
 #> levels: a c b (na)
 
@@ -78,7 +79,7 @@ x <- c(-1, 5, 2, NA, 3)
 factor(x) # sorted
 #> [1] -1   5    2    <NA> 3   
 #> Levels: -1 2 3 5
-facts(x)   # sorted, but NA retained by default
+fact(x)   # sorted, but NA retained by default
 #> [1] -1   5    2    <NA> 3   
 #> levels: -1 2 3 5 (na)
 
@@ -86,7 +87,7 @@ x <- c(NA, FALSE, TRUE, FALSE, TRUE, NA)
 factor(x)
 #> [1] <NA>  FALSE TRUE  FALSE TRUE  <NA> 
 #> Levels: FALSE TRUE
-facts(x)   # Sorted TRUE, FALSE, NA
+fact(x)   # Sorted TRUE, FALSE, NA
 #> [1] <NA>  FALSE TRUE  FALSE TRUE  <NA> 
 #> levels: TRUE FALSE (na)
 ```
@@ -106,8 +107,8 @@ x <- c("blue", "green", "red", "purple", "black", "white")
 x <- sample(x, 100, TRUE)
 id <- pseudo_id(x)
 id
-#>   [1] 1 2 3 3 4 5 1 3 2 3 2 2 4 1 1 3 2 4 6 5 1 3 5 5 5 6 4 2 6 2 5 5 5 2 1 2 6
-#>  [38] 3 6 4 1 2 3 2 6 1 6 2 3 3 3 3 3 4 2 4 4 4 2 2 5 2 3 2 2 6 1 1 1 1 4 6 6 2
-#>  [75] 2 3 4 1 6 5 5 6 1 2 6 4 4 1 1 5 4 3 1 4 4 5 3 4 2 6
-#> Uniques:
+#>   [1] 1 1 2 3 1 2 4 2 3 5 2 2 1 1 1 3 6 2 2 2 5 6 3 1 6 5 6 3 4 3 3 1 4 1 4 4 1
+#>  [38] 6 6 3 3 3 2 5 6 5 6 6 6 3 6 2 4 4 4 3 5 5 4 3 4 1 5 3 3 6 1 2 6 1 6 4 2 6
+#>  [75] 6 2 2 5 5 6 6 4 5 2 5 1 3 4 3 4 5 3 4 4 1 6 1 6 2 4
+#> values: purple green white red blue black
 ```

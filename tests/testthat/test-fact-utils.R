@@ -1,7 +1,7 @@
 test_that("`fact_levels<-`() works", {
   x <- fact(1:3)
   fact_levels(x) <- 1:4
-  exp <- mark::struct(
+  exp <- struct(
     1:3,
     class = c("fact", "factor"),
     values = 1:4,

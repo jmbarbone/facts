@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # facts
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/jmbarbone/facts/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jmbarbone/facts?branch=main)
 <!-- badges: end -->
 
 The goal of facts is to simplify how the `factor` class is created, modified, and coerced.
@@ -42,7 +44,7 @@ A `facts` object looks very much like a `factor` object, with a few differences.
 
 ```{r}
 f1 <- factor(c(1, NA))
-f2 <- facts(c(1, NA))
+f2 <- fact(c(1, NA))
 
 f1
 f2
@@ -62,15 +64,15 @@ In general, `factor()` will always sort `x` and by default doesn't add `NA` valu
 ```{r}
 x <- c("a", "c", NA, "a", "b", NA, "a", "c")
 factor(x) # sorted, NA removed by default
-facts(x)   # unsorted, NA retained by default
+fact(x)   # unsorted, NA retained by default
 
 x <- c(-1, 5, 2, NA, 3)
 factor(x) # sorted
-facts(x)   # sorted, but NA retained by default
+fact(x)   # sorted, but NA retained by default
 
 x <- c(NA, FALSE, TRUE, FALSE, TRUE, NA)
 factor(x)
-facts(x)   # Sorted TRUE, FALSE, NA
+fact(x)   # Sorted TRUE, FALSE, NA
 ```
 
 ## Modifying facts

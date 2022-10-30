@@ -12,7 +12,7 @@ test_that("fact_reverse() works", {
   expect_identical(res, exp)
 
   res <- fact_reverse(as_ordered(c(1:3, NA)))
-  exp <- mark::struct(
+  exp <- struct(
     c(3:1, NA),
     class = c("fact", "ordered", "factor"),
     values = 3:1,

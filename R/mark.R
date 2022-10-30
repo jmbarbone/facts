@@ -1,5 +1,5 @@
-add_class <- function(x, cl, pos = 1L) {
-  class(x) <- unique(c(class(x), cl), fromLast = TRUE)
+add_class <- function(x, cl, pos = 1L, from_last = TRUE) {
+  class(x) <- unique(append(class(x), cl, after = pos - 1L), fromLast = from_last)
   x
 }
 
@@ -26,3 +26,20 @@ collapse0 <- function (..., sep = "") {
   ls <- list(...)
   paste0(unlist(ls), collapse = sep)
 }
+
+`%colons%` <- function(package, name) {
+  tryCatch(
+    get(name, envir = asNamespace(package)),
+    error = function(e) {
+      stop(sprintf("`%s` not found in package `%s`",
+                   name, package),
+           call. = FALSE)
+    }
+  )
+}
+
+`%wi%` <- function(x, table) {
+  x[match(table, x, nomatch = 0L)]
+}
+
+wuffle <- suppressWarnings

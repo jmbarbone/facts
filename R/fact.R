@@ -229,7 +229,6 @@ fact.pseudo_id <- function(x, ...) {
 #' @rdname fact
 #' @export
 fact.haven_labelled <- function(x, ...) {
-  requireNamespace("haven", quietly = TRUE)
   lvls <- attr(x, "labels")
 
   if (length(lvls)) {
