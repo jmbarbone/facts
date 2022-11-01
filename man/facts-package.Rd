@@ -4,8 +4,8 @@
 \name{facts-package}
 \alias{facts}
 \alias{facts-package}
-\title{facts: What the Package Does (Title Case)}
+\title{facts: The 'fact' Class}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+Implement and use the facts class, a variant of the factors class,
 }
 \keyword{internal}

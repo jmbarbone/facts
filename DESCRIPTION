@@ -1,11 +1,18 @@
 Package: facts
 Type: Package
-Title: What the Package Does (Title Case)
+Title: The 'fact' Class
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+wuAuthors@R: 
+    person(
+      given = "Jordan Mark", 
+      family = "Barbone",
+      email = "jmbarbone@gmail.com",
+      role = c("aut", "cph", "cre"),
+      comment = c(ORCID = "0000-0001-9788-3628")
+    )
+Maintainer: Jordan Mark Barbone <jmbarbone@gmail.com>
+Description: Implement and use the 'fact' class, an alternative to the 'factor' 
+    class, which tries to be faster and richer.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
