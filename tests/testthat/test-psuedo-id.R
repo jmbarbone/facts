@@ -6,7 +6,7 @@ test_that("pseudo_id.default() works", {
     res,
     struct(
       c(1L, 1L, 2L, 4L, 3L),
-      uniques = c(1L, 4L, 2L, NA_integer_),
+      values =  c(1L, 4L, 2L, NA_integer_),
       class = c("pseudo_id", "integer"))
   )
 
@@ -17,7 +17,7 @@ test_that("pseudo_id.default() works", {
     res,
     struct(
       c(1L, 1L, 2L, 4L, 3L),
-      uniques = c(1.2, 4.999, -2, NA_real_),
+      values =  c(1.2, 4.999, -2, NA_real_),
       class = c("pseudo_id", "integer"))
   )
 })
@@ -25,7 +25,7 @@ test_that("pseudo_id.default() works", {
 test_that("pseudo_id.factor() works", {
   x <- struct(1:3, levels = letters[1:3], class = "factor")
   res <- pseudo_id(x)
-  exp <- struct(1:3, uniques = letters[1:3], class = c("pseudo_id", "integer"))
+  exp <- struct(1:3, values =  letters[1:3], class = c("pseudo_id", "integer"))
   expect_identical(res, exp)
 })
 
@@ -33,13 +33,13 @@ test_that("pseudo_id.factor() does not return NA values [#28]", {
   # NA in levels and values
   x <- struct(c(1:3, NA), levels = c(letters[1:3], NA), class = "factor")
   res <- pseudo_id(x)
-  exp <- struct(1:4, uniques = c(letters[1:3], NA_character_), class = c("pseudo_id", "integer"))
+  exp <- struct(1:4, values =  c(letters[1:3], NA_character_), class = c("pseudo_id", "integer"))
   expect_identical(res, exp)
 
   # NA in values but not in levels
   x <- struct(c(1:3, NA), levels = letters[1:3], class = "factor")
   res <- pseudo_id(x)
-  exp <- struct(1:4, uniques = c(letters[1:3], NA_character_), class = c("pseudo_id", "integer"))
+  exp <- struct(1:4, values =  c(letters[1:3], NA_character_), class = c("pseudo_id", "integer"))
   expect_identical(res, exp)
 })
 
