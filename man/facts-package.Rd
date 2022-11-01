@@ -6,6 +6,6 @@
 \alias{facts-package}
 \title{facts: The 'fact' Class}
 \description{
-Implement and use the facts class, a variant of the factors class,
+Implement and use the 'fact' class, an alternative to the 'factor' class, which tries to be faster and richer.
 }
 \keyword{internal}
