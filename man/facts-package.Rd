@@ -8,4 +8,8 @@
 \description{
 Implement and use the 'fact' class, an alternative to the 'factor' class, which tries to be faster and richer.
 }
+\author{
+\strong{Maintainer}: Jordan Mark Barbone \email{jmbarbone@gmail.com} (\href{https://orcid.org/0000-0001-9788-3628}{ORCID}) [copyright holder]
+
+}
 \keyword{internal}

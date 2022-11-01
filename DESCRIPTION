@@ -2,7 +2,7 @@ Package: facts
 Type: Package
 Title: The 'fact' Class
 Version: 0.0.0.9000
-wuAuthors@R: 
+Authors@R: 
     person(
       given = "Jordan Mark", 
       family = "Barbone",
