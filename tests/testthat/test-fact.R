@@ -1,6 +1,6 @@
 
 test_that("fact.default() fails", {
-  expect_error(fact(struct(NULL, "foo")))
+  expect_error(fact(struct(NULL, "foo")), class = "factMethodError")
 })
 
 test_that("fact.logical() works", {
@@ -162,6 +162,29 @@ test_that("fact() ignores NaN", {
   )
 
   expect_identical(res, exp)
+})
+
+test_that("ranges", {
+
+  expect_identical(
+    fact(c(1L, 3L, 2L), range = c(1, 10)),
+    struct(
+      c(1L, 3L, 2L),
+      class = c("fact", "factor"),
+      levels = as.character(1:10),
+      values = c(1L, 2L, 3L),
+      na = 0L
+    )
+  )
+
+  foo <- function() { struct(list(), "foo") }
+  expect_error(range_safe("a", 1), class = "factRangeNumericError")
+  expect_error(range_safe(1, Sys.Date()), class = "factRangeDateError")
+  # because I don't know what to do about these
+  expect_error(range_safe(foo(), foo()), class = "factRangeTypesError")
+
+  expect_error(range_safe(NA_integer_, 1L), class = "factRangeFiniteError")
+  expect_error(range_safe(Inf, 1L), class = "factRangeFiniteError")
 })
 
 test_that("snapshots", {
