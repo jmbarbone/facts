@@ -106,14 +106,7 @@ range_safe <- function(x, y) {
     stop(fact_range_types_condition())
   }
 
-
-  x <- as.integer(x)
-  x <- x[!is.na(x)]
-  if (!length(x)) {
-    stop(fact_range_missing_condition())
-  }
-
-  x <- x[is.finite(x)]
+  x <- x[is.finite(x) & !is.na(x)]
   if (!length(x)) {
     stop(fact_range_finite_condition())
   }

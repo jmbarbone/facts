@@ -32,13 +32,6 @@ fact_range_types_condition <- function() {
   )
 }
 
-fact_range_missing_condition <- function() {
-  new_condition(
-    "range does not have any non-missing values",
-    class = "fact_range_missing"
-  )
-}
-
 fact_range_finite_condition <- function() {
   new_condition(
     "range does not have enough finite values",
