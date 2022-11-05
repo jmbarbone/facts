@@ -1,12 +1,27 @@
 fact_recode <- function(x, ..., old = NULL, new = NULL) {
-  if (is.null(old) & is.null(new)) {
-    vals <- list(...)
-    new <- names(vals)
+  x <- fact(x)
+  vals <- list(...)
+
+  if (length(vals)) {
+    if (!is.null(old) || !is.null(new)) {
+      stop(fact_recode_dots_condition())
+    }
+
     old <- as.vector(vals)
+    # names checked below
+    new <- names(vals)
   }
 
-  if (is.null(old) | is.null(new)) {
-    stop("no!")
+  if (is.null(new)) {
+    stop(fact_recode_new_condition())
+  }
+
+  if (is.null(old)) {
+    old <- values(x)
+  }
+
+  if (!length(old)) {
+    stop(fact_recode_old_condition())
   }
 
   # x <- fact(sample(1:10, 100, TRUE))

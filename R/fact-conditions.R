@@ -45,3 +45,21 @@ fact_range_finite_condition <- function() {
     class = "fact_range_finite"
   )
 }
+
+
+# recode ------------------------------------------------------------------
+
+fact_recode_dots_condition <- function() {
+  new_condition(
+    "if ... are used, old and new must be NULL",
+    class = "fact_recode_dots"
+  )
+}
+
+fact_recode_old_condition <- function() {
+  new_condition("old values have not been set", class = "fact_recode_old")
+}
+
+fact_recode_new_condition <- function() {
+  new_condition("new values have not been set", class = "fact_recode_new")
+}
