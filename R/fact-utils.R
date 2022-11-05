@@ -59,10 +59,7 @@ fact_na_label <- function(na = NULL) {
 }
 
 fact_values <- function(x) {
-  if (!is.fact(x)) {
-    stop("x must be a fact vector", call. = FALSE)
-  }
-
+  check_fact()
   .Deprecated("as_values")
   as_values(x)
 }
@@ -136,4 +133,14 @@ fact_set_levels <- function(x, levels = NULL, range = NULL) {
 
 is.fact <- function(x) {
   inherits(x, "fact")
+}
+
+is_fact <- is.fact
+
+check_fact <- function(x) {
+  if (!is.fact(x)) {
+    stop(fact_inherits_condition())
+  }
+
+  invisible(x)
 }

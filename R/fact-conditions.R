@@ -9,3 +9,10 @@ fact_na_condition <- function() {
     class = "fact_na_label"
   )
 }
+
+fact_inherits_condition <- function() {
+  new_condition(
+    "`x` must be a 'fact' class",
+    class = "fact_na_class"
+  )
+}
