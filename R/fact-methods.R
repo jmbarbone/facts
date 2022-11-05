@@ -46,6 +46,18 @@ as.Date.fact <- function(x, ...) {
 }
 
 #' @export
+levels.fact <- function(x, ...) {
+  exattr(x, "levels")
+}
+
+#' @export
+format.fact <- function(x, ...) {
+  vals <- values(x)
+  ints <- seq_along(vals)
+  sprintf("[%s]:%s", ints, vals)[x]
+}
+
+#' @export
 print.fact <- function(
     x,
   max_levels = getOption("facts.max_levels", TRUE),
