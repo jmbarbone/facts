@@ -80,11 +80,22 @@ fact.numeric <- function(x, ...) {
 #' @export
 fact.integer <- function(x, range = NULL, ...) {
   u <- vec_sort(vec_unique(x))
+
+  if (!is.null(range)) {
+    range <- range_safe(range, x)
+  }
+
   new_fact(
     vec_match(x, u),
     values = u,
-    levels = if (!is.null(range)) range_safe(range, x)
+    levels = range,
+    range = range2(range)
   )
+}
+
+range2 <- function(x) {
+  if (is.null(x)) return(NULL)
+  c(min(x, na.rm = TRUE), max(x, na.rm = TRUE))
 }
 
 range_safe <- function(x, y) {
