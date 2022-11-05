@@ -1,21 +1,5 @@
 
-fact_na_condition <- function() {
-  new_condition(
-    collapse(
-      "\ndefault na label must be an object that can be coherced to a ",
-      "character vector of length 1",
-      "\nnote: you can change the value with options(fact.na.label)"
-    ),
-    class = "fact_na_label"
-  )
-}
-
-fact_inherits_condition <- function() {
-  new_condition(
-    "`x` must be a 'fact' class",
-    class = "fact_na_class"
-  )
-}
+# fact --------------------------------------------------------------------
 
 fact_method_condition <- function(x) {
   new_condition(
@@ -23,6 +7,8 @@ fact_method_condition <- function(x) {
     class = "fact_method"
   )
 }
+
+# range -------------------------------------------------------------------
 
 fact_range_numeric_condition <- function() {
   new_condition("range must be a numeric vector", class = "fact_range_numeric")
@@ -46,7 +32,6 @@ fact_range_finite_condition <- function() {
   )
 }
 
-
 # recode ------------------------------------------------------------------
 
 fact_recode_dots_condition <- function() {
@@ -62,4 +47,24 @@ fact_recode_old_condition <- function() {
 
 fact_recode_new_condition <- function() {
   new_condition("new values have not been set", class = "fact_recode_new")
+}
+
+# utils -------------------------------------------------------------------
+
+fact_inherits_condition <- function() {
+  new_condition(
+    "`x` must be a 'fact' class",
+    class = "fact_na_class"
+  )
+}
+
+fact_na_condition <- function() {
+  new_condition(
+    collapse(
+      "\ndefault na label must be an object that can be coherced to a ",
+      "character vector of length 1",
+      "\nnote: you can change the value with options(fact.na.label)"
+    ),
+    class = "fact_na_label"
+  )
 }
