@@ -95,27 +95,27 @@ range_safe <- function(x, y) {
   if (is.numeric(y)) {
     date <- FALSE
     if (!is.numeric(x)) {
-      stop("range must be a numeric vector", call. = FALSE)
+      stop(fact_range_numeric_condition())
     }
   } else if (inherits(y, "Date")) {
     date <- TRUE
     if (!inherits(x, "Date")) {
-      stop("range must be a Date vector", call. = FALSE)
+      stop(fact_range_date_condition())
     }
   } else {
-    stop("Incompatible types for x and range", call. = FALSE)
+    stop(fact_range_types_condition())
   }
 
 
   x <- as.integer(x)
   x <- x[!is.na(x)]
   if (!length(x)) {
-    stop("No non-missing arguments in range", call. = FALSE)
+    stop(fact_range_missing_condition())
   }
 
   x <- x[is.finite(x)]
   if (!length(x)) {
-    stop("Not enough finite values in range", call. = FALSE)
+    stop(fact_range_finite_condition())
   }
 
   res <- seq.int(min(x), max(x))
