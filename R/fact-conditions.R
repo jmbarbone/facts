@@ -11,8 +11,31 @@ fact_na_condition <- function() {
 }
 
 fact_inherits_condition <- function() {
+  new_condition("`x` must be a 'fact' class", class = "fact_na_class")
+}
+
+fact_range_numeric_condition <- function() {
+  new_condition("range must be a numeric vector", class = "fact_range_numeric")
+}
+
+fact_range_date_condition <- function() {
+  new_condition("range must be a date vector", class = "fact_range_date")
+}
+
+fact_range_types_condition <- function() {
+  new_condition("incompatible types for x and range", class = "fact_range_type")
+}
+
+fact_range_missing_condition <- function() {
   new_condition(
-    "`x` must be a 'fact' class",
-    class = "fact_na_class"
+    "range does not contain non-missing values",
+    class = "fact_range_missing"
+  )
+}
+
+fact_range_finite_condition <- function() {
+  new_condition(
+    "not enough finite values in range",
+    class = "fact_range_finite"
   )
 }
