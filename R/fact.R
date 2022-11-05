@@ -39,11 +39,7 @@ fact <- function(x, ...) {
 #' @rdname fact
 #' @export
 fact.default <- function(x, ...) {
-  stop(
-    "No fact method for class(es) ",
-    collapse(class(x), sep = ", "),
-    call. = FALSE
-  )
+  stop(fact_method_condition(x))
 }
 
 #' @rdname fact

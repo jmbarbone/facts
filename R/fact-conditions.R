@@ -17,6 +17,13 @@ fact_inherits_condition <- function() {
   )
 }
 
+fact_method_condition <- function(x) {
+  new_condition(
+    c("no fact method for class(es)", collapse(class(x), sep = ", ")),
+    class = "fact_method"
+  )
+}
+
 fact_range_numeric_condition <- function() {
   new_condition("range must be a numeric vector", class = "fact_range_numeric")
 }

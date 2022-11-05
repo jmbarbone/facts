@@ -1,6 +1,6 @@
 
 test_that("fact.default() fails", {
-  expect_error(fact(struct(NULL, "foo")))
+  expect_error(fact(struct(NULL, "foo")), class = "factMethodError")
 })
 
 test_that("fact.logical() works", {
