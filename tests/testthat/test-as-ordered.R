@@ -2,7 +2,7 @@ test_that("as_ordered() works", {
   res <- fact(c(1:3, NA_integer_))
   exp <- struct(
     c(1:3, NA_integer_),
-    c("fact", "ordered", "factor"),
+    c("fact", "ordered", "factor", "vctrs_vctr"),
     levels = as.character(1:3),
     values = 1:3,
     na = 0L
@@ -12,5 +12,5 @@ test_that("as_ordered() works", {
 
 test_that("as_ordered() doesn't duplicate class", {
   res <- class(as_ordered(as.ordered(letters[1:3])))
-  expect_identical(res, c("fact", "ordered", "factor"))
+  expect_identical(res, c("fact", "ordered", "factor", "vctrs_vctr"))
 })

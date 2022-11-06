@@ -3,7 +3,7 @@ test_that("`fact_levels<-`() works", {
   fact_levels(x) <- 1:4
   exp <- struct(
     1:3,
-    class = c("fact", "factor"),
+    class = c("fact", "factor", "vctrs_vctr"),
     values = 1:4,
     levels = as.character(1:4),
     na = 0L
