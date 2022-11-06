@@ -173,6 +173,7 @@ test_that("ranges", {
       class = c("fact", "factor", "vctrs_vctr"),
       levels = as.character(1:10),
       values = c(1L, 2L, 3L),
+      range = c(1L, 10L),
       na = 0L
     )
   )
