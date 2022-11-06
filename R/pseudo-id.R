@@ -31,7 +31,7 @@ pseudo_id.pseudo_id <- function(x, ...) {
 pseudo_id.default <- function(x, na_last = TRUE, ...) {
   ux <- unique(x)
   if (na_last) ux <- na_last(ux)
-  make_pseudo_id(vec_match(as.character(x), as.character(ux)), ux)
+  new_pseudo_id(vec_match(as.character(x), as.character(ux)), ux)
 }
 
 #' @export
@@ -60,12 +60,6 @@ print.pseudo_id <- function(x, ..., all = FALSE) {
   }
   cat0(out, "\n")
   invisible(x)
-}
-
-# helpers -----------------------------------------------------------------
-
-make_pseudo_id <- function(x, u) {
-  struct(x, class = c("pseudo_id", "integer"), values = u)
 }
 
 na_last <- function(x) {
