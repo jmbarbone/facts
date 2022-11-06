@@ -21,7 +21,8 @@ cat0 <- function(...) {
 }
 
 values <- function(x) {
-  exattr(x, "values")
+  # TODO should this really grab from levels?
+  exattr(x, "values") %||% exattr(x, "levels")
 }
 
 last <- function(x) {

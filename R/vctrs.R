@@ -26,79 +26,76 @@ new_fact <- function(
 
 #' @export
 vec_ptype_abbr.fact <- function(x, ...) {
-  "fct"
+  if (is.ordered(x)) "fctor" else "fct"
 }
 
-fact_ptype2 <- function(x, y, ...) {
-  values <- vec_c(values(x), value(y))
-  fact(values)
-}
+fact_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
+  x_val <- values(x)
+  y_val <- values(y)
+  mold <- try(fact(vec_c(x_val, y_val)), silent = TRUE)
 
-fact_c <- function(x, y, ...) {
-  fact(vec_c(values(x)[x], values(y)[y]), ...)
-}
-
-fact_ptype2 <- function(x, y, ...) {
-  if (is.fact(x)) {
-    if (is.fact(y)) {
-      return(x)
-    }
-
-    fct <- x
-    val <- y
-  } else {
-    fct <- y
-    val <- x
+  if (inherits(mold, "try-error")) {
+    msg <- sprintf(
+      fmt = c(
+        "unable to convert values of the `fact` objects",
+        "attr(%s, \"value\") and attr(%s, \"value\") are not compatible"
+      ),
+      x_arg,
+      y_arg
+    )
+    stop_incompatible_type(
+      x = x_val,
+      y = y_val,
+      x_arg = x_arg,
+      y_arg = y_arg,
+      details = msg
+    )
   }
 
-  # check to see if the values can be combined
-  values <- vec_unique(vec_c(values(fct), val))
-  vec
-}
-
-fact_mold <- function(x, y) {
-  values <- vec_c(values(x), values(y))
-  # to perform some coercion
-  mold <- values(new_fact(values = vec_unique(values)))
-  m <- vec_match(values, mold)
-  new_fact(m, values = mold)
+  mold
 }
 
 # ptype2 ------------------------------------------------------------------
 
+# TODO rethink this...
 # choose richer one
 
 #' @export
-vec_ptype2.fact.fact <- function(x, y, ...) { fact(vec_c(values(x), values(y))) }
+vec_ptype2.fact.fact <- fact_ptypes
 
 #' @export
-vec_ptype2.Date.fact <- function(x, y, ...) { y }
+vec_ptype2.Date.fact <- fact_ptypes
 #' @export
-vec_ptype2.fact.Date <- function(x, y, ...) { x }
+vec_ptype2.fact.Date <- fact_ptypes
 
 #' @export
-vec_ptype2.double.fact <- function(x, y, ...) { y }
+vec_ptype2.double.fact <- fact_ptypes
 #' @export
-vec_ptype2.fact.double <- function(x, y, ...) { x }
+vec_ptype2.fact.double <- fact_ptypes
 
 #' @export
-vec_ptype2.factor.fact <- function(x, y, ...) { y }
+vec_ptype2.factor.fact <- fact_ptypes
 #' @export
-vec_ptype2.fact.factor <- function(x, y, ...) { x }
+vec_ptype2.fact.factor <- fact_ptypes
 
 #' @export
-vec_ptype2.integer.fact <- function(x, y, ...) { y }
+vec_ptype2.integer.fact <- fact_ptypes
 #' @export
-vec_ptype2.fact.integer <- function(x, y, ...) { x }
+vec_ptype2.fact.integer <- fact_ptypes
 
 #' @export
-vec_ptype2.pseudo_id.fact <- function(x, y, ...) { y }
+vec_ptype2.logical.fact <- fact_ptypes
 #' @export
-vec_ptype2.fact.pseudo_id <- function(x, y, ...) { x }
+vec_ptype2.fact.logical <- fact_ptypes
+
+#' @export
+vec_ptype2.pseudo_id.fact <- fact_ptypes
+#' @export
+vec_ptype2.fact.pseudo_id <- fact_ptypes
 
 # cast --------------------------------------------------------------------
 
-### cast values to facts
+## values to facts ----
 
 #' @export
 vec_cast.fact.fact <- function(x, to, ...) {
@@ -112,28 +109,28 @@ vec_cast.fact.fact <- function(x, to, ...) {
   )
 }
 
-#' @export
-vec_cast.fact.Date <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.double <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.factor <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.haven_labelled <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.integer <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.logical <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.numeric <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.POSIXlt <- function(x, to, ...) { fact(x, ...) }
-#' @export
-vec_cast.fact.pseudo_id <- function(x, to, ...) { fact(x, ...) }
+fact_cast <- function(x, to, ...) { fact(x, ...) }
 
-## from ----
+#' @export
+vec_cast.fact.Date <- fact_cast
+#' @export
+vec_cast.fact.double <- fact_cast
+#' @export
+vec_cast.fact.factor <- fact_cast
+#' @export
+vec_cast.fact.haven_labelled <- fact_cast
+#' @export
+vec_cast.fact.integer <- fact_cast
+#' @export
+vec_cast.fact.logical <- fact_cast
+#' @export
+vec_cast.fact.numeric <- fact_cast
+#' @export
+vec_cast.fact.POSIXlt <- fact_cast
+#' @export
+vec_cast.fact.pseudo_id <- fact_cast
 
-## cast values from fact
+## fact to values ----
 
 #' @export
 vec_cast.character.fact <- function(x, to, ...) { as.character(x, ...) }
