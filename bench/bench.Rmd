@@ -1,5 +1,12 @@
 ---
-output: github_document
+output: 
+  github_document:
+    code_folding: hide
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
 ---
 
 <!-- bench/bench.md is generated from bench/bench.Rmd. Please edit that file -->
@@ -9,65 +16,109 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "bench/figures/bench-",
-  out.width = "100%"
+  out.width = "100%",
+  fig.height = 6,
+  code.fold = TRUE,
+  collapse = TRUE
 )
 
 requireNamespace("bench")
 requireNamespace("stringi")
 requireNamespace("ggplot2")
 requireNamespace("ggbeeswarm")
+requireNamespace("gt")
 ```
 
 ```{r}
 library(facts)
 ```
 
-## Logical vectors
-
 ```{r}
-# Logical is much faster because we only have to check for 3 values
-y <- x <- runif(1e6) > .5
-y[sample(seq_along(y), 1e4)] <- NA
+# to save these
+bench_env <- new.env()
 
-bench::mark(
-  factor(x),
-  fact(x),
-  factor(y),
-  fact(y),
-  check = FALSE
-)[1:9] |> 
-  transform(expression = sapply(expression, deparse)) |> 
-  gt::gt("expression")
+do_bench <- function(
+    unique_n = 10^(1:4), 
+    values_n = 10^(2:6), 
+    values_type = c("logical", "character", "double", "integer", "date")
+) {
+  values_type <- match.arg(values_type)
+  
+  if (values_type == "logical") {
+    unique_n <- 3
+  }
+  
+  res <- bench::press(
+    un = unique_n,
+    vn = values_n,
+    {
+      x <- switch(
+        values_type,
+        character = stringi::stri_rand_strings(un, 5),
+        double = runif(un),
+        integer = order(runif(un)),
+        date = Sys.Date() + order(runif(un)),
+        logical = c(TRUE, FALSE, NA)
+      )
+      x <- sample(x, vn, TRUE)
+      bench::mark(
+        factor = factor(x),
+        fact = fact(x),
+        check = FALSE
+      )
+    }
+  )
+  
+  assign(values_type, res, envir = bench_env)
+  
+  print(bench:::autoplot.bench_mark(res) + ggplot2::theme(legend.position = "top"))
+  
+  writeLines('<details><summary>Show table</summary>')
+  res[1:9] |>
+    transform(expression = sapply(expression, deparse)) |>
+    gt::gt("expression") |> 
+    print()
+  writeLines("</details>")
+  
+  invisible()
+}
 ```
+
+## Logical
+
+Logical is much faster because we only have to check for 3 values
+
+```{r bench-logical}
+#| results: asis
+#| fig-height: 2
+do_bench(values_type = "logical")
+```
+
 
 ## Character
 
-```{r}
-res <- bench::press(
-  n_unique = 10^(1:4),
-  n_values = 10^(2:6),
-  value_type = c("character", "double", "integer", "date"),
-  {
-    x <- switch(
-      value_type,
-      character = stringi::stri_rand_strings(n_unique, 5),
-      double = runif(n_unique),
-      integer = order(runif(n_unique)),
-      date = Sys.Date() + order(runif(n_unique))
-    )
-    x <- sample(x, n_values, TRUE)
-    bench::mark(
-      factor = factor(x),
-      fact = fact(x),
-      check = FALSE
-    )
-  }
-)
-
-res[1:9] |> 
-  transform(expression = sapply(expression, deparse)) |> 
-  gt::gt("expression")
-
-bench:::autoplot.bench_mark(res)
+```{r bench-characters}
+#| results: asis
+do_bench(values_type = "character")
 ```
 
+## Doubles
+
+```{r bench-doubles}
+#| results: asis
+do_bench(values_type = "double")
+```
+
+## Integers
+
+```{r bench-integers}
+#| results: asis
+do_bench(values_type = "integer")
+```
+
+## Dates
+
+```{r bench-dates}
+#| results: asis
+do_bench(values_type = "date")
+```
