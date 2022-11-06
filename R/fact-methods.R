@@ -45,14 +45,8 @@ as.Date.fact <- function(x, ...) {
   y
 }
 
-
-#' #' @export
-#' c.fact <- function(...) {
-#'   vec_c(...)
-#' }
-
 #' @export
-levels.fact <- function(x, ...) {
+levels.fact <- function(x) {
   exattr(x, "levels")
 }
 
