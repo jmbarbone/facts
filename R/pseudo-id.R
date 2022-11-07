@@ -62,6 +62,15 @@ print.pseudo_id <- function(x, ..., all = FALSE) {
   invisible(x)
 }
 
+
+# helpers -----------------------------------------------------------------
+
+is_pseudo_id <- function(x) {
+  inherits(x, "pseudo_id")
+}
+
+is.pseudo_id <- is_pseudo_id
+
 na_last <- function(x) {
   if (anyNA(x)) {
     nas <- is.na(x)

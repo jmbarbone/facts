@@ -3,7 +3,7 @@
 \name{as_values}
 \alias{as_values}
 \alias{as_value.default}
-\alias{as_values.psuedo_id}
+\alias{as_values.pseudo_id}
 \alias{as_values.fact}
 \alias{as_values.factor}
 \title{Object to values}
@@ -12,9 +12,9 @@ as_values(x, ...)
 
 as_value.default(x, ...)
 
-\method{as_values}{psuedo_id}(x, ...)
+\method{as_values}{pseudo_id}(x, fun = "identity", ...)
 
-\method{as_values}{fact}(x, ...)
+\method{as_values}{fact}(x, fun = "identity", ...)
 
 \method{as_values}{factor}(x, type = c("character", "double", "integer", "date"), ...)
 }
@@ -22,6 +22,8 @@ as_value.default(x, ...)
 \item{x}{An object}
 
 \item{...}{Additional paramters passed to methods}
+
+\item{fun}{An optional function for transforming values}
 
 \item{type}{Either one of `"character"`, `"double"`, `"integer"`, or `"date"`
 or a `function` (or name of one as a `character`).  This determines how to

@@ -1,22 +1,17 @@
 
 #' @export
 as.integer.fact <- function(x, ...) {
-  x <- fact_na(x)
-  nas <- is.na(x)
-  attributes(x) <- NULL
-  class(x) <- "integer"
-  x[nas] <- NA_integer_
-  x
+  as_values(x, as.integer)
 }
 
 #' @export
 as.double.fact <- function(x, ...) {
-  as.double(as.integer(x))
+  as_values(x, as.double)
 }
 
 #' @export
 as.character.fact <- function(x, ...) {
-  as.character(as_values(x))
+  as_values(x, as.character)
 }
 
 # because unique.factor() remakes factor

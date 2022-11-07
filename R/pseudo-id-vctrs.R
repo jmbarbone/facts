@@ -18,9 +18,9 @@ vec_ptype_abbr.pseudo_id <- function(x, ...) {
 }
 
 pseudo_id_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
-  x_val <- values(x) %||% vec_unique(x)
-  y_val <- values(y) %||% vec_unique(y)
-  mold <- try(pseudo_id(vec_c(x_val, y_val)), silent = TRUE)
+  x_val <- values(x)
+  y_val <- values(y)
+  mold <- try(vec_c(x_val, y_val), silent = TRUE)
 
   if (inherits(mold, "try-error")) {
     msg <- sprintf(
@@ -41,49 +41,66 @@ pseudo_id_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
     )
   }
 
-  mold
+  if (is_pseudo_id(x) | is.factor(x) & is_pseudo_id(y) & is.factor(y)) {
+    pseudo_id(mold)
+  } else {
+    mold[0]
+  }
 }
 
 # ptype2 ------------------------------------------------------------------
 
-# TODO rethink this...
+do_ptype <- function(value) {
+  fun <- function(x, y, ..., x_arg = "", y_arg = "") { }
+  body(fun) <- substitute(value)
+  fun
+}
+
 # choose richer one
 
 #' @export
 vec_ptype2.pseudo_id.pseudo_id <- pseudo_id_ptypes
 
 #' @export
-vec_ptype2.Date.pseudo_id <- pseudo_id_ptypes
+vec_ptype2.character.pseudo_id <- do_ptype(character())
 #' @export
-vec_ptype2.pseudo_id.Date <- pseudo_id_ptypes
+vec_ptype2.pseudo_id.character <- do_ptype(character())
 
 #' @export
-vec_ptype2.double.pseudo_id <- pseudo_id_ptypes
+vec_ptype2.Date.pseudo_id <- do_ptype(new_date())
 #' @export
-vec_ptype2.pseudo_id.double <- pseudo_id_ptypes
+vec_ptype2.pseudo_id.Date <- do_ptype(new_date())
 
 #' @export
-vec_ptype2.pseudo_idor.pseudo_id <- pseudo_id_ptypes
+vec_ptype2.double.pseudo_id <- do_ptype(double())
 #' @export
-vec_ptype2.pseudo_id.pseudo_idor <- pseudo_id_ptypes
+vec_ptype2.pseudo_id.double <- do_ptype(double())
 
 #' @export
-vec_ptype2.integer.pseudo_id <- pseudo_id_ptypes
+vec_ptype2.factor.pseudo_id <- pseudo_id_ptypes
 #' @export
-vec_ptype2.pseudo_id.integer <- pseudo_id_ptypes
+vec_ptype2.pseudo_id.factor <- pseudo_id_ptypes
 
 #' @export
-vec_ptype2.logical.pseudo_id <- pseudo_id_ptypes
+vec_ptype2.fact.pseudo_id <- pseudo_id_ptypes
 #' @export
-vec_ptype2.pseudo_id.logical <- pseudo_id_ptypes
+vec_ptype2.pseudo_id.fact <- pseudo_id_ptypes
+
+#' @export
+vec_ptype2.integer.pseudo_id <- do_ptype(integer())
+#' @export
+vec_ptype2.pseudo_id.integer <- do_ptype(integer())
+
+#' @export
+vec_ptype2.logical.pseudo_id <- do_ptype(logical())
+#' @export
+vec_ptype2.pseudo_id.logical <- do_ptype(logical())
 
 # cast --------------------------------------------------------------------
 
 ## values to pseudo_id ----
 
-#' @export
-vec_cast.pseudo_id.pseudo_id <- function(x, to, ...) {
-  # browser()
+vec_cast_pseudo_id_values <- function(x, to, ...) {
   values <- values(to)
   new_pseudo_id(
     vec_match(values(x)[x], values),
@@ -91,44 +108,51 @@ vec_cast.pseudo_id.pseudo_id <- function(x, to, ...) {
   )
 }
 
-pseudo_id_cast <- function(x, to, ...) { pseudo_id(x, ...) }
+vec_cast_pseudo_id_default <- function(x, to, ...) {
+  res <- pseudo_id(vec_c(x, values(to)))
+  res[vec_match(x, values(res))]
+}
 
 #' @export
-vec_cast.pseudo_id.Date <- pseudo_id_cast
+vec_cast.pseudo_id.pseudo_id <- vec_cast_pseudo_id_values
 #' @export
-vec_cast.pseudo_id.double <- pseudo_id_cast
+vec_cast.pseudo_id.fact <- vec_cast_pseudo_id_values
 #' @export
-vec_cast.pseudo_id.pseudo_idor <- pseudo_id_cast
+vec_cast.pseudo_id.factor <- vec_cast_pseudo_id_values
 #' @export
-vec_cast.pseudo_id.haven_labelled <- pseudo_id_cast
+vec_cast.pseudo_id.haven_labelled <- vec_cast_pseudo_id_values
+
 #' @export
-vec_cast.pseudo_id.integer <- pseudo_id_cast
+vec_cast.pseudo_id.character <- vec_cast_pseudo_id_default
 #' @export
-vec_cast.pseudo_id.logical <- pseudo_id_cast
+vec_cast.pseudo_id.Date <- vec_cast_pseudo_id_default
 #' @export
-vec_cast.pseudo_id.numeric <- pseudo_id_cast
+vec_cast.pseudo_id.double <- vec_cast_pseudo_id_default
 #' @export
-vec_cast.pseudo_id.POSIXlt <- pseudo_id_cast
+vec_cast.pseudo_id.integer <- vec_cast_pseudo_id_default
+#' @export
+vec_cast.pseudo_id.logical <- vec_cast_pseudo_id_default
+#' @export
+vec_cast.pseudo_id.numeric <- vec_cast_pseudo_id_default
+#' @export
+vec_cast.pseudo_id.POSIXlt <- vec_cast_pseudo_id_default
 
 ## pseudo_id to values ----
 
 # maybe not?
 
 #' @export
-vec_cast.character.fact <- function(x, to, ...) { as.character(x, ...) }
+vec_cast.character.pseudo_id <- function(x, to, ...) { vec_cast(values(x), character())[x] }
 #' @export
-vec_cast.Date.fact <- function(x, to, ...) { as.Date(x, ...) }
+vec_cast.Date.pseudo_id <- function(x, to, ...) { vec_cast(values(x), new_date())[x] }
 #' @export
-vec_cast.double.fact <- function(x, to, ...) { as.double(unclass(x)) }
+vec_cast.double.pseudo_id <- function(x, to, ...) { vec_cast(values(x), double())[x] }
 #' @export
-vec_cast.integer.fact <- function(x, to, ...) { x }
+vec_cast.integer.pseudo_id <- function(x, to, ...) { struct(x, "integer") }
 #' @export
-vec_cast.numeric.fact <- function(x, to, ...) { as.numeric(unclass(x)) }
+vec_cast.numeric.pseudo_id <- function(x, to, ...) { vec_cast(values(x), numeric())[x] }
 
 #' @export
 as.integer.pseudo_id <- function(x, ...) {
-  x <- unclass(x)
-  attributes(x) <- NULL
-  x
+  vec_cast(x, integer())
 }
-
