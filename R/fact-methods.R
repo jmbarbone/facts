@@ -49,7 +49,8 @@ levels.fact <- function(x) {
 format.fact <- function(x, ...) {
   vals <- values(x)
   ints <- seq_along(vals)
-  sprintf("[%s]:%s", ints, vals)[x]
+  sprintf("%s [%s]", format(ints), format(vals))[x]
+}
 }
 
 #' @export
