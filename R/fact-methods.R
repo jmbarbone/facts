@@ -51,6 +51,11 @@ format.fact <- function(x, ...) {
   ints <- seq_along(vals)
   sprintf("%s [%s]", format(ints), format(vals))[x]
 }
+
+#' @importFrom pillar pillar_shaft
+#' @export
+pillar_shaft.fact <- function(x, ...) {
+  pillar::new_pillar_shaft_simple(format(x))
 }
 
 #' @export
