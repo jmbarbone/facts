@@ -36,11 +36,7 @@ pseudo_id_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
     )
   }
 
-  if (is_pseudo_id(x) | is.factor(x) & is_pseudo_id(y) & is.factor(y)) {
-    pseudo_id(mold)
-  } else {
-    mold[0]
-  }
+  pseudo_id(mold)
 }
 
 # ptype2 ------------------------------------------------------------------
