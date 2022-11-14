@@ -50,11 +50,13 @@ pseudo_id_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
 
 # ptype2 ------------------------------------------------------------------
 
+# nocovr start
 do_ptype <- function(value) {
   fun <- function(x, y, ..., x_arg = "", y_arg = "") { }
   body(fun) <- substitute(value)
   fun
 }
+# nocovr end
 
 # choose richer one
 
@@ -140,19 +142,19 @@ vec_cast.pseudo_id.POSIXlt <- vec_cast_pseudo_id_default
 ## pseudo_id to values ----
 
 # maybe not?
+# use values() instead?
+# the `numeric` classes are redundant to the doubles, but added just in case
 
-#' @export
-vec_cast.character.pseudo_id <- function(x, to, ...) { vec_cast(values(x), character())[x] }
-#' @export
-vec_cast.Date.pseudo_id <- function(x, to, ...) { vec_cast(values(x), new_date())[x] }
-#' @export
-vec_cast.double.pseudo_id <- function(x, to, ...) { vec_cast(values(x), double())[x] }
 #' @export
 vec_cast.integer.pseudo_id <- function(x, to, ...) { struct(x, "integer") }
 #' @export
-vec_cast.numeric.pseudo_id <- function(x, to, ...) { vec_cast(values(x), numeric())[x] }
+vec_cast.double.pseudo_id <- function(x, to, ...) { struct(x, "double") }
+#' @export
+vec_cast.numeric.pseudo_id <- function(x, to, ...) { struct(x, "numeric") } # nocovr
 
 #' @export
-as.integer.pseudo_id <- function(x, ...) {
-  vec_cast(x, integer())
-}
+as.integer.pseudo_id <- function(x, ...) { vec_cast(x, integer()) }
+#' @export
+as.double.pseudo_id <- function(x, ...) { vec_cast(x, double()) }
+#' @export
+as.numeric.pseudo_id <- function(x, ...) { vec_cast(x, numeric()) } # nocovr
