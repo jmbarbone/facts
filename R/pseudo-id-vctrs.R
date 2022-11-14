@@ -143,9 +143,3 @@ vec_cast.double.pseudo_id <- function(x, to, ...) { struct(x, "double") }
 #' @export
 vec_cast.numeric.pseudo_id <- function(x, to, ...) { struct(x, "numeric") } # nocov
 
-#' @export
-as.integer.pseudo_id <- function(x, ...) { vec_cast(x, integer()) }
-#' @export
-as.double.pseudo_id <- function(x, ...) { vec_cast(x, double()) }
-#' @export
-as.numeric.pseudo_id <- function(x, ...) { vec_cast(x, numeric()) } # nocov
