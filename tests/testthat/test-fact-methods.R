@@ -67,3 +67,17 @@ test_that("as.character.fact() works", {
   res <- as.character(fact(exp))
   expect_identical(exp, res)
 })
+
+test_that("format.fact()", {
+  obj <- format(fact(1))
+  exp <- "1 [1]"
+  expect_identical(obj, exp)
+
+  obj <- format(fact(c("a", "b", "c")))
+  exp <- c("1 [a]", "2 [b]", "3 [c]")
+  expect_identical(obj, exp)
+})
+
+test_that("pillar_shaft.fact()", {
+  expect_no_error(pillar_shaft(fact(1:100)))
+})
