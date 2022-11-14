@@ -1,10 +1,5 @@
 
-new_pseudo_id <- function(x = integer(), values = integer(), ..., u) {
-  if (!missing(u)) {
-    # TODO fix this
-    values <- u
-  }
-
+new_pseudo_id <- function(x = integer(), values = integer(), ...) {
   struct(
     x = x,
     class = c("pseudo_id", "integer", "vctrs_vctr"),
