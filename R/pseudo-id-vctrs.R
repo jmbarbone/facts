@@ -50,13 +50,13 @@ pseudo_id_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
 
 # ptype2 ------------------------------------------------------------------
 
-# nocovr start
+# nocov start
 do_ptype <- function(value) {
   fun <- function(x, y, ..., x_arg = "", y_arg = "") { }
   body(fun) <- substitute(value)
   fun
 }
-# nocovr end
+# nocov end
 
 # choose richer one
 
@@ -150,11 +150,11 @@ vec_cast.integer.pseudo_id <- function(x, to, ...) { struct(x, "integer") }
 #' @export
 vec_cast.double.pseudo_id <- function(x, to, ...) { struct(x, "double") }
 #' @export
-vec_cast.numeric.pseudo_id <- function(x, to, ...) { struct(x, "numeric") } # nocovr
+vec_cast.numeric.pseudo_id <- function(x, to, ...) { struct(x, "numeric") } # nocov
 
 #' @export
 as.integer.pseudo_id <- function(x, ...) { vec_cast(x, integer()) }
 #' @export
 as.double.pseudo_id <- function(x, ...) { vec_cast(x, double()) }
 #' @export
-as.numeric.pseudo_id <- function(x, ...) { vec_cast(x, numeric()) } # nocovr
+as.numeric.pseudo_id <- function(x, ...) { vec_cast(x, numeric()) } # nocov
