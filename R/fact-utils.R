@@ -1,21 +1,3 @@
-new_fact <- function(
-    x,
-    values,
-    levels = to_levels(values),
-    ordered = FALSE,
-    range = NULL,
-    na = if (anyNA(values)) length(values) else 0L
-) {
-  struct(
-    as.integer(x),
-    class = c("fact", if (ordered) "ordered", "factor"),
-    levels = if (is.null(levels)) to_levels(values) else to_levels(levels),
-    values = values,
-    range = range,
-    na = na
-  )
-}
-
 try_numeric <- function(x) {
   if (is.numeric(x)) {
     return(x)

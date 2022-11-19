@@ -20,8 +20,15 @@ cat0 <- function(...) {
   cat(..., sep = "" )
 }
 
-values <- function(x) {
-  exattr(x, "values")
+values <- function(x, strict = TRUE) {
+  # TODO should this really grab from levels?
+  out <- exattr(x, "values") %||% exattr(x, "levels")
+
+  if (!strict && is.null(out)) {
+    out <- vec_unique(x)
+  }
+
+  out
 }
 
 last <- function(x) {

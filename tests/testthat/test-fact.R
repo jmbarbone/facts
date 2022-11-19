@@ -49,11 +49,11 @@ test_that("fact.factor() works", {
   # x <- fact(as.character(c(Sys.Date() + 5:1, NA))[sample(1:6, 20, TRUE)])
 
   x <- factor(letters)
-  class(x) <- c("fact", "factor")
+  class(x) <- c("fact", "factor", "vctrs_vctr")
   expect_identical(fact(x), x)
 
   x <- ordered(letters)
-  class(x) <- c("fact", "ordered", "factor")
+  class(x) <- c("fact", "ordered", "factor", "vctrs_vctr")
   expect_identical(fact(x), x)
 
   x <- struct(1L, c("fact", "factor"), levels = c("a", NA_character_))
@@ -155,7 +155,7 @@ test_that("fact() ignores NaN", {
   res <- fact(c(1, 2, NA, 3, NaN))
   exp <- struct(
     c(1L, 2L, 4L, 3L, 4L),
-    class = c("fact", "factor"),
+    class = c("fact", "factor", "vctrs_vctr"),
     values = c(1, 2, 3, NA),
     levels = c("1", "2", "3", "(na)"),
     na = 4L
@@ -170,9 +170,10 @@ test_that("ranges", {
     fact(c(1L, 3L, 2L), range = c(1, 10)),
     struct(
       c(1L, 3L, 2L),
-      class = c("fact", "factor"),
+      class = c("fact", "factor", "vctrs_vctr"),
       levels = as.character(1:10),
       values = c(1L, 2L, 3L),
+      range = c(1L, 10L),
       na = 0L
     )
   )

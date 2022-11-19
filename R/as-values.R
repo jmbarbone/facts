@@ -16,20 +16,18 @@ as_value.default <- function(x, ...) {
   x
 }
 
-
 #' @export
 #' @rdname as_values
-as_values.psuedo_id <- function(x, ...) {
-  values(x)[x]
+#' @param fun An optional function for transforming values
+as_values.pseudo_id <- function(x, fun = "identity", ...) {
+  fun <- match.fun(fun)
+  fun(values(x))[x]
 }
 
 
 #' @export
 #' @rdname as_values
-as_values.fact <- function(x, ...) {
-  values(x)[x]
-}
-
+as_values.fact <- as_values.pseudo_id
 
 #' @export
 #' @rdname as_values
