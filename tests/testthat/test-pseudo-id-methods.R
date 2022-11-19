@@ -6,5 +6,5 @@ test_that("format.pseudo_id()", {
 })
 
 test_that("pillar_shaft.pseudo_id()", {
-  expect_no_error(pseudo_id(1))
+  expect_no_error(pillar_shaft(pseudo_id(1)))
 })
