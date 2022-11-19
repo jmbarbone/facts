@@ -1,4 +1,4 @@
-# print.fact
+# print.fact()
 
     Code
       fact(1L, range = 0:2)
