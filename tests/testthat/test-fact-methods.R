@@ -81,3 +81,15 @@ test_that("format.fact()", {
 test_that("pillar_shaft.fact()", {
   expect_no_error(pillar_shaft(fact(1:100)))
 })
+
+
+test_that("print.fact()", {
+  expect_snapshot(fact(1L, range = 0:2))
+  expect_snapshot(print(fact(1:5), max_levels = 5))
+  expect_snapshot(print(fact(1:100), max_levels = 1))
+  expect_snapshot(print(fact(1:100), max_levels = 2))
+  expect_snapshot(print(fact(1:100), max_levels = 3))
+  x <- fact(1)
+  attr(x, "label") <- "this"
+  expect_snapshot(x)
+})
