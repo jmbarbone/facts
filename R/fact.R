@@ -121,10 +121,12 @@ range_safe <- function(x, y) {
     stop(fact_range_finite_condition())
   }
 
-  res <- seq.int(min(x), max(x))
+  res <- seq.int(min(x), max(x), by = 1L)
 
   if (date) {
     res <- as.Date(res, origin = "1950-01-01")
+  } else {
+    res <- as.integer(res)
   }
 
   res
