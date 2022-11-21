@@ -50,6 +50,11 @@ test_that("pseudo_id.pseudo_id() works", {
   expect_equal(pseudo_id(id), id)
 })
 
+test_that("is_pseudo_id()", {
+  expect_true(is_pseudo_id(new_pseudo_id()))
+  expect_true(is.pseudo_id(new_pseudo_id()))
+})
+
 test_that("snapshots", {
   x <- c(
     0.316596544580534,  0.838568194536492,   0.126674774102867,
