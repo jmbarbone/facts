@@ -168,7 +168,7 @@ test_that("fact() correctly labels NAs [mark#24]", {
 
 test_that("fact() ignores NaN", {
   # ignore NaN
-  res <- fact(c(1, 2, NA, 3, NaN))
+  obj <- fact(c(1, 2, NA, 3, NaN))
   exp <- struct(
     c(1L, 2L, 4L, 3L, 4L),
     class = c("fact", "factor", "vctrs_vctr"),
@@ -177,11 +177,11 @@ test_that("fact() ignores NaN", {
     na = 4L
   )
 
-  expect_identical(res, exp)
+  expect_identical(obj, exp)
 })
 
 test_that("ranges", {
-  obj <- fact(c(1L, 3L, 2L), range = c(1, 10))
+  obj <- fact(c(1L, 3L, 2L), range = c(1L, 10L))
   exp <- struct(
     c(1L, 3L, 2L),
     class = c("fact", "factor", "vctrs_vctr"),
