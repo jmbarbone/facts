@@ -94,6 +94,18 @@ test_that("fact.factor()", {
   x <- factor(c(NA, TRUE, FALSE), exclude = NULL)
   res <- new_fact(c(3L, 1L, 2L), c(TRUE, FALSE, NA))
   expect_identical(fact(x, convert = TRUE), res)
+
+  obj <- fact(factor(c("a", NA, "c")), convert = TRUE)
+  exp <- new_fact(c(1, NA, 2), values = c("a", "c", NA))
+  expect_identical(obj, exp)
+
+  obj <- fact(factor(c("a", NA, "c"), exclude = NULL), convert = TRUE)
+  exp <- new_fact(c(1, NA, 2), values = c("a", "c", NA))
+  expect_identical(obj, exp)
+
+  obj <- fact(factor(c("1", NA, "2"), exclude = NULL), convert = as.integer)
+  exp <- new_fact(c(1L, 3L, 2L), values = c(1L, 2L, NA))
+  expect_identical(obj, exp)
 })
 
 test_that("fact.haven_labelled()", {
@@ -192,7 +204,8 @@ test_that("ranges", {
   )
   expect_identical(obj, exp)
 
-  obj <- range_safe(as.Date("2022-01-01") + 0:10, as.Date("2022-01-01"))
+  obj <- range_safe(as.Date("20
+                            22-01-01") + 0:10, as.Date("2022-01-01"))
   exp <- as.Date("2022-01-01") + 0:10
   expect_identical(obj, exp)
 
