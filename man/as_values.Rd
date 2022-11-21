@@ -2,7 +2,7 @@
 % Please edit documentation in R/as-values.R
 \name{as_values}
 \alias{as_values}
-\alias{as_value.default}
+\alias{as_values.default}
 \alias{as_values.pseudo_id}
 \alias{as_values.fact}
 \alias{as_values.factor}
@@ -10,7 +10,7 @@
 \usage{
 as_values(x, ...)
 
-as_value.default(x, ...)
+\method{as_values}{default}(x, ...)
 
 \method{as_values}{pseudo_id}(x, fun = "identity", ...)
 

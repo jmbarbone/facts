@@ -12,7 +12,7 @@ as_values <- function(x, ...) {
 
 #' @export
 #' @rdname as_values
-as_value.default <- function(x, ...) {
+as_values.default <- function(x, ...) {
   x
 }
 
@@ -36,7 +36,7 @@ as_values.fact <- as_values.pseudo_id
 #'   convert the result of `levels(x)`.
 as_values.factor <- function(x, type = c("character", "double", "integer", "date"), ...) {
   switch(
-    type,
+    match.arg(type),
     character = levels(x)[x],
     double = as.double(levels(x))[x],
     integer = as.integer(levels(x))[x],
