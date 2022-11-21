@@ -45,6 +45,22 @@ test_that("fact.integer() works", {
   )
 })
 
+test_that("fact.numeric()", {
+  op <- options()
+
+  options(facts.guess.integer = FALSE)
+  obj <- fact(struct(1, c("foo", "numeric")))
+  exp <- new_fact(1, struct(1, c("foo", "numeric")))
+  expect_equal(obj, exp)
+
+  options(facts.guess.integer = TRUE)
+  obj <- fact(struct(1, c("foo", "numeric")))
+  exp <- new_fact(1L, struct(1L, c("foo", "integer")))
+  expect_equal(obj, exp)
+
+  options(op)
+})
+
 test_that("fact.factor() works", {
   # x <- fact(as.character(c(Sys.Date() + 5:1, NA))[sample(1:6, 20, TRUE)])
 
