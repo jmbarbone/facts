@@ -35,8 +35,12 @@ as_values.fact <- as_values.pseudo_id
 #'   or a `function` (or name of one as a `character`).  This determines how to
 #'   convert the result of `levels(x)`.
 as_values.factor <- function(x, type = c("character", "double", "integer", "date"), ...) {
+  if (is.function(type)) {
+    return(type(levels(x))[x])
+  }
+
   switch(
-    match.arg(type),
+    type[1],
     character = levels(x)[x],
     double = as.double(levels(x))[x],
     integer = as.integer(levels(x))[x],
