@@ -93,6 +93,8 @@ test_that("print.fact()", {
     }
   }
 
+  foo(bar(as_ordered(integer())))
+  foo(bar(fact(integer())))
   foo(bar(fact(1L, range = 0:2)))
   foo(bar(fact(1:5), max_levels = 5))
   foo(bar(fact(1:100), max_levels = 1))
