@@ -165,7 +165,6 @@ test_that("fact() ignores NaN", {
 })
 
 test_that("ranges", {
-
   expect_identical(
     fact(c(1L, 3L, 2L), range = c(1, 10)),
     struct(
@@ -186,12 +185,4 @@ test_that("ranges", {
 
   expect_error(range_safe(NA_integer_, 1L), class = "factRangeFiniteError")
   expect_error(range_safe(Inf, 1L), class = "factRangeFiniteError")
-})
-
-test_that("snapshots", {
-  expect_snapshot(fact(character()))
-  expect_snapshot(fact(1:5))
-  expect_snapshot(print(fact(1:100), max_levels = TRUE))
-  expect_snapshot(print(fact(1:100), max_levels = 20))
-  expect_snapshot(print(fact(1:100), max_levels = 100))
 })
