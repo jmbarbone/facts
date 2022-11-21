@@ -40,12 +40,6 @@ fact_na_label <- function(na = NULL) {
   na
 }
 
-fact_values <- function(x) {
-  check_fact()
-  .Deprecated("as_values")
-  as_values(x)
-}
-
 fact_coerce_levels <- function(x) {
   nas <- is.na(x)
 
