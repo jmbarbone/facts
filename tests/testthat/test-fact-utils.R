@@ -1,4 +1,4 @@
-test_that("`fact_levels<-`() works", {
+test_that("`fact_levels<-`()", {
   x <- fact(1:3)
   fact_levels(x) <- 1:4
   exp <- struct(
@@ -11,7 +11,7 @@ test_that("`fact_levels<-`() works", {
   expect_identical(x, exp)
 })
 
-test_that("fact_coerce_levels() works", {
+test_that("fact_coerce_levels()", {
   x <- as.Date("2021-09-03") + 0:2
   expect_equal(fact_coerce_levels(as.character(x)), x)
 
@@ -26,7 +26,7 @@ test_that("fact_coerce_levels() works", {
   expect_equal(fact_coerce_levels(as.character(x)), x)
 })
 
-test_that("try_numeric() works", {
+test_that("try_numeric()", {
   x <- 1
   expect_identical(try_numeric(x), x)
 
