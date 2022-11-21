@@ -3,7 +3,7 @@ test_that("fact.default() fails", {
   expect_error(fact(struct(NULL, "foo")), class = "factMethodError")
 })
 
-test_that("fact.logical() works", {
+test_that("fact.logical()", {
   x <- fact(c(TRUE, FALSE, NA))
   expect_message(capture.output(print(x)), NA)
 
@@ -14,7 +14,7 @@ test_that("fact.logical() works", {
   expect_false(anyNA(x))
 })
 
-test_that("fact.pseudo_id() works", {
+test_that("fact.pseudo_id()", {
   expect_message(capture.output(print(fact(pseudo_id(c("a", "a", "b", NA_character_))))), NA)
 
   # Should appropriately order numeric values
@@ -38,14 +38,30 @@ test_that("fact.pseudo_id() works", {
   expect_identical(o, 1:4)
 })
 
-test_that("fact.integer() works", {
+test_that("fact.integer()", {
   expect_equal(
     fact(struct(1L, c("foo", "integer"))),
     new_fact(1L, struct(1L, c("foo", "integer")))
   )
 })
 
-test_that("fact.factor() works", {
+test_that("fact.numeric()", {
+  op <- options()
+
+  options(facts.guess.integer = FALSE)
+  obj <- fact(struct(1, c("foo", "numeric")))
+  exp <- new_fact(1, struct(1, c("foo", "numeric")))
+  expect_equal(obj, exp)
+
+  options(facts.guess.integer = TRUE)
+  obj <- fact(struct(1, c("foo", "numeric")))
+  exp <- new_fact(1L, struct(1L, c("foo", "integer")))
+  expect_equal(obj, exp)
+
+  options(op)
+})
+
+test_that("fact.factor()", {
   # x <- fact(as.character(c(Sys.Date() + 5:1, NA))[sample(1:6, 20, TRUE)])
 
   x <- factor(letters)
@@ -78,9 +94,21 @@ test_that("fact.factor() works", {
   x <- factor(c(NA, TRUE, FALSE), exclude = NULL)
   res <- new_fact(c(3L, 1L, 2L), c(TRUE, FALSE, NA))
   expect_identical(fact(x, convert = TRUE), res)
+
+  obj <- fact(factor(c("a", NA, "c")), convert = TRUE)
+  exp <- new_fact(c(1, NA, 2), values = c("a", "c", NA))
+  expect_identical(obj, exp)
+
+  obj <- fact(factor(c("a", NA, "c"), exclude = NULL), convert = TRUE)
+  exp <- new_fact(c(1, 3L, 2), values = c("a", "c", NA))
+  expect_identical(obj, exp)
+
+  obj <- fact(factor(c("1", NA, "2"), exclude = NULL), convert = as.integer)
+  exp <- new_fact(c(1L, 3L, 2L), values = c(1L, 2L, NA))
+  expect_identical(obj, exp)
 })
 
-test_that("fact.haven_labelled() works", {
+test_that("fact.haven_labelled()", {
   skip_if_not_installed("haven")
   .haven_as_factor <- "haven" %colons% "as_factor.haven_labelled"
   haven_as_fact <- function(..., .convert = NULL) {
@@ -152,7 +180,7 @@ test_that("fact() correctly labels NAs [mark#24]", {
 
 test_that("fact() ignores NaN", {
   # ignore NaN
-  res <- fact(c(1, 2, NA, 3, NaN))
+  obj <- fact(c(1, 2, NA, 3, NaN))
   exp <- struct(
     c(1L, 2L, 4L, 3L, 4L),
     class = c("fact", "factor", "vctrs_vctr"),
@@ -161,22 +189,33 @@ test_that("fact() ignores NaN", {
     na = 4L
   )
 
-  expect_identical(res, exp)
+  expect_identical(obj, exp)
 })
 
 test_that("ranges", {
-
-  expect_identical(
-    fact(c(1L, 3L, 2L), range = c(1, 10)),
-    struct(
-      c(1L, 3L, 2L),
-      class = c("fact", "factor", "vctrs_vctr"),
-      levels = as.character(1:10),
-      values = c(1L, 2L, 3L),
-      range = c(1L, 10L),
-      na = 0L
-    )
+  obj <- fact(c(1L, 3L, 2L), range = c(1L, 10L))
+  exp <- struct(
+    c(1L, 3L, 2L),
+    class = c("fact", "factor", "vctrs_vctr"),
+    levels = as.character(1:10),
+    values = c(1L, 2L, 3L),
+    range = c(1L, 10L),
+    na = 0L
   )
+  expect_identical(obj, exp)
+
+  obj <- range_safe(as.Date("2022-01-01") + 0:10, as.Date("2022-01-01"))
+  exp <- as.Date("2022-01-01") + 0:10
+  expect_identical(obj, exp)
+
+  obj <- fact(as.Date("2022-01-01"), range = as.Date("2022-01-01") + c(0, 10))
+  exp <- new_fact(
+    1,
+    values = as.Date("2022-01-01"),
+    levels = as.character(as.Date("2022-01-01") + 0:10),
+    range = as.Date("2022-01-01") + c(0, 10)
+  )
+  expect_identical(obj, exp)
 
   foo <- function() { struct(list(), "foo") }
   expect_error(range_safe("a", 1), class = "factRangeNumericError")
@@ -186,12 +225,4 @@ test_that("ranges", {
 
   expect_error(range_safe(NA_integer_, 1L), class = "factRangeFiniteError")
   expect_error(range_safe(Inf, 1L), class = "factRangeFiniteError")
-})
-
-test_that("snapshots", {
-  expect_snapshot(fact(character()))
-  expect_snapshot(fact(1:5))
-  expect_snapshot(print(fact(1:100), max_levels = TRUE))
-  expect_snapshot(print(fact(1:100), max_levels = 20))
-  expect_snapshot(print(fact(1:100), max_levels = 100))
 })

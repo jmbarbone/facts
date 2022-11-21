@@ -31,16 +31,7 @@ values <- function(x, strict = TRUE) {
   out
 }
 
-last <- function(x) {
-  x[length(x)]
-}
-
 add_class <- function(x, cl, pos = 1L, from_last = TRUE) {
   class(x) <- unique(append(class(x), cl, after = pos - 1L), fromLast = from_last)
   x
-}
-
-vap_lgl <- function(x, FUN, ...) {
-  FUN <- match.fun(FUN)
-  vapply(x, FUN, ..., FUN.VALUE = NA, USE.NAMES = FALSE)
 }

@@ -82,14 +82,27 @@ test_that("pillar_shaft.fact()", {
   expect_no_error(pillar_shaft(fact(1:100)))
 })
 
-
 test_that("print.fact()", {
-  expect_snapshot(fact(1L, range = 0:2))
-  expect_snapshot(print(fact(1:5), max_levels = 5))
-  expect_snapshot(print(fact(1:100), max_levels = 1))
-  expect_snapshot(print(fact(1:100), max_levels = 2))
-  expect_snapshot(print(fact(1:100), max_levels = 3))
+  if (Sys.getenv("NOT_CRAN") == "true") {
+    foo <- testthat::expect_snapshot
+    bar <- print
+  } else {
+    foo <- testthat::expect_no_error
+    bar <- function(x, ...) {
+      utils::capture.output(print(x, ...))
+    }
+  }
+
+  foo(bar(as_ordered(integer())))
+  foo(bar(fact(integer())))
+  foo(bar(fact(1L, range = 0:2)))
+  foo(bar(fact(1:5), max_levels = 5))
+  foo(bar(fact(1:100), max_levels = 1))
+  foo(bar(fact(1:100), max_levels = 2))
+  foo(bar(fact(1:100), max_levels = 3))
+  foo(bar(fact(1:100), max_levels = TRUE))
+
   x <- fact(1)
   attr(x, "label") <- "this"
-  expect_snapshot(x)
+  foo(bar(x))
 })

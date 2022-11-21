@@ -1,7 +1,23 @@
 # print.fact()
 
     Code
-      fact(1L, range = 0:2)
+      bar(as_ordered(integer()))
+    Output
+      ordered(0)
+      levels: 
+
+---
+
+    Code
+      bar(fact(integer()))
+    Output
+      factor(0)
+      levels: 
+
+---
+
+    Code
+      bar(fact(1L, range = 0:2))
     Output
       [1] 1
       range: 0 to 2
@@ -9,7 +25,7 @@
 ---
 
     Code
-      print(fact(1:5), max_levels = 5)
+      bar(fact(1:5), max_levels = 5)
     Output
       [1] 1 2 3 4 5
       levels: 1 2 3 4 5
@@ -17,7 +33,7 @@
 ---
 
     Code
-      print(fact(1:100), max_levels = 1)
+      bar(fact(1:100), max_levels = 1)
     Output
         [1] 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18 
        [19] 19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36 
@@ -30,7 +46,7 @@
 ---
 
     Code
-      print(fact(1:100), max_levels = 2)
+      bar(fact(1:100), max_levels = 2)
     Output
         [1] 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18 
        [19] 19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36 
@@ -43,7 +59,7 @@
 ---
 
     Code
-      print(fact(1:100), max_levels = 3)
+      bar(fact(1:100), max_levels = 3)
     Output
         [1] 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18 
        [19] 19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36 
@@ -56,7 +72,20 @@
 ---
 
     Code
-      x
+      bar(fact(1:100), max_levels = TRUE)
+    Output
+        [1] 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18 
+       [19] 19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36 
+       [37] 37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54 
+       [55] 55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72 
+       [73] 73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90 
+       [91] 91  92  93  94  95  96  97  98  99  100
+      100 levels: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 ... 100
+
+---
+
+    Code
+      bar(x)
     Output
       [1] 1
       levels: 1
