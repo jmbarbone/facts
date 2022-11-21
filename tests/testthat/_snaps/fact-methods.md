@@ -1,6 +1,22 @@
 # print.fact()
 
     Code
+      bar(as_ordered(integer()))
+    Output
+      ordered(0)
+      levels: 
+
+---
+
+    Code
+      bar(fact(integer()))
+    Output
+      factor(0)
+      levels: 
+
+---
+
+    Code
       bar(fact(1L, range = 0:2))
     Output
       [1] 1
