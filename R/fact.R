@@ -61,7 +61,10 @@ fact.character <- function(x, levels = NULL, ...) {
 fact.numeric <- function(x, ...) {
   if (isTRUE(getOption("facts.guess.integer", FALSE))) {
     if (is_integerish(x)) {
-      return(fact(as.integer(x), ...))
+      old <- class(x) %wo% c("double", "numeric")
+      x <- as.integer(x)
+      x <- add_class(x, old)
+      return(fact(x, ...))
     }
   }
 
