@@ -100,7 +100,7 @@ test_that("fact.factor()", {
   expect_identical(obj, exp)
 
   obj <- fact(factor(c("a", NA, "c"), exclude = NULL), convert = TRUE)
-  exp <- new_fact(c(1, NA, 2), values = c("a", "c", NA))
+  exp <- new_fact(c(1, 3L, 2), values = c("a", "c", NA))
   expect_identical(obj, exp)
 
   obj <- fact(factor(c("1", NA, "2"), exclude = NULL), convert = as.integer)
@@ -204,8 +204,7 @@ test_that("ranges", {
   )
   expect_identical(obj, exp)
 
-  obj <- range_safe(as.Date("20
-                            22-01-01") + 0:10, as.Date("2022-01-01"))
+  obj <- range_safe(as.Date("2022-01-01") + 0:10, as.Date("2022-01-01"))
   exp <- as.Date("2022-01-01") + 0:10
   expect_identical(obj, exp)
 
