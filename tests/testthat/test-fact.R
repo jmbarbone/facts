@@ -181,17 +181,16 @@ test_that("fact() ignores NaN", {
 })
 
 test_that("ranges", {
-  expect_identical(
-    fact(c(1L, 3L, 2L), range = c(1, 10)),
-    struct(
-      c(1L, 3L, 2L),
-      class = c("fact", "factor", "vctrs_vctr"),
-      levels = as.character(1:10),
-      values = c(1L, 2L, 3L),
-      range = c(1L, 10L),
-      na = 0L
-    )
+  obj <- fact(c(1L, 3L, 2L), range = c(1, 10))
+  exp <- struct(
+    c(1L, 3L, 2L),
+    class = c("fact", "factor", "vctrs_vctr"),
+    levels = as.character(1:10),
+    values = c(1L, 2L, 3L),
+    range = c(1L, 10L),
+    na = 0L
   )
+  expect_identical(obj, exp)
 
   foo <- function() { struct(list(), "foo") }
   expect_error(range_safe("a", 1), class = "factRangeNumericError")
