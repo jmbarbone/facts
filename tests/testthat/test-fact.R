@@ -192,6 +192,19 @@ test_that("ranges", {
   )
   expect_identical(obj, exp)
 
+  obj <- range_safe(as.Date("2022-01-01") + 0:10, as.Date("2022-01-01"))
+  exp <- as.Date("2022-01-01") + 0:10
+  expect_identical(obj, exp)
+
+  obj <- fact(as.Date("2022-01-01"), range = as.Date("2022-01-01") + c(0, 10))
+  exp <- new_fact(
+    1,
+    values = as.Date("2022-01-01"),
+    levels = as.character(as.Date("2022-01-01") + 0:10),
+    range = as.Date("2022-01-01") + c(0, 10)
+  )
+  expect_identical(obj, exp)
+
   foo <- function() { struct(list(), "foo") }
   expect_error(range_safe("a", 1), class = "factRangeNumericError")
   expect_error(range_safe(1, Sys.Date()), class = "factRangeDateError")
