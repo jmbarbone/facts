@@ -3,7 +3,7 @@ test_that("fact.default() fails", {
   expect_error(fact(struct(NULL, "foo")), class = "factMethodError")
 })
 
-test_that("fact.logical() works", {
+test_that("fact.logical()", {
   x <- fact(c(TRUE, FALSE, NA))
   expect_message(capture.output(print(x)), NA)
 
@@ -14,7 +14,7 @@ test_that("fact.logical() works", {
   expect_false(anyNA(x))
 })
 
-test_that("fact.pseudo_id() works", {
+test_that("fact.pseudo_id()", {
   expect_message(capture.output(print(fact(pseudo_id(c("a", "a", "b", NA_character_))))), NA)
 
   # Should appropriately order numeric values
@@ -38,7 +38,7 @@ test_that("fact.pseudo_id() works", {
   expect_identical(o, 1:4)
 })
 
-test_that("fact.integer() works", {
+test_that("fact.integer()", {
   expect_equal(
     fact(struct(1L, c("foo", "integer"))),
     new_fact(1L, struct(1L, c("foo", "integer")))
@@ -61,7 +61,7 @@ test_that("fact.numeric()", {
   options(op)
 })
 
-test_that("fact.factor() works", {
+test_that("fact.factor()", {
   # x <- fact(as.character(c(Sys.Date() + 5:1, NA))[sample(1:6, 20, TRUE)])
 
   x <- factor(letters)
@@ -96,7 +96,7 @@ test_that("fact.factor() works", {
   expect_identical(fact(x, convert = TRUE), res)
 })
 
-test_that("fact.haven_labelled() works", {
+test_that("fact.haven_labelled()", {
   skip_if_not_installed("haven")
   .haven_as_factor <- "haven" %colons% "as_factor.haven_labelled"
   haven_as_fact <- function(..., .convert = NULL) {
