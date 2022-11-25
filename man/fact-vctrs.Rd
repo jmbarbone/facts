@@ -2,8 +2,41 @@
 % Please edit documentation in R/fact-vctrs.R
 \name{fact-vctrs}
 \alias{fact-vctrs}
+\alias{new_fact}
 \title{Internal [{vctrs}] methods}
+\usage{
+new_fact(
+  x = integer(),
+  values = NULL,
+  levels = NULL,
+  ordered = FALSE,
+  range = NULL,
+  na = if (anyNA(values)) length(values) else 0L
+)
+}
+\arguments{
+\item{x}{A vector of integers denoting the `value`}
+
+\item{values}{Unique values of `x`; if `NULL` are derived from `unique(x)`}
+
+\item{levels}{Character values of `x`; if `NULL` are derived from `values`}
+
+\item{ordered}{Logical, if `TRUE` appended `"ordered"` class to output}
+
+\item{range}{Integer vector of ranges}
+
+\item{na}{Integer placement of `NA` value in `values`}
+}
+\value{
+An object with classes `"fact"`, `"ordered"` (if `ordered = TRUE`),
+  `"fact"`, and `"vctrs_vctr"`
+}
 \description{
-Internal [{vctrs}] methods
+Create `fact` vectors.
+}
+\examples{
+new_fact()
+new_fact(1:3, 7:9)
+new_fact(1:3, c("j", "m", "b"))
 }
 \keyword{internal}

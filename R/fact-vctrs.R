@@ -1,10 +1,26 @@
 #' Internal [{vctrs}] methods
 #'
+#' Create `fact` vectors.
+#'
 #' @import vctrs
 #' @keywords internal
 #' @name fact-vctrs
 NULL
 
+#' @export
+#' @rdname fact-vctrs
+#' @param x A vector of integers denoting the `value`
+#' @param values Unique values of `x`; if `NULL` are derived from `unique(x)`
+#' @param levels Character values of `x`; if `NULL` are derived from `values`
+#' @param ordered Logical, if `TRUE` appended `"ordered"` class to output
+#' @param range Integer vector of ranges
+#' @param na Integer placement of `NA` value in `values`
+#' @returns An object with classes `"fact"`, `"ordered"` (if `ordered = TRUE`),
+#'   `"fact"`, and `"vctrs_vctr"`
+#' @examples
+#' new_fact()
+#' new_fact(1:3, 7:9)
+#' new_fact(1:3, c("j", "m", "b"))
 new_fact <- function(
     x = integer(),
     values = NULL,
