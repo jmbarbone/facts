@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- bench/bench.md is generated from bench/bench.Rmd. Please edit that file -->
@@ -40,7 +42,7 @@ bench::mark(
   gt::gt("expression")
 ```
 
-## Character
+## Other vector types
 
 ```{r}
 res <- bench::press(
@@ -63,11 +65,62 @@ res <- bench::press(
     )
   }
 )
-
-res[1:9] |> 
-  transform(expression = sapply(expression, deparse)) |> 
-  gt::gt("expression")
-
-bench:::autoplot.bench_mark(res)
 ```
 
+
+```{r}
+res[1:9] |> 
+  transform(expression = sapply(expression, deparse1)) |> 
+  gt::gt("expression", "value_type") |> 
+  gt::tab_options(row.striping.include_table_body = TRUE)
+```
+
+
+```{r}
+f_plot <- function(x) {
+  x$expression <- as.character(x$expression)
+  # x$median <- log1p(x$median)
+  # x <- tidyr::unnest(x, c(time, gc))
+  # x$n_unique <- factor(x$n_unique)
+  # x$n_values <- factor(x$n_values)
+  ggplot2::ggplot(
+    x, 
+    ggplot2::aes_string(
+      x = "n_values", 
+      y = "median",
+      col = "expression",
+      group = "expression"
+    )
+  ) +
+    ggplot2::geom_line() +
+    ggplot2::geom_point() +
+    ggplot2::scale_x_continuous(
+      trans = "log1p",
+      breaks = 10^(2:6)
+    ) +
+    ggplot2::scale_y_continuous(trans = "log1p") +
+    ggplot2::coord_trans("log1p", "log1p") +
+    ggplot2::theme_light() +
+    ggplot2::theme(
+      axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)
+    ) +
+    ggplot2::facet_grid(
+      cols = ggplot2::vars(n_unique),
+      rows = ggplot2::vars(value_type),
+      scales = "free"
+    ) +
+    ggplot2::labs(
+      x = "number of values",
+      y = "median time",
+      col = "function",
+      title = "Median times across types and unique values"
+    )
+}
+```
+
+
+```{r}
+#| fig-width: 12
+#| fig-height: 12
+f_plot(res)
+```

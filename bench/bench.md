@@ -3,16 +3,6 @@
 
 ``` r
 library(facts)
-#> Registered S3 methods overwritten by 'facts':
-#>   method            from
-#>   [.fact            mark
-#>   as.Date.fact      mark
-#>   as.character.fact mark
-#>   as.double.fact    mark
-#>   as.integer.fact   mark
-#>   print.fact        mark
-#>   print.pseudo_id   mark
-#>   unique.fact       mark
 ```
 
 ## Logical vectors
@@ -34,12 +24,12 @@ bench::mark(
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 ```
 
-<div id="pqnfhhbqkt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tycymlugvt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pqnfhhbqkt .gt_table {
+#tycymlugvt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -64,7 +54,7 @@ bench::mark(
   border-left-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_heading {
+#tycymlugvt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -76,7 +66,7 @@ bench::mark(
   border-right-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_title {
+#tycymlugvt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -88,7 +78,7 @@ bench::mark(
   border-bottom-width: 0;
 }
 
-#pqnfhhbqkt .gt_subtitle {
+#tycymlugvt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -100,13 +90,13 @@ bench::mark(
   border-top-width: 0;
 }
 
-#pqnfhhbqkt .gt_bottom_border {
+#tycymlugvt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_col_headings {
+#tycymlugvt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -121,7 +111,7 @@ bench::mark(
   border-right-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_col_heading {
+#tycymlugvt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -141,7 +131,7 @@ bench::mark(
   overflow-x: hidden;
 }
 
-#pqnfhhbqkt .gt_column_spanner_outer {
+#tycymlugvt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -153,15 +143,15 @@ bench::mark(
   padding-right: 4px;
 }
 
-#pqnfhhbqkt .gt_column_spanner_outer:first-child {
+#tycymlugvt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pqnfhhbqkt .gt_column_spanner_outer:last-child {
+#tycymlugvt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pqnfhhbqkt .gt_column_spanner {
+#tycymlugvt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -173,7 +163,7 @@ bench::mark(
   width: 100%;
 }
 
-#pqnfhhbqkt .gt_group_heading {
+#tycymlugvt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -198,7 +188,7 @@ bench::mark(
   vertical-align: middle;
 }
 
-#pqnfhhbqkt .gt_empty_group_heading {
+#tycymlugvt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -213,15 +203,15 @@ bench::mark(
   vertical-align: middle;
 }
 
-#pqnfhhbqkt .gt_from_md > :first-child {
+#tycymlugvt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pqnfhhbqkt .gt_from_md > :last-child {
+#tycymlugvt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pqnfhhbqkt .gt_row {
+#tycymlugvt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -240,7 +230,7 @@ bench::mark(
   overflow-x: hidden;
 }
 
-#pqnfhhbqkt .gt_stub {
+#tycymlugvt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -253,7 +243,7 @@ bench::mark(
   padding-right: 5px;
 }
 
-#pqnfhhbqkt .gt_stub_row_group {
+#tycymlugvt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -267,11 +257,11 @@ bench::mark(
   vertical-align: top;
 }
 
-#pqnfhhbqkt .gt_row_group_first td {
+#tycymlugvt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pqnfhhbqkt .gt_summary_row {
+#tycymlugvt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -281,16 +271,16 @@ bench::mark(
   padding-right: 5px;
 }
 
-#pqnfhhbqkt .gt_first_summary_row {
+#tycymlugvt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_first_summary_row.thick {
+#tycymlugvt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pqnfhhbqkt .gt_last_summary_row {
+#tycymlugvt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -300,7 +290,7 @@ bench::mark(
   border-bottom-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_grand_summary_row {
+#tycymlugvt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -310,7 +300,7 @@ bench::mark(
   padding-right: 5px;
 }
 
-#pqnfhhbqkt .gt_first_grand_summary_row {
+#tycymlugvt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -320,11 +310,11 @@ bench::mark(
   border-top-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_striped {
+#tycymlugvt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pqnfhhbqkt .gt_table_body {
+#tycymlugvt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -333,7 +323,7 @@ bench::mark(
   border-bottom-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_footnotes {
+#tycymlugvt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -347,7 +337,7 @@ bench::mark(
   border-right-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_footnote {
+#tycymlugvt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -356,7 +346,7 @@ bench::mark(
   padding-right: 5px;
 }
 
-#pqnfhhbqkt .gt_sourcenotes {
+#tycymlugvt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -370,7 +360,7 @@ bench::mark(
   border-right-color: #D3D3D3;
 }
 
-#pqnfhhbqkt .gt_sourcenote {
+#tycymlugvt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -378,64 +368,64 @@ bench::mark(
   padding-right: 5px;
 }
 
-#pqnfhhbqkt .gt_left {
+#tycymlugvt .gt_left {
   text-align: left;
 }
 
-#pqnfhhbqkt .gt_center {
+#tycymlugvt .gt_center {
   text-align: center;
 }
 
-#pqnfhhbqkt .gt_right {
+#tycymlugvt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pqnfhhbqkt .gt_font_normal {
+#tycymlugvt .gt_font_normal {
   font-weight: normal;
 }
 
-#pqnfhhbqkt .gt_font_bold {
+#tycymlugvt .gt_font_bold {
   font-weight: bold;
 }
 
-#pqnfhhbqkt .gt_font_italic {
+#tycymlugvt .gt_font_italic {
   font-style: italic;
 }
 
-#pqnfhhbqkt .gt_super {
+#tycymlugvt .gt_super {
   font-size: 65%;
 }
 
-#pqnfhhbqkt .gt_footnote_marks {
+#tycymlugvt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#pqnfhhbqkt .gt_asterisk {
+#tycymlugvt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pqnfhhbqkt .gt_indent_1 {
+#tycymlugvt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pqnfhhbqkt .gt_indent_2 {
+#tycymlugvt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pqnfhhbqkt .gt_indent_3 {
+#tycymlugvt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pqnfhhbqkt .gt_indent_4 {
+#tycymlugvt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pqnfhhbqkt .gt_indent_5 {
+#tycymlugvt .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -456,48 +446,48 @@ bench::mark(
   </thead>
   <tbody class="gt_table_body">
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_center">148.8ms</td>
-<td class="gt_row gt_center">152.1ms</td>
-<td class="gt_row gt_right">6.473024</td>
+<td class="gt_row gt_center">137.2ms</td>
+<td class="gt_row gt_center">137.9ms</td>
+<td class="gt_row gt_right">7.207089</td>
 <td class="gt_row gt_center">22.9MB</td>
-<td class="gt_row gt_right">8.091280</td>
+<td class="gt_row gt_right">9.008861</td>
 <td class="gt_row gt_right">4</td>
 <td class="gt_row gt_right">5</td>
-<td class="gt_row gt_center">618ms</td></tr>
+<td class="gt_row gt_center">555ms</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_center">21.1ms</td>
-<td class="gt_row gt_center">24.1ms</td>
-<td class="gt_row gt_right">33.837625</td>
+<td class="gt_row gt_center">14.5ms</td>
+<td class="gt_row gt_center">17.4ms</td>
+<td class="gt_row gt_right">49.635916</td>
 <td class="gt_row gt_center">23.0MB</td>
-<td class="gt_row gt_right">33.837625</td>
-<td class="gt_row gt_right">17</td>
-<td class="gt_row gt_right">17</td>
-<td class="gt_row gt_center">502ms</td></tr>
+<td class="gt_row gt_right">49.635916</td>
+<td class="gt_row gt_right">25</td>
+<td class="gt_row gt_right">25</td>
+<td class="gt_row gt_center">504ms</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(y)</th>
-<td class="gt_row gt_center">145.2ms</td>
-<td class="gt_row gt_center">149.7ms</td>
-<td class="gt_row gt_right">6.696535</td>
+<td class="gt_row gt_center">136.2ms</td>
+<td class="gt_row gt_center">141.3ms</td>
+<td class="gt_row gt_right">6.544152</td>
 <td class="gt_row gt_center">22.9MB</td>
-<td class="gt_row gt_right">5.022401</td>
+<td class="gt_row gt_right">4.908114</td>
 <td class="gt_row gt_right">4</td>
 <td class="gt_row gt_right">3</td>
-<td class="gt_row gt_center">597ms</td></tr>
+<td class="gt_row gt_center">611ms</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(y)</th>
+<td class="gt_row gt_center">10.7ms</td>
 <td class="gt_row gt_center">14.5ms</td>
-<td class="gt_row gt_center">21.1ms</td>
-<td class="gt_row gt_right">36.772687</td>
+<td class="gt_row gt_right">59.071864</td>
 <td class="gt_row gt_center">22.9MB</td>
-<td class="gt_row gt_right">36.772687</td>
-<td class="gt_row gt_right">19</td>
-<td class="gt_row gt_right">19</td>
-<td class="gt_row gt_center">517ms</td></tr>
+<td class="gt_row gt_right">59.071864</td>
+<td class="gt_row gt_right">30</td>
+<td class="gt_row gt_right">30</td>
+<td class="gt_row gt_center">508ms</td></tr>
   </tbody>
   
   
 </table>
 </div>
 
-## Character
+## Other vector types
 
 ``` r
 res <- bench::press(
@@ -539,9 +529,10 @@ res <- bench::press(
 #> 15     1000   100000 character
 #> 16    10000   100000 character
 #> 17       10  1000000 character
-#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 18      100  1000000 character
+#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 19     1000  1000000 character
+#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 20    10000  1000000 character
 #> 21       10      100 double
 #> 22      100      100 double
@@ -564,6 +555,7 @@ res <- bench::press(
 #> 38      100  1000000 double
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 39     1000  1000000 double
+#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 40    10000  1000000 double
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 41       10      100 integer
@@ -586,7 +578,6 @@ res <- bench::press(
 #> 58      100  1000000 integer
 #> 59     1000  1000000 integer
 #> 60    10000  1000000 integer
-#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 61       10      100 date
 #> 62      100      100 date
 #> 63     1000      100 date
@@ -601,10 +592,8 @@ res <- bench::press(
 #> 72    10000    10000 date
 #> 73       10   100000 date
 #> 74      100   100000 date
-#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 75     1000   100000 date
 #> 76    10000   100000 date
-#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 77       10  1000000 date
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 78      100  1000000 date
@@ -613,18 +602,21 @@ res <- bench::press(
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> 80    10000  1000000 date
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
-
-res[1:9] |> 
-  transform(expression = sapply(expression, deparse)) |> 
-  gt::gt("expression")
 ```
 
-<div id="wrbtsfyzac" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+``` r
+res[1:9] |> 
+  transform(expression = sapply(expression, deparse1)) |> 
+  gt::gt("expression", "value_type") |> 
+  gt::tab_options(row.striping.include_table_body = TRUE)
+```
+
+<div id="idgenqgxnj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#wrbtsfyzac .gt_table {
+#idgenqgxnj .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -649,7 +641,7 @@ res[1:9] |>
   border-left-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_heading {
+#idgenqgxnj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -661,7 +653,7 @@ res[1:9] |>
   border-right-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_title {
+#idgenqgxnj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -673,7 +665,7 @@ res[1:9] |>
   border-bottom-width: 0;
 }
 
-#wrbtsfyzac .gt_subtitle {
+#idgenqgxnj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -685,13 +677,13 @@ res[1:9] |>
   border-top-width: 0;
 }
 
-#wrbtsfyzac .gt_bottom_border {
+#idgenqgxnj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_col_headings {
+#idgenqgxnj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -706,7 +698,7 @@ res[1:9] |>
   border-right-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_col_heading {
+#idgenqgxnj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -726,7 +718,7 @@ res[1:9] |>
   overflow-x: hidden;
 }
 
-#wrbtsfyzac .gt_column_spanner_outer {
+#idgenqgxnj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -738,15 +730,15 @@ res[1:9] |>
   padding-right: 4px;
 }
 
-#wrbtsfyzac .gt_column_spanner_outer:first-child {
+#idgenqgxnj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wrbtsfyzac .gt_column_spanner_outer:last-child {
+#idgenqgxnj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wrbtsfyzac .gt_column_spanner {
+#idgenqgxnj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -758,7 +750,7 @@ res[1:9] |>
   width: 100%;
 }
 
-#wrbtsfyzac .gt_group_heading {
+#idgenqgxnj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -783,7 +775,7 @@ res[1:9] |>
   vertical-align: middle;
 }
 
-#wrbtsfyzac .gt_empty_group_heading {
+#idgenqgxnj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -798,15 +790,15 @@ res[1:9] |>
   vertical-align: middle;
 }
 
-#wrbtsfyzac .gt_from_md > :first-child {
+#idgenqgxnj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wrbtsfyzac .gt_from_md > :last-child {
+#idgenqgxnj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wrbtsfyzac .gt_row {
+#idgenqgxnj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -825,7 +817,7 @@ res[1:9] |>
   overflow-x: hidden;
 }
 
-#wrbtsfyzac .gt_stub {
+#idgenqgxnj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -838,7 +830,7 @@ res[1:9] |>
   padding-right: 5px;
 }
 
-#wrbtsfyzac .gt_stub_row_group {
+#idgenqgxnj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -852,11 +844,11 @@ res[1:9] |>
   vertical-align: top;
 }
 
-#wrbtsfyzac .gt_row_group_first td {
+#idgenqgxnj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wrbtsfyzac .gt_summary_row {
+#idgenqgxnj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -866,16 +858,16 @@ res[1:9] |>
   padding-right: 5px;
 }
 
-#wrbtsfyzac .gt_first_summary_row {
+#idgenqgxnj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_first_summary_row.thick {
+#idgenqgxnj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wrbtsfyzac .gt_last_summary_row {
+#idgenqgxnj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -885,7 +877,7 @@ res[1:9] |>
   border-bottom-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_grand_summary_row {
+#idgenqgxnj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -895,7 +887,7 @@ res[1:9] |>
   padding-right: 5px;
 }
 
-#wrbtsfyzac .gt_first_grand_summary_row {
+#idgenqgxnj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -905,11 +897,11 @@ res[1:9] |>
   border-top-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_striped {
+#idgenqgxnj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wrbtsfyzac .gt_table_body {
+#idgenqgxnj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -918,7 +910,7 @@ res[1:9] |>
   border-bottom-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_footnotes {
+#idgenqgxnj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -932,7 +924,7 @@ res[1:9] |>
   border-right-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_footnote {
+#idgenqgxnj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -941,7 +933,7 @@ res[1:9] |>
   padding-right: 5px;
 }
 
-#wrbtsfyzac .gt_sourcenotes {
+#idgenqgxnj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -955,7 +947,7 @@ res[1:9] |>
   border-right-color: #D3D3D3;
 }
 
-#wrbtsfyzac .gt_sourcenote {
+#idgenqgxnj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -963,64 +955,64 @@ res[1:9] |>
   padding-right: 5px;
 }
 
-#wrbtsfyzac .gt_left {
+#idgenqgxnj .gt_left {
   text-align: left;
 }
 
-#wrbtsfyzac .gt_center {
+#idgenqgxnj .gt_center {
   text-align: center;
 }
 
-#wrbtsfyzac .gt_right {
+#idgenqgxnj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wrbtsfyzac .gt_font_normal {
+#idgenqgxnj .gt_font_normal {
   font-weight: normal;
 }
 
-#wrbtsfyzac .gt_font_bold {
+#idgenqgxnj .gt_font_bold {
   font-weight: bold;
 }
 
-#wrbtsfyzac .gt_font_italic {
+#idgenqgxnj .gt_font_italic {
   font-style: italic;
 }
 
-#wrbtsfyzac .gt_super {
+#idgenqgxnj .gt_super {
   font-size: 65%;
 }
 
-#wrbtsfyzac .gt_footnote_marks {
+#idgenqgxnj .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#wrbtsfyzac .gt_asterisk {
+#idgenqgxnj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wrbtsfyzac .gt_indent_1 {
+#idgenqgxnj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wrbtsfyzac .gt_indent_2 {
+#idgenqgxnj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wrbtsfyzac .gt_indent_3 {
+#idgenqgxnj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wrbtsfyzac .gt_indent_4 {
+#idgenqgxnj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wrbtsfyzac .gt_indent_5 {
+#idgenqgxnj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1031,7 +1023,6 @@ res[1:9] |>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col"></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">n_unique</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">n_values</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">value_type</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">min</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">median</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">itr.sec</th>
@@ -1040,1453 +1031,1348 @@ res[1:9] |>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+    <tr class="gt_group_heading_row">
+      <td colspan="8" class="gt_group_heading">character</td>
+    </tr>
+    <tr class="gt_row_group_first"><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">31.95µs</td>
-<td class="gt_row gt_center">37.41µs</td>
-<td class="gt_row gt_right">2.304133e+04</td>
+<td class="gt_row gt_center">28.67µs</td>
+<td class="gt_row gt_center">30.76µs</td>
+<td class="gt_row gt_right">2.919414e+04</td>
 <td class="gt_row gt_center">2.75KB</td>
-<td class="gt_row gt_right">9.2202188</td></tr>
+<td class="gt_row gt_right">11.682329</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">30.43µs</td>
-<td class="gt_row gt_center">34.01µs</td>
-<td class="gt_row gt_right">2.724871e+04</td>
-<td class="gt_row gt_center">57.98KB</td>
-<td class="gt_row gt_right">8.1770671</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">54.79µs</td>
+<td class="gt_row gt_center gt_striped">57.60µs</td>
+<td class="gt_row gt_right gt_striped">1.682948e+04</td>
+<td class="gt_row gt_center gt_striped">156.47KB</td>
+<td class="gt_row gt_right gt_striped">12.542152</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">77.96µs</td>
-<td class="gt_row gt_center">85.57µs</td>
-<td class="gt_row gt_right">1.115701e+04</td>
-<td class="gt_row gt_center">11.19KB</td>
-<td class="gt_row gt_right">4.1101526</td></tr>
+<td class="gt_row gt_center">65.25µs</td>
+<td class="gt_row gt_center">67.62µs</td>
+<td class="gt_row gt_right">1.425245e+04</td>
+<td class="gt_row gt_center">9.32KB</td>
+<td class="gt_row gt_right">6.283224</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">31.11µs</td>
-<td class="gt_row gt_center">34.05µs</td>
-<td class="gt_row gt_right">2.728603e+04</td>
-<td class="gt_row gt_center">6.01KB</td>
-<td class="gt_row gt_right">10.9187778</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">56.41µs</td>
+<td class="gt_row gt_center gt_striped">59.24µs</td>
+<td class="gt_row gt_right gt_striped">1.628401e+04</td>
+<td class="gt_row gt_center gt_striped">4.87KB</td>
+<td class="gt_row gt_right gt_striped">12.720230</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">93.01µs</td>
-<td class="gt_row gt_center">98.30µs</td>
-<td class="gt_row gt_right">9.334571e+03</td>
-<td class="gt_row gt_center">13.07KB</td>
-<td class="gt_row gt_right">2.0610666</td></tr>
+<td class="gt_row gt_center">86.08µs</td>
+<td class="gt_row gt_center">88.66µs</td>
+<td class="gt_row gt_right">1.080274e+04</td>
+<td class="gt_row gt_center">13.21KB</td>
+<td class="gt_row gt_right">4.106727</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">32.70µs</td>
-<td class="gt_row gt_center">36.29µs</td>
-<td class="gt_row gt_right">2.577320e+04</td>
-<td class="gt_row gt_center">6.96KB</td>
-<td class="gt_row gt_right">10.3134068</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">56.59µs</td>
+<td class="gt_row gt_center gt_striped">59.59µs</td>
+<td class="gt_row gt_right gt_striped">1.588323e+04</td>
+<td class="gt_row gt_center gt_striped">5.80KB</td>
+<td class="gt_row gt_right gt_striped">12.682910</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">100.58µs</td>
-<td class="gt_row gt_center">105.72µs</td>
-<td class="gt_row gt_right">8.664556e+03</td>
-<td class="gt_row gt_center">13.44KB</td>
-<td class="gt_row gt_right">4.1299122</td></tr>
+<td class="gt_row gt_center">96.81µs</td>
+<td class="gt_row gt_center">99.53µs</td>
+<td class="gt_row gt_right">9.829412e+03</td>
+<td class="gt_row gt_center">13.49KB</td>
+<td class="gt_row gt_right">4.117894</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">32.56µs</td>
-<td class="gt_row gt_center">41.03µs</td>
-<td class="gt_row gt_right">2.195538e+04</td>
-<td class="gt_row gt_center">7.13KB</td>
-<td class="gt_row gt_right">6.5885896</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">57.23µs</td>
+<td class="gt_row gt_center gt_striped">60.23µs</td>
+<td class="gt_row gt_right gt_striped">1.616308e+04</td>
+<td class="gt_row gt_center gt_striped">6.41KB</td>
+<td class="gt_row gt_right gt_striped">10.566865</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">52.50µs</td>
-<td class="gt_row gt_center">66.81µs</td>
-<td class="gt_row gt_right">1.405772e+04</td>
+<td class="gt_row gt_center">43.09µs</td>
+<td class="gt_row gt_center">45.29µs</td>
+<td class="gt_row gt_right">2.143792e+04</td>
 <td class="gt_row gt_center">23.81KB</td>
-<td class="gt_row gt_right">8.3889130</td></tr>
+<td class="gt_row gt_right">17.164069</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">53.65µs</td>
-<td class="gt_row gt_center">70.41µs</td>
-<td class="gt_row gt_right">1.320560e+04</td>
-<td class="gt_row gt_center">23.87KB</td>
-<td class="gt_row gt_right">8.4286603</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">79.26µs</td>
+<td class="gt_row gt_center gt_striped">82.75µs</td>
+<td class="gt_row gt_right gt_striped">1.176067e+04</td>
+<td class="gt_row gt_center gt_striped">19.91KB</td>
+<td class="gt_row gt_right gt_striped">8.264702</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">130.64µs</td>
-<td class="gt_row gt_center">172.38µs</td>
-<td class="gt_row gt_right">5.345903e+03</td>
+<td class="gt_row gt_center">116.15µs</td>
+<td class="gt_row gt_center">118.89µs</td>
+<td class="gt_row gt_right">8.193937e+03</td>
 <td class="gt_row gt_center">34.55KB</td>
-<td class="gt_row gt_right">4.1217449</td></tr>
+<td class="gt_row gt_right">8.348382</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">53.42µs</td>
-<td class="gt_row gt_center">65.43µs</td>
-<td class="gt_row gt_right">1.349005e+04</td>
-<td class="gt_row gt_center">28.73KB</td>
-<td class="gt_row gt_right">10.8790696</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">76.38µs</td>
+<td class="gt_row gt_center gt_striped">80.06µs</td>
+<td class="gt_row gt_right gt_striped">1.212487e+04</td>
+<td class="gt_row gt_center gt_striped">23.95KB</td>
+<td class="gt_row gt_right gt_striped">8.341843</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">889.12µs</td>
-<td class="gt_row gt_center">983.95µs</td>
-<td class="gt_row gt_right">9.721059e+02</td>
-<td class="gt_row gt_center">93.33KB</td>
-<td class="gt_row gt_right">2.0210102</td></tr>
+<td class="gt_row gt_center">804.64µs</td>
+<td class="gt_row gt_center">813.43µs</td>
+<td class="gt_row gt_right">1.202519e+03</td>
+<td class="gt_row gt_center">92.68KB</td>
+<td class="gt_row gt_right">4.083256</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">89.52µs</td>
-<td class="gt_row gt_center">102.09µs</td>
-<td class="gt_row gt_right">8.842245e+03</td>
-<td class="gt_row gt_center">50.61KB</td>
-<td class="gt_row gt_right">10.6174892</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">110.44µs</td>
+<td class="gt_row gt_center gt_striped">113.61µs</td>
+<td class="gt_row gt_right gt_striped">8.454763e+03</td>
+<td class="gt_row gt_center gt_striped">41.39KB</td>
+<td class="gt_row gt_right gt_striped">10.450881</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">1.48ms</td>
-<td class="gt_row gt_center">1.78ms</td>
-<td class="gt_row gt_right">5.585714e+02</td>
-<td class="gt_row gt_center">114.98KB</td>
-<td class="gt_row gt_right">2.0385818</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">88.06µs</td>
-<td class="gt_row gt_center">106.42µs</td>
-<td class="gt_row gt_right">8.751384e+03</td>
-<td class="gt_row gt_center">65.44KB</td>
-<td class="gt_row gt_right">15.3264177</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">229.24µs</td>
-<td class="gt_row gt_center">276.09µs</td>
-<td class="gt_row gt_right">3.403997e+03</td>
-<td class="gt_row gt_center">284.44KB</td>
-<td class="gt_row gt_right">25.2147934</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">381.64µs</td>
-<td class="gt_row gt_center">435.67µs</td>
-<td class="gt_row gt_right">2.238922e+03</td>
-<td class="gt_row gt_center">284.49KB</td>
-<td class="gt_row gt_right">15.4256404</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">355.12µs</td>
-<td class="gt_row gt_center">397.89µs</td>
-<td class="gt_row gt_right">2.399979e+03</td>
-<td class="gt_row gt_center">295.18KB</td>
-<td class="gt_row gt_right">19.8527639</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">280.45µs</td>
-<td class="gt_row gt_center">343.85µs</td>
-<td class="gt_row gt_right">2.881083e+03</td>
-<td class="gt_row gt_center">289.36KB</td>
-<td class="gt_row gt_right">20.2102456</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">1.90ms</td>
-<td class="gt_row gt_center">2.31ms</td>
-<td class="gt_row gt_right">4.230974e+02</td>
-<td class="gt_row gt_center">379.46KB</td>
-<td class="gt_row gt_right">4.1480136</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">335.33µs</td>
-<td class="gt_row gt_center">414.82µs</td>
-<td class="gt_row gt_right">2.248071e+03</td>
-<td class="gt_row gt_center">328.00KB</td>
-<td class="gt_row gt_right">21.3340102</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">16.43ms</td>
-<td class="gt_row gt_center">18.49ms</td>
-<td class="gt_row gt_right">5.297229e+01</td>
-<td class="gt_row gt_center">917.16KB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">705.72µs</td>
-<td class="gt_row gt_center">841.33µs</td>
-<td class="gt_row gt_right">1.122878e+03</td>
-<td class="gt_row gt_center">536.85KB</td>
-<td class="gt_row gt_right">15.2328435</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">2.11ms</td>
-<td class="gt_row gt_center">2.49ms</td>
-<td class="gt_row gt_right">3.820220e+02</td>
-<td class="gt_row gt_center">2.53MB</td>
-<td class="gt_row gt_right">31.6323920</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">3.61ms</td>
-<td class="gt_row gt_center">4.76ms</td>
-<td class="gt_row gt_right">2.076030e+02</td>
-<td class="gt_row gt_center">2.53MB</td>
-<td class="gt_row gt_right">13.6881128</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">2.44ms</td>
-<td class="gt_row gt_center">3.11ms</td>
-<td class="gt_row gt_right">3.062923e+02</td>
-<td class="gt_row gt_center">2.54MB</td>
-<td class="gt_row gt_right">23.5609433</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">2.40ms</td>
-<td class="gt_row gt_center">3.07ms</td>
-<td class="gt_row gt_right">3.152932e+02</td>
-<td class="gt_row gt_center">2.53MB</td>
-<td class="gt_row gt_right">23.8858518</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">4.58ms</td>
-<td class="gt_row gt_center">5.59ms</td>
-<td class="gt_row gt_right">1.767354e+02</td>
-<td class="gt_row gt_center">2.62MB</td>
-<td class="gt_row gt_right">13.7715876</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">3.24ms</td>
-<td class="gt_row gt_center">3.66ms</td>
-<td class="gt_row gt_right">2.602567e+02</td>
-<td class="gt_row gt_center">2.57MB</td>
-<td class="gt_row gt_right">21.2937278</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">29.05ms</td>
-<td class="gt_row gt_center">31.29ms</td>
-<td class="gt_row gt_right">3.218796e+01</td>
-<td class="gt_row gt_center">3.59MB</td>
-<td class="gt_row gt_right">4.5982797</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">4.41ms</td>
-<td class="gt_row gt_center">5.90ms</td>
-<td class="gt_row gt_right">1.698240e+02</td>
-<td class="gt_row gt_center">2.93MB</td>
-<td class="gt_row gt_right">16.5106656</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">41.05ms</td>
-<td class="gt_row gt_center">45.74ms</td>
-<td class="gt_row gt_right">1.338797e+01</td>
-<td class="gt_row gt_center">23.26MB</td>
-<td class="gt_row gt_right">15.3005342</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">38.04ms</td>
-<td class="gt_row gt_center">44.33ms</td>
-<td class="gt_row gt_right">2.288464e+01</td>
-<td class="gt_row gt_center">23.26MB</td>
-<td class="gt_row gt_right">9.5352658</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">31.79ms</td>
-<td class="gt_row gt_center">32.09ms</td>
-<td class="gt_row gt_right">3.115926e+01</td>
-<td class="gt_row gt_center">23.27MB</td>
-<td class="gt_row gt_right">171.3759159</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">28.71ms</td>
-<td class="gt_row gt_center">35.63ms</td>
-<td class="gt_row gt_right">2.889856e+01</td>
-<td class="gt_row gt_center">23.26MB</td>
-<td class="gt_row gt_right">96.3285462</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">35.46ms</td>
-<td class="gt_row gt_center">38.27ms</td>
-<td class="gt_row gt_right">2.563365e+01</td>
-<td class="gt_row gt_center">23.35MB</td>
-<td class="gt_row gt_right">44.8588855</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">34.96ms</td>
-<td class="gt_row gt_center">38.72ms</td>
-<td class="gt_row gt_right">2.599597e+01</td>
-<td class="gt_row gt_center">23.30MB</td>
-<td class="gt_row gt_right">51.9919358</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">80.54ms</td>
-<td class="gt_row gt_center">80.54ms</td>
-<td class="gt_row gt_right">1.241648e+01</td>
-<td class="gt_row gt_center">24.32MB</td>
-<td class="gt_row gt_right">62.0824035</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">character</td>
-<td class="gt_row gt_center">54.22ms</td>
-<td class="gt_row gt_center">55.77ms</td>
-<td class="gt_row gt_right">1.793113e+01</td>
-<td class="gt_row gt_center">23.66MB</td>
-<td class="gt_row gt_right">62.7589647</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">113.59µs</td>
-<td class="gt_row gt_center">141.75µs</td>
-<td class="gt_row gt_right">6.946615e+03</td>
-<td class="gt_row gt_center">3.58KB</td>
-<td class="gt_row gt_right">2.0264337</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">80.44µs</td>
-<td class="gt_row gt_center">97.50µs</td>
-<td class="gt_row gt_right">9.941105e+03</td>
-<td class="gt_row gt_center">67.82KB</td>
-<td class="gt_row gt_right">8.3820443</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">172.99µs</td>
-<td class="gt_row gt_center">212.56µs</td>
-<td class="gt_row gt_right">4.350905e+03</td>
-<td class="gt_row gt_center">12.43KB</td>
-<td class="gt_row gt_right">2.0398057</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">125.34µs</td>
-<td class="gt_row gt_center">148.54µs</td>
-<td class="gt_row gt_right">6.342574e+03</td>
-<td class="gt_row gt_center">9.22KB</td>
-<td class="gt_row gt_right">4.1185545</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">203.95µs</td>
-<td class="gt_row gt_center">238.99µs</td>
-<td class="gt_row gt_right">3.975843e+03</td>
-<td class="gt_row gt_center">14.68KB</td>
-<td class="gt_row gt_right">2.0326397</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">167.41µs</td>
-<td class="gt_row gt_center">208.90µs</td>
-<td class="gt_row gt_right">4.299647e+03</td>
-<td class="gt_row gt_center">10.91KB</td>
-<td class="gt_row gt_right">4.1663250</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">189.65µs</td>
-<td class="gt_row gt_center">216.73µs</td>
-<td class="gt_row gt_right">4.480285e+03</td>
-<td class="gt_row gt_center">15.15KB</td>
-<td class="gt_row gt_right">2.0364930</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">152.50µs</td>
-<td class="gt_row gt_center">176.48µs</td>
-<td class="gt_row gt_right">5.317378e+03</td>
-<td class="gt_row gt_center">11.77KB</td>
-<td class="gt_row gt_right">4.1204011</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">764.90µs</td>
-<td class="gt_row gt_center">927.47µs</td>
-<td class="gt_row gt_right">1.036546e+03</td>
-<td class="gt_row gt_center">31.67KB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">117.09µs</td>
-<td class="gt_row gt_center">140.76µs</td>
-<td class="gt_row gt_right">6.399049e+03</td>
-<td class="gt_row gt_center">28.89KB</td>
-<td class="gt_row gt_right">6.3608834</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">881.31µs</td>
-<td class="gt_row gt_center">1.10ms</td>
-<td class="gt_row gt_right">8.624942e+02</td>
-<td class="gt_row gt_center">43.24KB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">189.77µs</td>
-<td class="gt_row gt_center">233.12µs</td>
-<td class="gt_row gt_right">3.949793e+03</td>
-<td class="gt_row gt_center">36.34KB</td>
-<td class="gt_row gt_right">4.1818873</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">1.30ms</td>
-<td class="gt_row gt_center">1.58ms</td>
-<td class="gt_row gt_right">6.086974e+02</td>
-<td class="gt_row gt_center">105.27KB</td>
-<td class="gt_row gt_right">2.0289914</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">607.35µs</td>
-<td class="gt_row gt_center">684.09µs</td>
-<td class="gt_row gt_right">1.406819e+03</td>
-<td class="gt_row gt_center">76.20KB</td>
-<td class="gt_row gt_right">2.0300412</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">1.59ms</td>
-<td class="gt_row gt_center">1.97ms</td>
-<td class="gt_row gt_right">5.059354e+02</td>
-<td class="gt_row gt_center">130.18KB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">828.66µs</td>
-<td class="gt_row gt_center">953.31µs</td>
-<td class="gt_row gt_right">9.907102e+02</td>
-<td class="gt_row gt_center">98.89KB</td>
-<td class="gt_row gt_right">4.1193770</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">7.37ms</td>
-<td class="gt_row gt_center">8.17ms</td>
-<td class="gt_row gt_right">1.186039e+02</td>
-<td class="gt_row gt_center">362.61KB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">341.88µs</td>
-<td class="gt_row gt_center">394.54µs</td>
-<td class="gt_row gt_right">2.399858e+03</td>
-<td class="gt_row gt_center">260.67KB</td>
-<td class="gt_row gt_right">15.1889776</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">7.52ms</td>
-<td class="gt_row gt_center">8.41ms</td>
-<td class="gt_row gt_right">1.149833e+02</td>
-<td class="gt_row gt_center">374.18KB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">416.12µs</td>
-<td class="gt_row gt_center">447.10µs</td>
-<td class="gt_row gt_right">2.031417e+03</td>
-<td class="gt_row gt_center">268.12KB</td>
-<td class="gt_row gt_right">12.8300010</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">8.66ms</td>
-<td class="gt_row gt_center">9.75ms</td>
-<td class="gt_row gt_right">9.946232e+01</td>
-<td class="gt_row gt_center">465.49KB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">1.16ms</td>
+<td class="gt_row gt_center">1.31ms</td>
 <td class="gt_row gt_center">1.33ms</td>
-<td class="gt_row gt_right">7.033903e+02</td>
-<td class="gt_row gt_center">333.95KB</td>
-<td class="gt_row gt_right">6.2990176</td></tr>
+<td class="gt_row gt_right">7.046304e+02</td>
+<td class="gt_row gt_center">115.83KB</td>
+<td class="gt_row gt_right">2.018998</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">110.53µs</td>
+<td class="gt_row gt_center gt_striped">113.96µs</td>
+<td class="gt_row gt_right gt_striped">8.336872e+03</td>
+<td class="gt_row gt_center gt_striped">54.38KB</td>
+<td class="gt_row gt_right gt_striped">14.967455</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">1e+04</td>
+<td class="gt_row gt_center">207.58µs</td>
+<td class="gt_row gt_center">214.72µs</td>
+<td class="gt_row gt_right">4.459823e+03</td>
+<td class="gt_row gt_center">284.44KB</td>
+<td class="gt_row gt_right">39.364997</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">319.72µs</td>
+<td class="gt_row gt_center gt_striped">329.25µs</td>
+<td class="gt_row gt_right gt_striped">2.851597e+03</td>
+<td class="gt_row gt_center gt_striped">245.38KB</td>
+<td class="gt_row gt_right gt_striped">19.398616</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">100</td>
+<td class="gt_row gt_right">1e+04</td>
+<td class="gt_row gt_center">348.40µs</td>
+<td class="gt_row gt_center">356.07µs</td>
+<td class="gt_row gt_right">2.741902e+03</td>
+<td class="gt_row gt_center">295.18KB</td>
+<td class="gt_row gt_right">26.772026</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">268.57µs</td>
+<td class="gt_row gt_center gt_striped">276.18µs</td>
+<td class="gt_row gt_right gt_striped">3.540232e+03</td>
+<td class="gt_row gt_center gt_striped">249.42KB</td>
+<td class="gt_row gt_right gt_striped">25.505998</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">1000</td>
+<td class="gt_row gt_right">1e+04</td>
+<td class="gt_row gt_center">1.58ms</td>
+<td class="gt_row gt_center">1.59ms</td>
+<td class="gt_row gt_right">6.161662e+02</td>
+<td class="gt_row gt_center">379.46KB</td>
+<td class="gt_row gt_right">6.182269</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">336.30µs</td>
+<td class="gt_row gt_center gt_striped">343.41µs</td>
+<td class="gt_row gt_right gt_striped">2.839770e+03</td>
+<td class="gt_row gt_center gt_striped">281.03KB</td>
+<td class="gt_row gt_right gt_striped">19.245431</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">15.45ms</td>
-<td class="gt_row gt_center">16.49ms</td>
-<td class="gt_row gt_right">5.917757e+01</td>
-<td class="gt_row gt_center">1.02MB</td>
-<td class="gt_row gt_right">2.1134845</td></tr>
+<td class="gt_row gt_center">12.79ms</td>
+<td class="gt_row gt_center">13.04ms</td>
+<td class="gt_row gt_right">7.626862e+01</td>
+<td class="gt_row gt_center">926.45KB</td>
+<td class="gt_row gt_right">2.061314</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">6.07ms</td>
-<td class="gt_row gt_center">7.31ms</td>
-<td class="gt_row gt_right">1.379808e+02</td>
-<td class="gt_row gt_center">757.17KB</td>
-<td class="gt_row gt_right">2.0291296</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">503.60µs</td>
+<td class="gt_row gt_center gt_striped">513.07µs</td>
+<td class="gt_row gt_right gt_striped">1.899135e+03</td>
+<td class="gt_row gt_center gt_striped">484.41KB</td>
+<td class="gt_row gt_right gt_striped">24.039683</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">98.52ms</td>
-<td class="gt_row gt_center">98.86ms</td>
-<td class="gt_row gt_right">1.000584e+01</td>
-<td class="gt_row gt_center">3.29MB</td>
-<td class="gt_row gt_right">2.0011674</td></tr>
+<td class="gt_row gt_center">1.66ms</td>
+<td class="gt_row gt_center">1.72ms</td>
+<td class="gt_row gt_right">5.738699e+02</td>
+<td class="gt_row gt_center">2.53MB</td>
+<td class="gt_row gt_right">43.769736</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">3.59ms</td>
-<td class="gt_row gt_center">3.85ms</td>
-<td class="gt_row gt_right">2.557708e+02</td>
-<td class="gt_row gt_center">2.41MB</td>
-<td class="gt_row gt_right">15.9856730</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">1.85ms</td>
+<td class="gt_row gt_center gt_striped">1.93ms</td>
+<td class="gt_row gt_right gt_striped">5.116040e+02</td>
+<td class="gt_row gt_center gt_striped">2.15MB</td>
+<td class="gt_row gt_right gt_striped">32.705277</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">100.82ms</td>
-<td class="gt_row gt_center">104.41ms</td>
-<td class="gt_row gt_right">9.622830e+00</td>
-<td class="gt_row gt_center">3.30MB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
+<td class="gt_row gt_center">2.14ms</td>
+<td class="gt_row gt_center">2.22ms</td>
+<td class="gt_row gt_right">4.427430e+02</td>
+<td class="gt_row gt_center">2.54MB</td>
+<td class="gt_row gt_right">32.970222</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">3.69ms</td>
-<td class="gt_row gt_center">3.96ms</td>
-<td class="gt_row gt_right">2.465449e+02</td>
-<td class="gt_row gt_center">2.42MB</td>
-<td class="gt_row gt_right">16.1291061</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">2.09ms</td>
+<td class="gt_row gt_center gt_striped">2.17ms</td>
+<td class="gt_row gt_right gt_striped">4.530696e+02</td>
+<td class="gt_row gt_center gt_striped">2.15MB</td>
+<td class="gt_row gt_right gt_striped">32.865156</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">106.89ms</td>
-<td class="gt_row gt_center">108.99ms</td>
-<td class="gt_row gt_right">9.151704e+00</td>
-<td class="gt_row gt_center">3.39MB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
+<td class="gt_row gt_center">3.82ms</td>
+<td class="gt_row gt_center">3.90ms</td>
+<td class="gt_row gt_right">2.530581e+02</td>
+<td class="gt_row gt_center">2.62MB</td>
+<td class="gt_row gt_right">20.518224</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">4.81ms</td>
-<td class="gt_row gt_center">5.27ms</td>
-<td class="gt_row gt_right">1.826288e+02</td>
-<td class="gt_row gt_center">2.48MB</td>
-<td class="gt_row gt_right">8.1774110</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">2.51ms</td>
+<td class="gt_row gt_center gt_striped">2.60ms</td>
+<td class="gt_row gt_right gt_striped">3.790847e+02</td>
+<td class="gt_row gt_center gt_striped">2.18MB</td>
+<td class="gt_row gt_right gt_striped">27.908075</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">118.51ms</td>
-<td class="gt_row gt_center">120.14ms</td>
-<td class="gt_row gt_right">7.906686e+00</td>
-<td class="gt_row gt_center">4.43MB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
+<td class="gt_row gt_center">24.47ms</td>
+<td class="gt_row gt_center">24.76ms</td>
+<td class="gt_row gt_right">3.997794e+01</td>
+<td class="gt_row gt_center">3.59MB</td>
+<td class="gt_row gt_right">4.441993</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">15.97ms</td>
-<td class="gt_row gt_center">17.09ms</td>
-<td class="gt_row gt_right">5.818399e+01</td>
-<td class="gt_row gt_center">3.17MB</td>
-<td class="gt_row gt_right">4.3099250</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">3.59ms</td>
+<td class="gt_row gt_center gt_striped">3.71ms</td>
+<td class="gt_row gt_right gt_striped">2.639879e+02</td>
+<td class="gt_row gt_center gt_striped">2.47MB</td>
+<td class="gt_row gt_right gt_striped">20.659922</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">1.00s</td>
-<td class="gt_row gt_center">1.00s</td>
-<td class="gt_row gt_right">9.966698e-01</td>
-<td class="gt_row gt_center">30.89MB</td>
-<td class="gt_row gt_right">0.9966698</td></tr>
+<td class="gt_row gt_center">23.30ms</td>
+<td class="gt_row gt_center">23.41ms</td>
+<td class="gt_row gt_right">4.255499e+01</td>
+<td class="gt_row gt_center">23.26MB</td>
+<td class="gt_row gt_right">99.294971</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">38.40ms</td>
-<td class="gt_row gt_center">43.45ms</td>
-<td class="gt_row gt_right">2.270861e+01</td>
-<td class="gt_row gt_center">27.07MB</td>
-<td class="gt_row gt_right">15.1390706</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">20.65ms</td>
+<td class="gt_row gt_center gt_striped">21.14ms</td>
+<td class="gt_row gt_right gt_striped">4.563225e+01</td>
+<td class="gt_row gt_center gt_striped">19.44MB</td>
+<td class="gt_row gt_right gt_striped">79.856444</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">1.06s</td>
-<td class="gt_row gt_center">1.06s</td>
-<td class="gt_row gt_right">9.415421e-01</td>
-<td class="gt_row gt_center">30.90MB</td>
-<td class="gt_row gt_right">0.9415421</td></tr>
+<td class="gt_row gt_center">28.31ms</td>
+<td class="gt_row gt_center">28.79ms</td>
+<td class="gt_row gt_right">3.454946e+01</td>
+<td class="gt_row gt_center">23.27MB</td>
+<td class="gt_row gt_right">34.549462</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">36.20ms</td>
-<td class="gt_row gt_center">41.46ms</td>
-<td class="gt_row gt_right">2.416990e+01</td>
-<td class="gt_row gt_center">27.08MB</td>
-<td class="gt_row gt_right">18.5922282</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">24.35ms</td>
+<td class="gt_row gt_center gt_striped">27.18ms</td>
+<td class="gt_row gt_right gt_striped">3.303319e+01</td>
+<td class="gt_row gt_center gt_striped">19.45MB</td>
+<td class="gt_row gt_right gt_striped">23.317547</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">1.09s</td>
-<td class="gt_row gt_center">1.09s</td>
-<td class="gt_row gt_right">9.184964e-01</td>
-<td class="gt_row gt_center">30.99MB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
+<td class="gt_row gt_center">29.00ms</td>
+<td class="gt_row gt_center">29.49ms</td>
+<td class="gt_row gt_right">2.992052e+01</td>
+<td class="gt_row gt_center">23.35MB</td>
+<td class="gt_row gt_right">29.920521</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">38.59ms</td>
-<td class="gt_row gt_center">39.50ms</td>
-<td class="gt_row gt_right">2.494701e+01</td>
-<td class="gt_row gt_center">27.15MB</td>
-<td class="gt_row gt_right">58.2097013</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">25.68ms</td>
+<td class="gt_row gt_center gt_striped">28.57ms</td>
+<td class="gt_row gt_right gt_striped">3.547858e+01</td>
+<td class="gt_row gt_center gt_striped">19.48MB</td>
+<td class="gt_row gt_right gt_striped">19.710324</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">1.21s</td>
-<td class="gt_row gt_center">1.21s</td>
-<td class="gt_row gt_right">8.297935e-01</td>
-<td class="gt_row gt_center">32.03MB</td>
-<td class="gt_row gt_right">0.8297935</td></tr>
+<td class="gt_row gt_center">52.53ms</td>
+<td class="gt_row gt_center">53.42ms</td>
+<td class="gt_row gt_right">1.860243e+01</td>
+<td class="gt_row gt_center">24.32MB</td>
+<td class="gt_row gt_right">27.903643</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">double</td>
-<td class="gt_row gt_center">60.70ms</td>
-<td class="gt_row gt_center">69.73ms</td>
-<td class="gt_row gt_right">1.462244e+01</td>
-<td class="gt_row gt_center">27.83MB</td>
-<td class="gt_row gt_right">10.9668333</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">36.70ms</td>
+<td class="gt_row gt_center gt_striped">37.19ms</td>
+<td class="gt_row gt_right gt_striped">2.682787e+01</td>
+<td class="gt_row gt_center gt_striped">19.77MB</td>
+<td class="gt_row gt_right gt_striped">42.924592</td></tr>
+    <tr class="gt_group_heading_row">
+      <td colspan="8" class="gt_group_heading">double</td>
+    </tr>
+    <tr class="gt_row_group_first"><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">41.81µs</td>
-<td class="gt_row gt_center">44.41µs</td>
-<td class="gt_row gt_right">2.170733e+04</td>
+<td class="gt_row gt_center">104.56µs</td>
+<td class="gt_row gt_center">106.68µs</td>
+<td class="gt_row gt_right">9.097708e+03</td>
 <td class="gt_row gt_center">3.58KB</td>
-<td class="gt_row gt_right">8.6864063</td></tr>
+<td class="gt_row gt_right">2.019469</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">76.72µs</td>
-<td class="gt_row gt_center">83.01µs</td>
-<td class="gt_row gt_right">1.140815e+04</td>
-<td class="gt_row gt_center">16.34KB</td>
-<td class="gt_row gt_right">8.4161901</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">64.00µs</td>
+<td class="gt_row gt_center gt_striped">67.05µs</td>
+<td class="gt_row gt_right gt_striped">1.448094e+04</td>
+<td class="gt_row gt_center gt_striped">76.56KB</td>
+<td class="gt_row gt_right gt_striped">12.661858</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">54.25µs</td>
-<td class="gt_row gt_center">57.64µs</td>
-<td class="gt_row gt_right">1.616751e+04</td>
-<td class="gt_row gt_center">10.29KB</td>
-<td class="gt_row gt_right">6.3618214</td></tr>
+<td class="gt_row gt_center">146.88µs</td>
+<td class="gt_row gt_center">149.26µs</td>
+<td class="gt_row gt_right">6.483558e+03</td>
+<td class="gt_row gt_center">12.43KB</td>
+<td class="gt_row gt_right">4.097035</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">83.07µs</td>
-<td class="gt_row gt_center">88.28µs</td>
-<td class="gt_row gt_right">1.042564e+04</td>
-<td class="gt_row gt_center">6.06KB</td>
-<td class="gt_row gt_right">8.6073361</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">67.09µs</td>
+<td class="gt_row gt_center gt_striped">69.92µs</td>
+<td class="gt_row gt_right gt_striped">1.337248e+04</td>
+<td class="gt_row gt_center gt_striped">8.33KB</td>
+<td class="gt_row gt_right gt_striped">10.567787</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">85.82µs</td>
-<td class="gt_row gt_center">91.89µs</td>
-<td class="gt_row gt_right">9.695298e+03</td>
-<td class="gt_row gt_center">14.04KB</td>
-<td class="gt_row gt_right">4.1691239</td></tr>
+<td class="gt_row gt_center">172.60µs</td>
+<td class="gt_row gt_center">175.01µs</td>
+<td class="gt_row gt_right">5.552019e+03</td>
+<td class="gt_row gt_center">14.93KB</td>
+<td class="gt_row gt_right">2.035198</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">79.17µs</td>
-<td class="gt_row gt_center">85.06µs</td>
-<td class="gt_row gt_right">1.099620e+04</td>
-<td class="gt_row gt_center">6.94KB</td>
-<td class="gt_row gt_right">8.4667550</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">67.93µs</td>
+<td class="gt_row gt_center gt_striped">71.20µs</td>
+<td class="gt_row gt_right gt_striped">1.350809e+04</td>
+<td class="gt_row gt_center gt_striped">9.45KB</td>
+<td class="gt_row gt_right gt_striped">10.553192</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">93.98µs</td>
-<td class="gt_row gt_center">99.37µs</td>
-<td class="gt_row gt_right">9.693103e+03</td>
-<td class="gt_row gt_center">14.37KB</td>
-<td class="gt_row gt_right">4.1370479</td></tr>
+<td class="gt_row gt_center">173.54µs</td>
+<td class="gt_row gt_center">176.07µs</td>
+<td class="gt_row gt_right">5.521248e+03</td>
+<td class="gt_row gt_center">15.15KB</td>
+<td class="gt_row gt_right">4.097401</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">81.49µs</td>
-<td class="gt_row gt_center">88.33µs</td>
-<td class="gt_row gt_right">9.542885e+03</td>
-<td class="gt_row gt_center">7.56KB</td>
-<td class="gt_row gt_right">6.3860483</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">67.17µs</td>
+<td class="gt_row gt_center gt_striped">70.24µs</td>
+<td class="gt_row gt_right gt_striped">1.374584e+04</td>
+<td class="gt_row gt_center gt_striped">10.05KB</td>
+<td class="gt_row gt_right gt_striped">10.521926</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">79.76µs</td>
-<td class="gt_row gt_center">84.61µs</td>
-<td class="gt_row gt_right">1.086486e+04</td>
+<td class="gt_row gt_center">703.16µs</td>
+<td class="gt_row gt_center">708.27µs</td>
+<td class="gt_row gt_right">1.371992e+03</td>
 <td class="gt_row gt_center">31.67KB</td>
-<td class="gt_row gt_right">6.2681908</td></tr>
+<td class="gt_row gt_right">0.000000</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">101.55µs</td>
-<td class="gt_row gt_center">107.24µs</td>
-<td class="gt_row gt_right">8.654937e+03</td>
-<td class="gt_row gt_center">20.98KB</td>
-<td class="gt_row gt_right">6.2161384</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">92.80µs</td>
+<td class="gt_row gt_center gt_striped">96.44µs</td>
+<td class="gt_row gt_right gt_striped">1.000625e+04</td>
+<td class="gt_row gt_center gt_striped">36.75KB</td>
+<td class="gt_row gt_right gt_striped">8.302216</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">99.86µs</td>
-<td class="gt_row gt_center">105.98µs</td>
-<td class="gt_row gt_right">8.826940e+03</td>
-<td class="gt_row gt_center">42.46KB</td>
-<td class="gt_row gt_right">6.3200044</td></tr>
+<td class="gt_row gt_center">773.87µs</td>
+<td class="gt_row gt_center">782.16µs</td>
+<td class="gt_row gt_right">1.242957e+03</td>
+<td class="gt_row gt_center">43.24KB</td>
+<td class="gt_row gt_right">2.021068</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">105.18µs</td>
-<td class="gt_row gt_center">111.03µs</td>
-<td class="gt_row gt_right">8.504031e+03</td>
-<td class="gt_row gt_center">25.11KB</td>
-<td class="gt_row gt_right">6.2822195</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">98.64µs</td>
+<td class="gt_row gt_center gt_striped">103.00µs</td>
+<td class="gt_row gt_right gt_striped">9.423974e+03</td>
+<td class="gt_row gt_center gt_striped">41.66KB</td>
+<td class="gt_row gt_right gt_striped">8.410508</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">352.69µs</td>
-<td class="gt_row gt_center">369.50µs</td>
-<td class="gt_row gt_right">2.612334e+03</td>
-<td class="gt_row gt_center">101.10KB</td>
-<td class="gt_row gt_right">4.1042175</td></tr>
+<td class="gt_row gt_center">1.21ms</td>
+<td class="gt_row gt_center">1.22ms</td>
+<td class="gt_row gt_right">8.073915e+02</td>
+<td class="gt_row gt_center">105.65KB</td>
+<td class="gt_row gt_right">2.023538</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">175.95µs</td>
-<td class="gt_row gt_center">189.44µs</td>
-<td class="gt_row gt_right">4.686400e+03</td>
-<td class="gt_row gt_center">48.84KB</td>
-<td class="gt_row gt_right">4.1399290</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">141.84µs</td>
+<td class="gt_row gt_center gt_striped">145.56µs</td>
+<td class="gt_row gt_right gt_striped">6.688952e+03</td>
+<td class="gt_row gt_center gt_striped">69.39KB</td>
+<td class="gt_row gt_right gt_striped">9.617472</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">647.71µs</td>
-<td class="gt_row gt_center">667.29µs</td>
-<td class="gt_row gt_right">1.420813e+03</td>
-<td class="gt_row gt_center">123.93KB</td>
-<td class="gt_row gt_right">2.0268377</td></tr>
+<td class="gt_row gt_center">1.48ms</td>
+<td class="gt_row gt_center">1.52ms</td>
+<td class="gt_row gt_right">6.476238e+02</td>
+<td class="gt_row gt_center">130.65KB</td>
+<td class="gt_row gt_right">0.000000</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">170.02µs</td>
-<td class="gt_row gt_center">181.16µs</td>
-<td class="gt_row gt_right">5.223207e+03</td>
-<td class="gt_row gt_center">61.72KB</td>
-<td class="gt_row gt_right">6.2778929</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">163.70µs</td>
+<td class="gt_row gt_center gt_striped">175.32µs</td>
+<td class="gt_row gt_right gt_striped">5.678790e+03</td>
+<td class="gt_row gt_center gt_striped">84.64KB</td>
+<td class="gt_row gt_right gt_striped">8.329724</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">421.82µs</td>
-<td class="gt_row gt_center">460.72µs</td>
-<td class="gt_row gt_right">2.108246e+03</td>
+<td class="gt_row gt_center">7.35ms</td>
+<td class="gt_row gt_center">7.38ms</td>
+<td class="gt_row gt_right">1.349225e+02</td>
 <td class="gt_row gt_center">362.61KB</td>
-<td class="gt_row gt_right">10.8812695</td></tr>
+<td class="gt_row gt_right">0.000000</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">301.47µs</td>
-<td class="gt_row gt_center">320.78µs</td>
-<td class="gt_row gt_right">3.005160e+03</td>
-<td class="gt_row gt_center">182.44KB</td>
-<td class="gt_row gt_right">8.3187827</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">455.10µs</td>
+<td class="gt_row gt_center gt_striped">476.92µs</td>
+<td class="gt_row gt_right gt_striped">2.030007e+03</td>
+<td class="gt_row gt_center gt_striped">338.84KB</td>
+<td class="gt_row gt_right gt_striped">10.410293</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">464.19µs</td>
-<td class="gt_row gt_center">484.33µs</td>
-<td class="gt_row gt_right">2.012489e+03</td>
-<td class="gt_row gt_center">373.40KB</td>
-<td class="gt_row gt_right">8.3332859</td></tr>
+<td class="gt_row gt_center">7.57ms</td>
+<td class="gt_row gt_center">7.63ms</td>
+<td class="gt_row gt_right">1.302599e+02</td>
+<td class="gt_row gt_center">374.18KB</td>
+<td class="gt_row gt_right">0.000000</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">356.79µs</td>
-<td class="gt_row gt_center">376.47µs</td>
-<td class="gt_row gt_right">2.531958e+03</td>
-<td class="gt_row gt_center">186.58KB</td>
-<td class="gt_row gt_right">8.4118215</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">421.57µs</td>
+<td class="gt_row gt_center gt_striped">440.29µs</td>
+<td class="gt_row gt_right gt_striped">2.239297e+03</td>
+<td class="gt_row gt_center gt_striped">343.76KB</td>
+<td class="gt_row gt_right gt_striped">12.687234</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">1.93ms</td>
-<td class="gt_row gt_center">2.05ms</td>
-<td class="gt_row gt_right">4.616819e+02</td>
-<td class="gt_row gt_center">457.68KB</td>
-<td class="gt_row gt_right">2.0249206</td></tr>
+<td class="gt_row gt_center">8.51ms</td>
+<td class="gt_row gt_center">8.62ms</td>
+<td class="gt_row gt_right">1.147014e+02</td>
+<td class="gt_row gt_center">465.49KB</td>
+<td class="gt_row gt_right">0.000000</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">416.10µs</td>
-<td class="gt_row gt_center">440.96µs</td>
-<td class="gt_row gt_right">2.203111e+03</td>
-<td class="gt_row gt_center">224.28KB</td>
-<td class="gt_row gt_right">6.2059453</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">509.13µs</td>
+<td class="gt_row gt_center gt_striped">518.45µs</td>
+<td class="gt_row gt_right gt_striped">1.887553e+03</td>
+<td class="gt_row gt_center gt_striped">388.49KB</td>
+<td class="gt_row gt_right gt_striped">10.416958</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">5.37ms</td>
-<td class="gt_row gt_center">5.73ms</td>
-<td class="gt_row gt_right">1.708439e+02</td>
-<td class="gt_row gt_center">1002.13KB</td>
-<td class="gt_row gt_right">2.0338565</td></tr>
+<td class="gt_row gt_center">13.43ms</td>
+<td class="gt_row gt_center">13.60ms</td>
+<td class="gt_row gt_right">7.239936e+01</td>
+<td class="gt_row gt_center">1.03MB</td>
+<td class="gt_row gt_right">2.068553</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">996.47µs</td>
-<td class="gt_row gt_center">1.08ms</td>
-<td class="gt_row gt_right">9.036284e+02</td>
-<td class="gt_row gt_center">482.82KB</td>
-<td class="gt_row gt_right">6.2462790</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">930.33µs</td>
+<td class="gt_row gt_center gt_striped">949.18µs</td>
+<td class="gt_row gt_right gt_striped">1.035967e+03</td>
+<td class="gt_row gt_center gt_striped">688.90KB</td>
+<td class="gt_row gt_right gt_striped">10.506764</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">3.70ms</td>
-<td class="gt_row gt_center">4.42ms</td>
-<td class="gt_row gt_right">2.094155e+02</td>
+<td class="gt_row gt_center">74.42ms</td>
+<td class="gt_row gt_center">74.55ms</td>
+<td class="gt_row gt_right">1.341505e+01</td>
 <td class="gt_row gt_center">3.29MB</td>
-<td class="gt_row gt_right">11.0218710</td></tr>
+<td class="gt_row gt_right">2.235842</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">2.17ms</td>
-<td class="gt_row gt_center">2.47ms</td>
-<td class="gt_row gt_right">4.010275e+02</td>
-<td class="gt_row gt_center">1.65MB</td>
-<td class="gt_row gt_right">10.7803080</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">3.78ms</td>
+<td class="gt_row gt_center gt_striped">3.92ms</td>
+<td class="gt_row gt_right gt_striped">2.527861e+02</td>
+<td class="gt_row gt_center gt_striped">3.17MB</td>
+<td class="gt_row gt_right gt_striped">13.075143</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">4.35ms</td>
-<td class="gt_row gt_center">4.75ms</td>
-<td class="gt_row gt_right">1.991629e+02</td>
+<td class="gt_row gt_center">75.70ms</td>
+<td class="gt_row gt_center">75.86ms</td>
+<td class="gt_row gt_right">1.316986e+01</td>
 <td class="gt_row gt_center">3.30MB</td>
-<td class="gt_row gt_right">11.0646043</td></tr>
+<td class="gt_row gt_right">0.000000</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">2.79ms</td>
-<td class="gt_row gt_center">2.98ms</td>
-<td class="gt_row gt_right">3.173973e+02</td>
-<td class="gt_row gt_center">1.65MB</td>
-<td class="gt_row gt_right">8.6366620</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">3.48ms</td>
+<td class="gt_row gt_center gt_striped">3.60ms</td>
+<td class="gt_row gt_right gt_striped">2.749671e+02</td>
+<td class="gt_row gt_center gt_striped">3.18MB</td>
+<td class="gt_row gt_right gt_striped">15.398155</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">16.82ms</td>
-<td class="gt_row gt_center">17.43ms</td>
-<td class="gt_row gt_right">5.683138e+01</td>
-<td class="gt_row gt_center">3.38MB</td>
-<td class="gt_row gt_right">4.3716446</td></tr>
+<td class="gt_row gt_center">76.95ms</td>
+<td class="gt_row gt_center">77.21ms</td>
+<td class="gt_row gt_right">1.283881e+01</td>
+<td class="gt_row gt_center">3.39MB</td>
+<td class="gt_row gt_right">2.567762</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">2.88ms</td>
-<td class="gt_row gt_center">3.15ms</td>
-<td class="gt_row gt_right">3.126321e+02</td>
-<td class="gt_row gt_center">1.69MB</td>
-<td class="gt_row gt_right">6.2526420</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">3.63ms</td>
+<td class="gt_row gt_center gt_striped">3.77ms</td>
+<td class="gt_row gt_right gt_striped">2.637374e+02</td>
+<td class="gt_row gt_center gt_striped">3.22MB</td>
+<td class="gt_row gt_right gt_striped">13.077887</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">30.83ms</td>
-<td class="gt_row gt_center">32.80ms</td>
-<td class="gt_row gt_right">2.960452e+01</td>
-<td class="gt_row gt_center">4.35MB</td>
-<td class="gt_row gt_right">2.1146087</td></tr>
+<td class="gt_row gt_center">88.36ms</td>
+<td class="gt_row gt_center">90.14ms</td>
+<td class="gt_row gt_right">1.111243e+01</td>
+<td class="gt_row gt_center">4.43MB</td>
+<td class="gt_row gt_right">0.000000</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">4.27ms</td>
-<td class="gt_row gt_center">4.77ms</td>
-<td class="gt_row gt_right">2.060861e+02</td>
-<td class="gt_row gt_center">2.10MB</td>
-<td class="gt_row gt_right">6.3737966</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">5.36ms</td>
+<td class="gt_row gt_center gt_striped">5.48ms</td>
+<td class="gt_row gt_right gt_striped">1.778548e+02</td>
+<td class="gt_row gt_center gt_striped">3.70MB</td>
+<td class="gt_row gt_right gt_striped">10.978692</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">45.49ms</td>
-<td class="gt_row gt_center">48.15ms</td>
-<td class="gt_row gt_right">2.102966e+01</td>
+<td class="gt_row gt_center">748.56ms</td>
+<td class="gt_row gt_center">748.56ms</td>
+<td class="gt_row gt_right">1.335906e+00</td>
 <td class="gt_row gt_center">30.89MB</td>
-<td class="gt_row gt_right">35.0494352</td></tr>
+<td class="gt_row gt_right">1.335906</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">25.05ms</td>
-<td class="gt_row gt_center">25.89ms</td>
-<td class="gt_row gt_right">3.872533e+01</td>
-<td class="gt_row gt_center">19.45MB</td>
-<td class="gt_row gt_right">48.4066571</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">42.45ms</td>
+<td class="gt_row gt_center gt_striped">47.72ms</td>
+<td class="gt_row gt_right gt_striped">1.843791e+01</td>
+<td class="gt_row gt_center gt_striped">34.70MB</td>
+<td class="gt_row gt_right gt_striped">14.750329</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">49.08ms</td>
-<td class="gt_row gt_center">49.41ms</td>
-<td class="gt_row gt_right">2.023870e+01</td>
+<td class="gt_row gt_center">756.07ms</td>
+<td class="gt_row gt_center">756.07ms</td>
+<td class="gt_row gt_right">1.322626e+00</td>
 <td class="gt_row gt_center">30.90MB</td>
-<td class="gt_row gt_right">70.8354475</td></tr>
+<td class="gt_row gt_right">1.322626</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">27.44ms</td>
-<td class="gt_row gt_center">28.24ms</td>
-<td class="gt_row gt_right">3.510401e+01</td>
-<td class="gt_row gt_center">19.45MB</td>
-<td class="gt_row gt_right">24.5728097</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">35.73ms</td>
+<td class="gt_row gt_center gt_striped">40.56ms</td>
+<td class="gt_row gt_right gt_striped">2.440048e+01</td>
+<td class="gt_row gt_center gt_striped">34.71MB</td>
+<td class="gt_row gt_right gt_striped">22.523523</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">164.64ms</td>
-<td class="gt_row gt_center">164.64ms</td>
-<td class="gt_row gt_right">6.073785e+00</td>
+<td class="gt_row gt_center">761.63ms</td>
+<td class="gt_row gt_center">761.63ms</td>
+<td class="gt_row gt_right">1.312971e+00</td>
+<td class="gt_row gt_center">30.99MB</td>
+<td class="gt_row gt_right">1.312971</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">36.66ms</td>
+<td class="gt_row gt_center gt_striped">39.32ms</td>
+<td class="gt_row gt_right gt_striped">2.244836e+01</td>
+<td class="gt_row gt_center gt_striped">34.75MB</td>
+<td class="gt_row gt_right gt_striped">14.965573</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10000</td>
+<td class="gt_row gt_right">1e+06</td>
+<td class="gt_row gt_center">805.68ms</td>
+<td class="gt_row gt_center">805.68ms</td>
+<td class="gt_row gt_right">1.241191e+00</td>
+<td class="gt_row gt_center">32.03MB</td>
+<td class="gt_row gt_right">1.241191</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">48.76ms</td>
+<td class="gt_row gt_center gt_striped">51.43ms</td>
+<td class="gt_row gt_right gt_striped">1.932481e+01</td>
+<td class="gt_row gt_center gt_striped">35.23MB</td>
+<td class="gt_row gt_right gt_striped">15.459851</td></tr>
+    <tr class="gt_group_heading_row">
+      <td colspan="8" class="gt_group_heading">integer</td>
+    </tr>
+    <tr class="gt_row_group_first"><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">1e+02</td>
+<td class="gt_row gt_center">31.96µs</td>
+<td class="gt_row gt_center">34.41µs</td>
+<td class="gt_row gt_right">2.835471e+04</td>
+<td class="gt_row gt_center">3.58KB</td>
+<td class="gt_row gt_right">11.346422</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">62.26µs</td>
+<td class="gt_row gt_center gt_striped">66.31µs</td>
+<td class="gt_row gt_right gt_striped">1.479197e+04</td>
+<td class="gt_row gt_center gt_striped">27.66KB</td>
+<td class="gt_row gt_right gt_striped">10.400766</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">100</td>
+<td class="gt_row gt_right">1e+02</td>
+<td class="gt_row gt_center">38.71µs</td>
+<td class="gt_row gt_center">41.03µs</td>
+<td class="gt_row gt_right">2.379780e+04</td>
+<td class="gt_row gt_center">10.15KB</td>
+<td class="gt_row gt_right">11.904855</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">64.86µs</td>
+<td class="gt_row gt_center gt_striped">69.09µs</td>
+<td class="gt_row gt_right gt_striped">1.427147e+04</td>
+<td class="gt_row gt_center gt_striped">6.01KB</td>
+<td class="gt_row gt_right gt_striped">10.467562</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">1000</td>
+<td class="gt_row gt_right">1e+02</td>
+<td class="gt_row gt_center">58.34µs</td>
+<td class="gt_row gt_center">61.63µs</td>
+<td class="gt_row gt_right">1.595011e+04</td>
+<td class="gt_row gt_center">13.95KB</td>
+<td class="gt_row gt_right">6.239447</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">66.75µs</td>
+<td class="gt_row gt_center gt_striped">70.83µs</td>
+<td class="gt_row gt_right gt_striped">1.394790e+04</td>
+<td class="gt_row gt_center gt_striped">6.90KB</td>
+<td class="gt_row gt_right gt_striped">12.697219</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10000</td>
+<td class="gt_row gt_right">1e+02</td>
+<td class="gt_row gt_center">76.25µs</td>
+<td class="gt_row gt_center">81.11µs</td>
+<td class="gt_row gt_right">1.228156e+04</td>
+<td class="gt_row gt_center">14.37KB</td>
+<td class="gt_row gt_right">4.110982</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">67.92µs</td>
+<td class="gt_row gt_center gt_striped">71.09µs</td>
+<td class="gt_row gt_right gt_striped">1.372736e+04</td>
+<td class="gt_row gt_center gt_striped">7.56KB</td>
+<td class="gt_row gt_right gt_striped">10.502956</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">1e+03</td>
+<td class="gt_row gt_center">57.06µs</td>
+<td class="gt_row gt_center">60.59µs</td>
+<td class="gt_row gt_right">1.573941e+04</td>
+<td class="gt_row gt_center">31.67KB</td>
+<td class="gt_row gt_right">8.232985</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">79.47µs</td>
+<td class="gt_row gt_center gt_striped">83.73µs</td>
+<td class="gt_row gt_right gt_striped">1.183145e+04</td>
+<td class="gt_row gt_center gt_striped">20.98KB</td>
+<td class="gt_row gt_right gt_striped">8.260746</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">100</td>
+<td class="gt_row gt_right">1e+03</td>
+<td class="gt_row gt_center">74.06µs</td>
+<td class="gt_row gt_center">78.76µs</td>
+<td class="gt_row gt_right">1.238098e+04</td>
+<td class="gt_row gt_center">42.46KB</td>
+<td class="gt_row gt_right">6.302891</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">86.26µs</td>
+<td class="gt_row gt_center gt_striped">90.86µs</td>
+<td class="gt_row gt_right gt_striped">1.089424e+04</td>
+<td class="gt_row gt_center gt_striped">25.11KB</td>
+<td class="gt_row gt_right gt_striped">8.319392</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">1000</td>
+<td class="gt_row gt_right">1e+03</td>
+<td class="gt_row gt_center">280.87µs</td>
+<td class="gt_row gt_center">291.11µs</td>
+<td class="gt_row gt_right">3.392336e+03</td>
+<td class="gt_row gt_center">101.81KB</td>
+<td class="gt_row gt_right">2.021654</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">145.53µs</td>
+<td class="gt_row gt_center gt_striped">148.97µs</td>
+<td class="gt_row gt_right gt_striped">6.660703e+03</td>
+<td class="gt_row gt_center gt_striped">49.12KB</td>
+<td class="gt_row gt_right gt_striped">6.217209</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10000</td>
+<td class="gt_row gt_right">1e+03</td>
+<td class="gt_row gt_center">505.02µs</td>
+<td class="gt_row gt_center">520.28µs</td>
+<td class="gt_row gt_right">1.915302e+03</td>
+<td class="gt_row gt_center">123.37KB</td>
+<td class="gt_row gt_right">2.035389</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">139.32µs</td>
+<td class="gt_row gt_center gt_striped">143.14µs</td>
+<td class="gt_row gt_right gt_striped">6.946985e+03</td>
+<td class="gt_row gt_center gt_striped">61.50KB</td>
+<td class="gt_row gt_right gt_striped">4.096100</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">1e+04</td>
+<td class="gt_row gt_center">313.09µs</td>
+<td class="gt_row gt_center">327.85µs</td>
+<td class="gt_row gt_right">2.909242e+03</td>
+<td class="gt_row gt_center">362.61KB</td>
+<td class="gt_row gt_right">12.603216</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">247.78µs</td>
+<td class="gt_row gt_center gt_striped">257.69µs</td>
+<td class="gt_row gt_right gt_striped">3.869667e+03</td>
+<td class="gt_row gt_center gt_striped">182.44KB</td>
+<td class="gt_row gt_right gt_striped">6.139080</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">100</td>
+<td class="gt_row gt_right">1e+04</td>
+<td class="gt_row gt_center">357.57µs</td>
+<td class="gt_row gt_center">364.79µs</td>
+<td class="gt_row gt_right">2.728646e+03</td>
+<td class="gt_row gt_center">373.40KB</td>
+<td class="gt_row gt_right">12.236080</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">283.13µs</td>
+<td class="gt_row gt_center gt_striped">289.02µs</td>
+<td class="gt_row gt_right gt_striped">3.422794e+03</td>
+<td class="gt_row gt_center gt_striped">186.58KB</td>
+<td class="gt_row gt_right gt_striped">6.163495</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">1000</td>
+<td class="gt_row gt_right">1e+04</td>
+<td class="gt_row gt_center">1.49ms</td>
+<td class="gt_row gt_center">1.50ms</td>
+<td class="gt_row gt_right">6.630757e+02</td>
+<td class="gt_row gt_center">457.68KB</td>
+<td class="gt_row gt_right">2.021572</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">334.37µs</td>
+<td class="gt_row gt_center gt_striped">340.00µs</td>
+<td class="gt_row gt_right gt_striped">2.909788e+03</td>
+<td class="gt_row gt_center gt_striped">224.28KB</td>
+<td class="gt_row gt_right gt_striped">8.272319</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10000</td>
+<td class="gt_row gt_right">1e+04</td>
+<td class="gt_row gt_center">4.06ms</td>
+<td class="gt_row gt_center">4.20ms</td>
+<td class="gt_row gt_right">2.378278e+02</td>
+<td class="gt_row gt_center">1002.13KB</td>
+<td class="gt_row gt_right">2.015490</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">774.24µs</td>
+<td class="gt_row gt_center gt_striped">794.77µs</td>
+<td class="gt_row gt_right gt_striped">1.251520e+03</td>
+<td class="gt_row gt_center gt_striped">482.82KB</td>
+<td class="gt_row gt_right gt_striped">6.175263</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">1e+05</td>
+<td class="gt_row gt_center">2.87ms</td>
+<td class="gt_row gt_center">2.99ms</td>
+<td class="gt_row gt_right">3.336382e+02</td>
+<td class="gt_row gt_center">3.29MB</td>
+<td class="gt_row gt_right">12.998892</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">1.91ms</td>
+<td class="gt_row gt_center gt_striped">1.96ms</td>
+<td class="gt_row gt_right gt_striped">5.091315e+02</td>
+<td class="gt_row gt_center gt_striped">1.65MB</td>
+<td class="gt_row gt_right gt_striped">8.346418</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">100</td>
+<td class="gt_row gt_right">1e+05</td>
+<td class="gt_row gt_center">3.30ms</td>
+<td class="gt_row gt_center">3.35ms</td>
+<td class="gt_row gt_right">2.969569e+02</td>
+<td class="gt_row gt_center">3.30MB</td>
+<td class="gt_row gt_right">10.681904</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">2.18ms</td>
+<td class="gt_row gt_center gt_striped">2.20ms</td>
+<td class="gt_row gt_right gt_striped">4.508157e+02</td>
+<td class="gt_row gt_center gt_striped">1.65MB</td>
+<td class="gt_row gt_right gt_striped">8.348439</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">1000</td>
+<td class="gt_row gt_right">1e+05</td>
+<td class="gt_row gt_center">12.06ms</td>
+<td class="gt_row gt_center">12.47ms</td>
+<td class="gt_row gt_right">8.056942e+01</td>
+<td class="gt_row gt_center">3.38MB</td>
+<td class="gt_row gt_right">4.240496</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">2.30ms</td>
+<td class="gt_row gt_center gt_striped">2.35ms</td>
+<td class="gt_row gt_right gt_striped">4.230929e+02</td>
+<td class="gt_row gt_center gt_striped">1.69MB</td>
+<td class="gt_row gt_right gt_striped">8.378078</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10000</td>
+<td class="gt_row gt_right">1e+05</td>
+<td class="gt_row gt_center">24.24ms</td>
+<td class="gt_row gt_center">24.98ms</td>
+<td class="gt_row gt_right">4.006935e+01</td>
+<td class="gt_row gt_center">4.35MB</td>
+<td class="gt_row gt_right">2.108913</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">3.29ms</td>
+<td class="gt_row gt_center gt_striped">3.40ms</td>
+<td class="gt_row gt_right gt_striped">2.915807e+02</td>
+<td class="gt_row gt_center gt_striped">2.10MB</td>
+<td class="gt_row gt_right gt_striped">6.248157</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">1e+06</td>
+<td class="gt_row gt_center">29.29ms</td>
+<td class="gt_row gt_center">29.88ms</td>
+<td class="gt_row gt_right">3.218219e+01</td>
+<td class="gt_row gt_center">30.89MB</td>
+<td class="gt_row gt_right">28.159416</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">19.00ms</td>
+<td class="gt_row gt_center gt_striped">19.26ms</td>
+<td class="gt_row gt_right gt_striped">5.181898e+01</td>
+<td class="gt_row gt_center gt_striped">19.45MB</td>
+<td class="gt_row gt_right gt_striped">16.363888</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">100</td>
+<td class="gt_row gt_right">1e+06</td>
+<td class="gt_row gt_center">32.68ms</td>
+<td class="gt_row gt_center">32.80ms</td>
+<td class="gt_row gt_right">3.033237e+01</td>
+<td class="gt_row gt_center">30.90MB</td>
+<td class="gt_row gt_right">34.665562</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">21.83ms</td>
+<td class="gt_row gt_center gt_striped">22.20ms</td>
+<td class="gt_row gt_right gt_striped">4.472938e+01</td>
+<td class="gt_row gt_center gt_striped">19.45MB</td>
+<td class="gt_row gt_right gt_striped">13.155700</td></tr>
+    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right">1000</td>
+<td class="gt_row gt_right">1e+06</td>
+<td class="gt_row gt_center">119.43ms</td>
+<td class="gt_row gt_center">122.14ms</td>
+<td class="gt_row gt_right">8.233415e+00</td>
 <td class="gt_row gt_center">30.98MB</td>
-<td class="gt_row gt_right">18.2213562</td></tr>
+<td class="gt_row gt_right">5.488943</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">28.33ms</td>
-<td class="gt_row gt_center">30.25ms</td>
-<td class="gt_row gt_right">3.126684e+01</td>
-<td class="gt_row gt_center">19.49MB</td>
-<td class="gt_row gt_right">22.3334582</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">22.61ms</td>
+<td class="gt_row gt_center gt_striped">23.09ms</td>
+<td class="gt_row gt_right gt_striped">4.327265e+01</td>
+<td class="gt_row gt_center gt_striped">19.49MB</td>
+<td class="gt_row gt_right gt_striped">21.636325</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">303.45ms</td>
-<td class="gt_row gt_center">311.33ms</td>
-<td class="gt_row gt_right">3.211993e+00</td>
+<td class="gt_row gt_center">206.08ms</td>
+<td class="gt_row gt_center">206.81ms</td>
+<td class="gt_row gt_right">4.835239e+00</td>
 <td class="gt_row gt_center">31.95MB</td>
-<td class="gt_row gt_right">3.2119928</td></tr>
+<td class="gt_row gt_right">2.417620</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">integer</td>
-<td class="gt_row gt_center">39.80ms</td>
-<td class="gt_row gt_center">42.33ms</td>
-<td class="gt_row gt_right">2.323029e+01</td>
-<td class="gt_row gt_center">19.90MB</td>
-<td class="gt_row gt_right">7.7434286</td></tr>
-    <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">30.23ms</td>
+<td class="gt_row gt_center gt_striped">30.38ms</td>
+<td class="gt_row gt_right gt_striped">3.288002e+01</td>
+<td class="gt_row gt_center gt_striped">19.90MB</td>
+<td class="gt_row gt_right gt_striped">14.945462</td></tr>
+    <tr class="gt_group_heading_row">
+      <td colspan="8" class="gt_group_heading">date</td>
+    </tr>
+    <tr class="gt_row_group_first"><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">274.32µs</td>
-<td class="gt_row gt_center">290.17µs</td>
-<td class="gt_row gt_right">3.302400e+03</td>
-<td class="gt_row gt_center">74.94KB</td>
-<td class="gt_row gt_right">4.1228468</td></tr>
+<td class="gt_row gt_center">225.19µs</td>
+<td class="gt_row gt_center">235.07µs</td>
+<td class="gt_row gt_right">4.190981e+03</td>
+<td class="gt_row gt_center">80.95KB</td>
+<td class="gt_row gt_right">6.211928</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">192.40µs</td>
-<td class="gt_row gt_center">207.60µs</td>
-<td class="gt_row gt_right">4.422048e+03</td>
-<td class="gt_row gt_center">25.46KB</td>
-<td class="gt_row gt_right">8.4029423</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">155.75µs</td>
+<td class="gt_row gt_center gt_striped">164.75µs</td>
+<td class="gt_row gt_right gt_striped">6.005857e+03</td>
+<td class="gt_row gt_center gt_striped">29.70KB</td>
+<td class="gt_row gt_right gt_striped">10.485085</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">368.94µs</td>
-<td class="gt_row gt_center">391.49µs</td>
-<td class="gt_row gt_right">2.422884e+03</td>
-<td class="gt_row gt_center">67.85KB</td>
-<td class="gt_row gt_right">4.1630311</td></tr>
+<td class="gt_row gt_center">283.04µs</td>
+<td class="gt_row gt_center">292.96µs</td>
+<td class="gt_row gt_right">3.395468e+03</td>
+<td class="gt_row gt_center">67.34KB</td>
+<td class="gt_row gt_right">6.287904</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">277.05µs</td>
-<td class="gt_row gt_center">296.37µs</td>
-<td class="gt_row gt_right">3.248026e+03</td>
-<td class="gt_row gt_center">29.83KB</td>
-<td class="gt_row gt_right">4.1561432</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">214.95µs</td>
+<td class="gt_row gt_center gt_striped">225.44µs</td>
+<td class="gt_row gt_right gt_striped">4.414258e+03</td>
+<td class="gt_row gt_center gt_striped">29.23KB</td>
+<td class="gt_row gt_right gt_striped">6.220185</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">417.78µs</td>
-<td class="gt_row gt_center">445.33µs</td>
-<td class="gt_row gt_right">2.049855e+03</td>
-<td class="gt_row gt_center">80.23KB</td>
-<td class="gt_row gt_right">4.1919332</td></tr>
+<td class="gt_row gt_center">328.82µs</td>
+<td class="gt_row gt_center">343.60µs</td>
+<td class="gt_row gt_right">2.896454e+03</td>
+<td class="gt_row gt_center">82.40KB</td>
+<td class="gt_row gt_right">4.128944</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">293.37µs</td>
-<td class="gt_row gt_center">335.52µs</td>
-<td class="gt_row gt_right">2.756334e+03</td>
-<td class="gt_row gt_center">41.00KB</td>
-<td class="gt_row gt_right">4.1324350</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">257.91µs</td>
+<td class="gt_row gt_center gt_striped">268.66µs</td>
+<td class="gt_row gt_right gt_striped">3.713160e+03</td>
+<td class="gt_row gt_center gt_striped">41.94KB</td>
+<td class="gt_row gt_right gt_striped">6.265174</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">395.72µs</td>
-<td class="gt_row gt_center">414.01µs</td>
-<td class="gt_row gt_right">2.255264e+03</td>
-<td class="gt_row gt_center">81.84KB</td>
-<td class="gt_row gt_right">4.1764151</td></tr>
+<td class="gt_row gt_center">335.78µs</td>
+<td class="gt_row gt_center">347.81µs</td>
+<td class="gt_row gt_right">2.873115e+03</td>
+<td class="gt_row gt_center">83.23KB</td>
+<td class="gt_row gt_right">4.113263</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+02</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">310.80µs</td>
-<td class="gt_row gt_center">368.36µs</td>
-<td class="gt_row gt_right">2.511084e+03</td>
-<td class="gt_row gt_center">42.95KB</td>
-<td class="gt_row gt_right">4.1712351</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+02</td>
+<td class="gt_row gt_center gt_striped">262.88µs</td>
+<td class="gt_row gt_center gt_striped">272.48µs</td>
+<td class="gt_row gt_right gt_striped">3.603447e+03</td>
+<td class="gt_row gt_center gt_striped">42.69KB</td>
+<td class="gt_row gt_right gt_striped">6.230744</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">1.37ms</td>
-<td class="gt_row gt_center">1.54ms</td>
-<td class="gt_row gt_right">6.227825e+02</td>
-<td class="gt_row gt_center">343.61KB</td>
-<td class="gt_row gt_right">2.0419097</td></tr>
+<td class="gt_row gt_center">1.10ms</td>
+<td class="gt_row gt_center">1.13ms</td>
+<td class="gt_row gt_right">8.743676e+02</td>
+<td class="gt_row gt_center">355.42KB</td>
+<td class="gt_row gt_right">2.331647</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">226.58µs</td>
-<td class="gt_row gt_center">245.08µs</td>
-<td class="gt_row gt_right">3.859242e+03</td>
-<td class="gt_row gt_center">22.66KB</td>
-<td class="gt_row gt_right">6.2312840</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">183.26µs</td>
+<td class="gt_row gt_center gt_striped">193.31µs</td>
+<td class="gt_row gt_right gt_striped">5.035899e+03</td>
+<td class="gt_row gt_center gt_striped">22.66KB</td>
+<td class="gt_row gt_right gt_striped">8.279324</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">1.60ms</td>
-<td class="gt_row gt_center">1.74ms</td>
-<td class="gt_row gt_right">5.529862e+02</td>
-<td class="gt_row gt_center">387.66KB</td>
-<td class="gt_row gt_right">2.0405393</td></tr>
+<td class="gt_row gt_center">1.23ms</td>
+<td class="gt_row gt_center">1.27ms</td>
+<td class="gt_row gt_right">7.799377e+02</td>
+<td class="gt_row gt_center">400.74KB</td>
+<td class="gt_row gt_right">2.025812</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">341.15µs</td>
-<td class="gt_row gt_center">360.19µs</td>
-<td class="gt_row gt_right">2.653816e+03</td>
-<td class="gt_row gt_center">60.50KB</td>
-<td class="gt_row gt_right">4.1433510</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">286.45µs</td>
+<td class="gt_row gt_center gt_striped">299.75µs</td>
+<td class="gt_row gt_right gt_striped">3.235421e+03</td>
+<td class="gt_row gt_center gt_striped">61.77KB</td>
+<td class="gt_row gt_right gt_striped">6.225954</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">2.27ms</td>
-<td class="gt_row gt_center">2.39ms</td>
-<td class="gt_row gt_right">3.952762e+02</td>
-<td class="gt_row gt_center">626.43KB</td>
-<td class="gt_row gt_right">4.1390183</td></tr>
+<td class="gt_row gt_center">1.84ms</td>
+<td class="gt_row gt_center">1.89ms</td>
+<td class="gt_row gt_right">5.252700e+02</td>
+<td class="gt_row gt_center">645.02KB</td>
+<td class="gt_row gt_right">2.028070</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">1.09ms</td>
-<td class="gt_row gt_center">1.16ms</td>
-<td class="gt_row gt_right">8.235374e+02</td>
-<td class="gt_row gt_center">266.22KB</td>
-<td class="gt_row gt_right">2.0334257</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">881.21µs</td>
+<td class="gt_row gt_center gt_striped">892.92µs</td>
+<td class="gt_row gt_right gt_striped">1.113519e+03</td>
+<td class="gt_row gt_center gt_striped">273.08KB</td>
+<td class="gt_row gt_right gt_striped">4.093822</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">2.91ms</td>
-<td class="gt_row gt_center">3.24ms</td>
-<td class="gt_row gt_right">2.989454e+02</td>
-<td class="gt_row gt_center">748.24KB</td>
-<td class="gt_row gt_right">4.1810544</td></tr>
+<td class="gt_row gt_center">2.29ms</td>
+<td class="gt_row gt_center">2.32ms</td>
+<td class="gt_row gt_right">4.283394e+02</td>
+<td class="gt_row gt_center">775.87KB</td>
+<td class="gt_row gt_right">4.118648</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+03</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">1.53ms</td>
-<td class="gt_row gt_center">1.76ms</td>
-<td class="gt_row gt_right">5.418281e+02</td>
-<td class="gt_row gt_center">380.20KB</td>
-<td class="gt_row gt_right">2.0369477</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+03</td>
+<td class="gt_row gt_center gt_striped">1.23ms</td>
+<td class="gt_row gt_center gt_striped">1.25ms</td>
+<td class="gt_row gt_right gt_striped">7.955087e+02</td>
+<td class="gt_row gt_center gt_striped">395.58KB</td>
+<td class="gt_row gt_right gt_striped">4.090019</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">14.01ms</td>
-<td class="gt_row gt_center">15.38ms</td>
-<td class="gt_row gt_right">6.420301e+01</td>
-<td class="gt_row gt_center">3.37MB</td>
-<td class="gt_row gt_right">4.4277935</td></tr>
+<td class="gt_row gt_center">10.19ms</td>
+<td class="gt_row gt_center">10.60ms</td>
+<td class="gt_row gt_right">9.410456e+01</td>
+<td class="gt_row gt_center">3.49MB</td>
+<td class="gt_row gt_right">4.182425</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">507.19µs</td>
-<td class="gt_row gt_center">539.06µs</td>
-<td class="gt_row gt_right">1.779378e+03</td>
-<td class="gt_row gt_center">184.13KB</td>
-<td class="gt_row gt_right">6.1927312</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">453.69µs</td>
+<td class="gt_row gt_center gt_striped">464.05µs</td>
+<td class="gt_row gt_right gt_striped">2.143062e+03</td>
+<td class="gt_row gt_center gt_striped">184.13KB</td>
+<td class="gt_row gt_right gt_striped">4.074263</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">13.52ms</td>
-<td class="gt_row gt_center">14.12ms</td>
-<td class="gt_row gt_right">6.782439e+01</td>
-<td class="gt_row gt_center">3.41MB</td>
-<td class="gt_row gt_right">4.3757670</td></tr>
+<td class="gt_row gt_center">10.79ms</td>
+<td class="gt_row gt_center">11.01ms</td>
+<td class="gt_row gt_right">8.950677e+01</td>
+<td class="gt_row gt_center">3.53MB</td>
+<td class="gt_row gt_right">4.163106</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">618.69µs</td>
-<td class="gt_row gt_center">674.28µs</td>
-<td class="gt_row gt_right">1.405586e+03</td>
-<td class="gt_row gt_center">221.97KB</td>
-<td class="gt_row gt_right">4.1280057</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">551.34µs</td>
+<td class="gt_row gt_center gt_striped">562.21µs</td>
+<td class="gt_row gt_right gt_striped">1.749145e+03</td>
+<td class="gt_row gt_center gt_striped">223.23KB</td>
+<td class="gt_row gt_right gt_striped">4.130214</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">16.77ms</td>
-<td class="gt_row gt_center">18.15ms</td>
-<td class="gt_row gt_right">5.527608e+01</td>
-<td class="gt_row gt_center">3.79MB</td>
-<td class="gt_row gt_right">4.4220866</td></tr>
+<td class="gt_row gt_center">11.92ms</td>
+<td class="gt_row gt_center">12.35ms</td>
+<td class="gt_row gt_right">8.041565e+01</td>
+<td class="gt_row gt_center">3.91MB</td>
+<td class="gt_row gt_right">4.232403</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">1.91ms</td>
-<td class="gt_row gt_center">2.08ms</td>
-<td class="gt_row gt_right">4.685484e+02</td>
-<td class="gt_row gt_center">562.02KB</td>
-<td class="gt_row gt_right">4.1464465</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">1.57ms</td>
+<td class="gt_row gt_center gt_striped">1.59ms</td>
+<td class="gt_row gt_right gt_striped">6.203532e+02</td>
+<td class="gt_row gt_center gt_striped">573.83KB</td>
+<td class="gt_row gt_right gt_striped">4.094741</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">25.13ms</td>
-<td class="gt_row gt_center">27.26ms</td>
-<td class="gt_row gt_right">3.665141e+01</td>
-<td class="gt_row gt_center">6.03MB</td>
-<td class="gt_row gt_right">4.3119301</td></tr>
+<td class="gt_row gt_center">18.57ms</td>
+<td class="gt_row gt_center">19.32ms</td>
+<td class="gt_row gt_right">5.073046e+01</td>
+<td class="gt_row gt_center">6.23MB</td>
+<td class="gt_row gt_right">4.227539</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+04</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">9.59ms</td>
-<td class="gt_row gt_center">10.33ms</td>
-<td class="gt_row gt_right">9.682897e+01</td>
-<td class="gt_row gt_center">2.50MB</td>
-<td class="gt_row gt_right">4.2099552</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+04</td>
+<td class="gt_row gt_center gt_striped">7.38ms</td>
+<td class="gt_row gt_center gt_striped">7.78ms</td>
+<td class="gt_row gt_right gt_striped">1.259310e+02</td>
+<td class="gt_row gt_center gt_striped">2.62MB</td>
+<td class="gt_row gt_right gt_striped">4.128884</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">168.39ms</td>
-<td class="gt_row gt_center">168.39ms</td>
-<td class="gt_row gt_right">5.938666e+00</td>
-<td class="gt_row gt_center">36.43MB</td>
-<td class="gt_row gt_right">11.8773324</td></tr>
+<td class="gt_row gt_center">117.04ms</td>
+<td class="gt_row gt_center">117.35ms</td>
+<td class="gt_row gt_right">8.293544e+00</td>
+<td class="gt_row gt_center">37.57MB</td>
+<td class="gt_row gt_right">2.764515</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">3.41ms</td>
-<td class="gt_row gt_center">3.75ms</td>
-<td class="gt_row gt_right">2.615831e+02</td>
-<td class="gt_row gt_center">1.65MB</td>
-<td class="gt_row gt_right">18.1295231</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">2.95ms</td>
+<td class="gt_row gt_center gt_striped">3.06ms</td>
+<td class="gt_row gt_right gt_striped">3.235216e+02</td>
+<td class="gt_row gt_center gt_striped">1.65MB</td>
+<td class="gt_row gt_right gt_striped">8.863605</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">177.39ms</td>
-<td class="gt_row gt_center">183.50ms</td>
-<td class="gt_row gt_right">5.378121e+00</td>
-<td class="gt_row gt_center">33.47MB</td>
-<td class="gt_row gt_right">5.3781214</td></tr>
+<td class="gt_row gt_center">117.30ms</td>
+<td class="gt_row gt_center">118.66ms</td>
+<td class="gt_row gt_right">8.427139e+00</td>
+<td class="gt_row gt_center">34.62MB</td>
+<td class="gt_row gt_right">12.640708</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">2.98ms</td>
-<td class="gt_row gt_center">3.26ms</td>
-<td class="gt_row gt_right">2.043936e+02</td>
-<td class="gt_row gt_center">1.68MB</td>
-<td class="gt_row gt_right">5.9532121</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">3.05ms</td>
+<td class="gt_row gt_center gt_striped">3.12ms</td>
+<td class="gt_row gt_right gt_striped">3.167113e+02</td>
+<td class="gt_row gt_center gt_striped">1.69MB</td>
+<td class="gt_row gt_right gt_striped">9.048894</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">162.72ms</td>
-<td class="gt_row gt_center">168.63ms</td>
-<td class="gt_row gt_right">5.930178e+00</td>
-<td class="gt_row gt_center">33.85MB</td>
-<td class="gt_row gt_right">2.9650889</td></tr>
+<td class="gt_row gt_center">122.98ms</td>
+<td class="gt_row gt_center">125.33ms</td>
+<td class="gt_row gt_right">7.978642e+00</td>
+<td class="gt_row gt_center">35.00MB</td>
+<td class="gt_row gt_right">7.978642</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">5.21ms</td>
-<td class="gt_row gt_center">5.56ms</td>
-<td class="gt_row gt_right">1.785270e+02</td>
-<td class="gt_row gt_center">2.02MB</td>
-<td class="gt_row gt_right">6.6947611</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">4.37ms</td>
+<td class="gt_row gt_center gt_striped">4.62ms</td>
+<td class="gt_row gt_right gt_striped">2.152451e+02</td>
+<td class="gt_row gt_center gt_striped">2.03MB</td>
+<td class="gt_row gt_right gt_striped">6.522579</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">196.13ms</td>
-<td class="gt_row gt_center">217.11ms</td>
-<td class="gt_row gt_right">4.667818e+00</td>
-<td class="gt_row gt_center">37.73MB</td>
-<td class="gt_row gt_right">6.2237578</td></tr>
+<td class="gt_row gt_center">142.70ms</td>
+<td class="gt_row gt_center">142.70ms</td>
+<td class="gt_row gt_right">7.007637e+00</td>
+<td class="gt_row gt_center">38.99MB</td>
+<td class="gt_row gt_right">21.022912</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+05</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">19.86ms</td>
-<td class="gt_row gt_center">22.29ms</td>
-<td class="gt_row gt_right">4.119796e+01</td>
-<td class="gt_row gt_center">5.38MB</td>
-<td class="gt_row gt_right">3.9236152</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+05</td>
+<td class="gt_row gt_center gt_striped">17.25ms</td>
+<td class="gt_row gt_center gt_striped">17.83ms</td>
+<td class="gt_row gt_right gt_striped">5.572015e+01</td>
+<td class="gt_row gt_center gt_striped">5.50MB</td>
+<td class="gt_row gt_right gt_striped">6.965018</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">2.83s</td>
-<td class="gt_row gt_center">2.83s</td>
-<td class="gt_row gt_right">3.529444e-01</td>
-<td class="gt_row gt_center">360.25MB</td>
-<td class="gt_row gt_right">1.4117774</td></tr>
+<td class="gt_row gt_center">1.62s</td>
+<td class="gt_row gt_center">1.62s</td>
+<td class="gt_row gt_right">6.180837e-01</td>
+<td class="gt_row gt_center">371.70MB</td>
+<td class="gt_row gt_right">1.854251</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">32.45ms</td>
-<td class="gt_row gt_center">41.12ms</td>
-<td class="gt_row gt_right">1.990689e+01</td>
-<td class="gt_row gt_center">19.45MB</td>
-<td class="gt_row gt_right">1.9906890</td></tr>
+<td class="gt_row gt_right gt_striped">10</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">29.86ms</td>
+<td class="gt_row gt_center gt_striped">30.67ms</td>
+<td class="gt_row gt_right gt_striped">2.365480e+01</td>
+<td class="gt_row gt_center gt_striped">19.45MB</td>
+<td class="gt_row gt_right gt_striped">5.913699</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">100</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">2.06s</td>
-<td class="gt_row gt_center">2.06s</td>
-<td class="gt_row gt_right">4.862046e-01</td>
-<td class="gt_row gt_center">332.30MB</td>
-<td class="gt_row gt_right">1.4586137</td></tr>
+<td class="gt_row gt_center">1.61s</td>
+<td class="gt_row gt_center">1.61s</td>
+<td class="gt_row gt_right">6.203271e-01</td>
+<td class="gt_row gt_center">343.74MB</td>
+<td class="gt_row gt_right">2.481308</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">100</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">23.52ms</td>
-<td class="gt_row gt_center">27.62ms</td>
-<td class="gt_row gt_right">2.771466e+01</td>
-<td class="gt_row gt_center">19.48MB</td>
-<td class="gt_row gt_right">3.4643328</td></tr>
+<td class="gt_row gt_right gt_striped">100</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">28.95ms</td>
+<td class="gt_row gt_center gt_striped">29.52ms</td>
+<td class="gt_row gt_right gt_striped">2.790427e+01</td>
+<td class="gt_row gt_center gt_striped">19.48MB</td>
+<td class="gt_row gt_right gt_striped">3.720569</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">1000</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">1.89s</td>
-<td class="gt_row gt_center">1.89s</td>
-<td class="gt_row gt_right">5.285217e-01</td>
-<td class="gt_row gt_center">332.67MB</td>
-<td class="gt_row gt_right">0.5285217</td></tr>
+<td class="gt_row gt_center">1.57s</td>
+<td class="gt_row gt_center">1.57s</td>
+<td class="gt_row gt_right">6.372116e-01</td>
+<td class="gt_row gt_center">344.13MB</td>
+<td class="gt_row gt_right">1.911635</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">1000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">37.71ms</td>
-<td class="gt_row gt_center">41.86ms</td>
-<td class="gt_row gt_right">1.822223e+01</td>
-<td class="gt_row gt_center">19.82MB</td>
-<td class="gt_row gt_right">1.8222226</td></tr>
+<td class="gt_row gt_right gt_striped">1000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">33.15ms</td>
+<td class="gt_row gt_center gt_striped">34.44ms</td>
+<td class="gt_row gt_right gt_striped">2.647990e+01</td>
+<td class="gt_row gt_center gt_striped">19.83MB</td>
+<td class="gt_row gt_right gt_striped">1.891422</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">factor(x)</th>
 <td class="gt_row gt_right">10000</td>
 <td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">2.34s</td>
-<td class="gt_row gt_center">2.34s</td>
-<td class="gt_row gt_right">4.268959e-01</td>
-<td class="gt_row gt_center">336.56MB</td>
-<td class="gt_row gt_right">1.2806878</td></tr>
+<td class="gt_row gt_center">1.63s</td>
+<td class="gt_row gt_center">1.63s</td>
+<td class="gt_row gt_right">6.148710e-01</td>
+<td class="gt_row gt_center">348.12MB</td>
+<td class="gt_row gt_right">1.844613</td></tr>
     <tr><th scope="row" class="gt_row gt_left gt_stub">fact(x)</th>
-<td class="gt_row gt_right">10000</td>
-<td class="gt_row gt_right">1e+06</td>
-<td class="gt_row gt_left">date</td>
-<td class="gt_row gt_center">53.76ms</td>
-<td class="gt_row gt_center">63.28ms</td>
-<td class="gt_row gt_right">1.544572e+01</td>
-<td class="gt_row gt_center">23.18MB</td>
-<td class="gt_row gt_right">0.0000000</td></tr>
+<td class="gt_row gt_right gt_striped">10000</td>
+<td class="gt_row gt_right gt_striped">1e+06</td>
+<td class="gt_row gt_center gt_striped">54.10ms</td>
+<td class="gt_row gt_center gt_striped">55.66ms</td>
+<td class="gt_row gt_right gt_striped">1.631327e+01</td>
+<td class="gt_row gt_center gt_striped">23.30MB</td>
+<td class="gt_row gt_right gt_striped">1.812586</td></tr>
   </tbody>
   
   
 </table>
 </div>
 
-bench:::autoplot.bench_mark(res)
-#> Loading required namespace: tidyr
+``` r
+f_plot <- function(x) {
+  x$expression <- as.character(x$expression)
+  # x$median <- log1p(x$median)
+  # x <- tidyr::unnest(x, c(time, gc))
+  # x$n_unique <- factor(x$n_unique)
+  # x$n_values <- factor(x$n_values)
+  ggplot2::ggplot(
+    x, 
+    ggplot2::aes_string(
+      x = "n_values", 
+      y = "median",
+      col = "expression",
+      group = "expression"
+    )
+  ) +
+    ggplot2::geom_line() +
+    ggplot2::geom_point() +
+    ggplot2::scale_x_continuous(
+      trans = "log1p",
+      breaks = 10^(2:6)
+    ) +
+    ggplot2::scale_y_continuous(trans = "log1p") +
+    ggplot2::coord_trans("log1p", "log1p") +
+    ggplot2::theme_light() +
+    ggplot2::theme(
+      axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)
+    ) +
+    ggplot2::facet_grid(
+      cols = ggplot2::vars(n_unique),
+      rows = ggplot2::vars(value_type),
+      scales = "free"
+    ) +
+    ggplot2::labs(
+      x = "number of values",
+      y = "median time",
+      col = "function",
+      title = "Median times across types and unique values"
+    )
+}
+```
 
-<img src="bench/figures/bench-unnamed-chunk-4-1.png" width="100%" />
+``` r
+f_plot(res)
+```
+
+<img src="bench/figures/bench-unnamed-chunk-7-1.png" width="100%" />
