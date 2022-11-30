@@ -136,8 +136,6 @@ vec_cast_fact_default <- function(x, to, ...) {
 vec_cast.fact.fact <- vec_cast_fact_levels
 #' @export
 vec_cast.fact.factor <- vec_cast_fact_levels
-#' @export
-vec_cast.fact.haven_labelled <- vec_cast_fact_levels
 
 #' @export
 vec_cast.fact.character <- vec_cast_fact_default

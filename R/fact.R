@@ -230,23 +230,3 @@ fact.pseudo_id <- function(x, ...) {
 
   new_fact(x, u)
 }
-
-#' @rdname fact
-#' @export
-fact.haven_labelled <- function(x, ...) {
-  lvls <- attr(x, "labels")
-
-  if (length(lvls)) {
-    ux <- unclass(x)
-    vals <- sort.int(unique(c(ux, lvls)))
-    m <- vec_match(ux, vals)
-    ml <- vec_match(lvls, vals)
-    vals[ml] <- names(lvls)
-    res <- new_fact(m, vals)
-  } else {
-    res <- fact(unclass(x))
-  }
-
-  attr(res, "label") <- exattr(x, "label")
-  res
-}
