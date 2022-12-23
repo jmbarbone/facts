@@ -30,7 +30,7 @@ fact(x, ...)
 
 \method{fact}{logical}(x, ...)
 
-\method{fact}{factor}(x, convert = getOption("facts.factor.convert"), ...)
+\method{fact}{factor}(x, ...)
 
 \method{fact}{fact}(x, ...)
 
@@ -50,10 +50,6 @@ that can be safely coerced to an `integer`.  A sequence of `integers` is
 reconstructed from `range` and used as all the `fact` levels.  All `NA` and
 `Inf` values are dropped.  At least one non-missing and finite value must
 be present.}
-
-\item{convert}{When `TRUE` tries to convert levels to a more suitable value.
-When passed a `function`, will attempt to use that as the conversion
-method.  Otherwise, `levels` remain as `character`.}
 }
 \value{
 A vector of equal length of `x` with class `fact` and `factor`.  If

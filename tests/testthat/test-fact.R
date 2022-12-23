@@ -77,35 +77,7 @@ test_that("fact.factor()", {
 
   # fact.fact() checks for NA and adds
   x <- factor(c(1, NA, 2))
-  expect_identical(levels(fact(x)), c("1", "2"))
-  converted <- fact(x, convert = TRUE)
-  expect_identical(levels(converted), c("1", "2", "(na)"))
-  expect_identical(values(converted), c(1L, 2L, NA))
-
-  # moves NA to the end and reordered when number
-  x <- factor(c(1, NA, 2), c(2, NA, 1), exclude = NULL)
-  res <- new_fact(c(1L, 3L, 2L), c(1L, 2L, NA))
-  expect_identical(fact(x, convert = TRUE), res)
-
-  x <- factor(c(NA, TRUE, FALSE))
-  res <- new_fact(c(3L, 1L, 2L), c(TRUE, FALSE, NA))
-  expect_identical(fact(x, convert = TRUE), res)
-
-  x <- factor(c(NA, TRUE, FALSE), exclude = NULL)
-  res <- new_fact(c(3L, 1L, 2L), c(TRUE, FALSE, NA))
-  expect_identical(fact(x, convert = TRUE), res)
-
-  obj <- fact(factor(c("a", NA, "c")), convert = TRUE)
-  exp <- new_fact(c(1, NA, 2), values = c("a", "c", NA))
-  expect_identical(obj, exp)
-
-  obj <- fact(factor(c("a", NA, "c"), exclude = NULL), convert = TRUE)
-  exp <- new_fact(c(1, 3L, 2), values = c("a", "c", NA))
-  expect_identical(obj, exp)
-
-  obj <- fact(factor(c("1", NA, "2"), exclude = NULL), convert = as.integer)
-  exp <- new_fact(c(1L, 3L, 2L), values = c(1L, 2L, NA))
-  expect_identical(obj, exp)
+  expect_identical(levels(fact(x)), c("1", "2", "(na)"))
 })
 
 test_that("fact() ignores NaN", {
