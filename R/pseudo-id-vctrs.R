@@ -112,8 +112,6 @@ vec_cast.pseudo_id.pseudo_id <- vec_cast_pseudo_id_values
 vec_cast.pseudo_id.fact <- vec_cast_pseudo_id_values
 #' @export
 vec_cast.pseudo_id.factor <- vec_cast_pseudo_id_values
-#' @export
-vec_cast.pseudo_id.haven_labelled <- vec_cast_pseudo_id_values
 
 #' @export
 vec_cast.pseudo_id.character <- vec_cast_pseudo_id_default

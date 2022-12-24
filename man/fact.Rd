@@ -12,7 +12,6 @@
 \alias{fact.factor}
 \alias{fact.fact}
 \alias{fact.pseudo_id}
-\alias{fact.haven_labelled}
 \title{Factor}
 \usage{
 fact(x, ...)
@@ -36,8 +35,6 @@ fact(x, ...)
 \method{fact}{fact}(x, ...)
 
 \method{fact}{pseudo_id}(x, ...)
-
-\method{fact}{haven_labelled}(x, ...)
 }
 \arguments{
 \item{x}{A vector of values}
