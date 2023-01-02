@@ -69,6 +69,12 @@ test_that("pseudo_id.data.frame() works", {
   )
 
   expect_identical(obj, exp)
+
+  obj <- pseudo_id(x, "a")
+  exp <- new_pseudo_id(c(1L, 1L, 2L, 2L, 2L), list(list(1), list(3)))
+  expect_identical(obj, exp)
+
+  expect_error(pseudo_id(x, list()), class = "pseudoIdColumnNamesError")
 })
 
 test_that("is_pseudo_id()", {
