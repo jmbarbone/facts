@@ -40,6 +40,24 @@ pseudo_id.factor <- function(x, ...) {
   pseudo_id(as_values(fact(x)))
 }
 
+#' @export
+#' @rdname pseudo_id
+#' @param cols Columns to use for unique ids
+pseudo_id.data.frame <- function(x, cols = NULL, ...) {
+  x <- as.data.frame(x)
+  cols <- cols %||% seq_along(x)
+
+  if (is_integerish(cols)) {
+    cols <- colnames(x)[cols]
+  } else if (!is.character(cols)) {
+    stop(cond_pseudo_id_cols())
+  }
+
+  x <- x[, cols, drop = FALSE]
+  ls <- lapply(seq_len(nrow(x)), function(i) as.list(x[i, ]))
+  pseudo_id(ls)
+}
+
 
 # helpers -----------------------------------------------------------------
 
@@ -56,4 +74,11 @@ na_last <- function(x) {
   } else {
     x
   }
+}
+
+cond_pseudo_id_cols <- function() {
+  fuj::new_condition(
+    msg = "`cols` must be be interger-like or a character vector",
+    class = "pseudoIdColumnNames"
+  )
 }

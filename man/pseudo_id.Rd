@@ -5,6 +5,7 @@
 \alias{pseudo_id.pseudo_id}
 \alias{pseudo_id.default}
 \alias{pseudo_id.factor}
+\alias{pseudo_id.data.frame}
 \title{Create an ID for a vector}
 \usage{
 pseudo_id(x, ...)
@@ -14,6 +15,8 @@ pseudo_id(x, ...)
 \method{pseudo_id}{default}(x, na_last = TRUE, ...)
 
 \method{pseudo_id}{factor}(x, ...)
+
+\method{pseudo_id}{data.frame}(x, cols = NULL, ...)
 }
 \arguments{
 \item{x}{A vector of values}
@@ -21,6 +24,8 @@ pseudo_id(x, ...)
 \item{...}{Additional arguments passed to methods}
 
 \item{na_last}{`Logical` if `FALSE` will not place `NA` at the end}
+
+\item{cols}{Columns to use for unique ids}
 }
 \value{
 A `pseudo_id` object where the `integer` value of the vector
