@@ -12,7 +12,6 @@
 \alias{fact.factor}
 \alias{fact.fact}
 \alias{fact.pseudo_id}
-\alias{fact.haven_labelled}
 \title{Factor}
 \usage{
 fact(x, ...)
@@ -31,13 +30,11 @@ fact(x, ...)
 
 \method{fact}{logical}(x, ...)
 
-\method{fact}{factor}(x, convert = getOption("facts.factor.convert"), ...)
+\method{fact}{factor}(x, ...)
 
 \method{fact}{fact}(x, ...)
 
 \method{fact}{pseudo_id}(x, ...)
-
-\method{fact}{haven_labelled}(x, ...)
 }
 \arguments{
 \item{x}{A vector of values}
@@ -53,10 +50,6 @@ that can be safely coerced to an `integer`.  A sequence of `integers` is
 reconstructed from `range` and used as all the `fact` levels.  All `NA` and
 `Inf` values are dropped.  At least one non-missing and finite value must
 be present.}
-
-\item{convert}{When `TRUE` tries to convert levels to a more suitable value.
-When passed a `function`, will attempt to use that as the conversion
-method.  Otherwise, `levels` remain as `character`.}
 }
 \value{
 A vector of equal length of `x` with class `fact` and `factor`.  If

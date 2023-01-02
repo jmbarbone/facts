@@ -12,24 +12,22 @@ as_values <- function(x, ...) {
 
 #' @export
 #' @rdname as_values
-as_value.default <- function(x, ...) {
+as_values.default <- function(x, ...) {
   x
 }
 
-
 #' @export
 #' @rdname as_values
-as_values.psuedo_id <- function(x, ...) {
-  values(x)[x]
+#' @param fun An optional function for transforming values
+as_values.pseudo_id <- function(x, fun = "identity", ...) {
+  fun <- match.fun(fun)
+  fun(values(x))[x]
 }
 
 
 #' @export
 #' @rdname as_values
-as_values.fact <- function(x, ...) {
-  values(x)[x]
-}
-
+as_values.fact <- as_values.pseudo_id
 
 #' @export
 #' @rdname as_values
@@ -37,8 +35,12 @@ as_values.fact <- function(x, ...) {
 #'   or a `function` (or name of one as a `character`).  This determines how to
 #'   convert the result of `levels(x)`.
 as_values.factor <- function(x, type = c("character", "double", "integer", "date"), ...) {
+  if (is.function(type)) {
+    return(type(levels(x))[x])
+  }
+
   switch(
-    type,
+    type[1],
     character = levels(x)[x],
     double = as.double(levels(x))[x],
     integer = as.integer(levels(x))[x],

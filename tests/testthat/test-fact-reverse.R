@@ -14,7 +14,7 @@ test_that("fact_reverse() works", {
   res <- fact_reverse(as_ordered(c(1:3, NA)))
   exp <- struct(
     c(3:1, NA),
-    class = c("fact", "ordered", "factor"),
+    class = c("fact", "ordered", "factor", "vctrs_vctr"),
     values = 3:1,
     levels = c("3", "2", "1"),
     na = 0L

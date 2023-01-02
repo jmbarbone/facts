@@ -14,7 +14,7 @@ test_that("drop_levels() works", {
   x <- as_ordered(factor(1, 1:2))
   exp <- struct(
     1L,
-    class = c("fact", "ordered", "factor"),
+    class = c("fact", "ordered", "factor", "vctrs_vctr"),
     levels = "1",
     values = "1",
     na = 0L
