@@ -48,9 +48,10 @@ f2
 str(f1)
 #>  Factor w/ 1 level "1": 1 NA
 str(f2)
-#>  Factor w/ 2 levels "1","(na)": 1 2
-#>  - attr(*, "values")= num [1:2] 1 NA
-#>  - attr(*, "na")= int 2
+#>  fct [1:2] 1 [1], 2 [NA]
+#>  @ levels: chr [1:2] "1" "(na)"
+#>  @ values: num [1:2] 1 NA
+#>  @ na    : int 2
 
 f2
 #> [1] 1    <NA>
@@ -107,8 +108,8 @@ x <- c("blue", "green", "red", "purple", "black", "white")
 x <- sample(x, 100, TRUE)
 id <- pseudo_id(x)
 id
-#>   [1] 1 1 2 3 1 2 4 2 3 5 2 2 1 1 1 3 6 2 2 2 5 6 3 1 6 5 6 3 4 3 3 1 4 1 4 4 1
-#>  [38] 6 6 3 3 3 2 5 6 5 6 6 6 3 6 2 4 4 4 3 5 5 4 3 4 1 5 3 3 6 1 2 6 1 6 4 2 6
-#>  [75] 6 2 2 5 5 6 6 4 5 2 5 1 3 4 3 4 5 3 4 4 1 6 1 6 2 4
-#> values: purple green white red blue black
+#>   [1] 1 2 2 3 4 3 2 5 5 5 6 1 5 5 2 5 1 6 5 6 1 5 6 3 3 2 5 3 1 4 5 1 1 1 2 6 1
+#>  [38] 1 4 2 1 4 6 6 3 2 6 1 2 6 5 3 2 1 1 6 6 1 6 6 2 3 6 2 2 2 4 4 5 4 6 3 6 1
+#>  [75] 5 4 2 3 2 6 1 2 1 5 6 5 2 4 3 1 4 4 6 5 2 6 1 3 2 5
+#> values: green white black blue red purple
 ```
