@@ -50,7 +50,7 @@ pseudo_id.data.frame <- function(x, cols = NULL, ...) {
   if (is_integerish(cols)) {
     cols <- colnames(x)[cols]
   } else if (!is.character(cols)) {
-    stop(cond_psuedo_id_cols())
+    stop(cond_pseudo_id_cols())
   }
 
   x <- x[, cols, drop = FALSE]
