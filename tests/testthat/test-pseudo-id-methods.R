@@ -1,8 +1,6 @@
 test_that("format.pseudo_id()", {
-  x <- pseudo_id(c(0, 2, 1, 2, 1))
-  obj <- format(x)
-  exp <- c("1 <0>", "2 <2>", "3 <1>", "2 <2>", "3 <1>")
-  expect_identical(obj, exp)
+  expect_snapshot(format(pseudo_id(c(0, 2, 1, 2, 1))))
+  expect_snapshot(format(pseudo_id(list(a = 1:2, b = 1:3, c = 1:2))))
 })
 
 test_that("pillar_shaft.pseudo_id()", {
