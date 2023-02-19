@@ -24,7 +24,7 @@ print.pseudo_id <- function(x, ..., all = FALSE) {
 format.pseudo_id <- function(x, ...) {
   vals <- values(x)
   ints <- seq_along(vals)
-  sprintf("%s <%s>", format(ints), prettyNum(vals))[x]
+  sprintf("%s <%s>", format(ints), format(vals))[x]
 }
 
 #' @importFrom pillar pillar_shaft
