@@ -1,11 +1,13 @@
 ---
 output: github_document
-chunk_output_type: console
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- bench/bench.md is generated from bench/bench.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r setup}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -15,72 +17,29 @@ knitr::opts_chunk$set(
   code.fold = TRUE,
   collapse = TRUE
 )
+```
 
+```{r packages-functions}
 requireNamespace("bench")
 requireNamespace("stringi")
 requireNamespace("ggplot2")
 requireNamespace("ggbeeswarm")
 requireNamespace("gt")
-```
 
-```{r}
 library(facts)
-```
+library(forcats, include.only = "as_factor")
 
-```{r}
-# to save these
-bench_env <- new.env()
-
-do_bench <- function(
-    unique_n = 10^(1:4), 
-    values_n = 10^(2:6), 
-    values_type = c("logical", "character", "double", "integer", "date")
-) {
-  values_type <- match.arg(values_type)
-  
-  if (values_type == "logical") {
-    unique_n <- 3
-  }
-  
-  res <- bench::press(
-    un = unique_n,
-    vn = values_n,
-    {
-      x <- switch(
-        values_type,
-        character = stringi::stri_rand_strings(un, 5),
-        double = runif(un),
-        integer = order(runif(un)),
-        date = Sys.Date() + order(runif(un)),
-        logical = c(TRUE, FALSE, NA)
-      )
-      x <- sample(x, vn, TRUE)
-      bench::mark(
-        factor = factor(x),
-        fact = fact(x),
-        check = FALSE
-      )
-    }
-  )
-  
-  assign(values_type, res, envir = bench_env)
-  
-  print(bench:::autoplot.bench_mark(res) + ggplot2::theme(legend.position = "top"))
-  
-  writeLines('<details><summary>Show table</summary>')
-  res[1:9] |>
-    transform(expression = sapply(expression, deparse)) |>
-    gt::gt("expression") |> 
-    print()
-  writeLines("</details>")
-  
-  invisible()
+# assuming it's the same as numeric
+as_factor.Date <- function(x, ...) {
+  factor(x)
 }
+
+registerS3method("as_factor", "Date", as_factor.Date)
 ```
 
-## Other vector types
+## Benchmarks
 
-```{r}
+```{r bench-press}
 res <- bench::press(
   n_unique = 10^(1:4),
   n_values = 10^(2:6),
@@ -89,13 +48,15 @@ res <- bench::press(
     x <- switch(
       value_type,
       character = stringi::stri_rand_strings(n_unique, 5),
-      double = runif(n_unique),
-      integer = order(runif(n_unique)),
-      date = Sys.Date() + order(runif(n_unique))
+      double = stats::runif(n_unique),
+      integer = order(stats::runif(n_unique)),
+      date = Sys.Date() + order(stats::runif(n_unique)),
+      logical = c(TRUE, FALSE, NA)
     )
     x <- sample(x, n_values, TRUE)
     bench::mark(
       factor = factor(x),
+      forcats = as_factor(x),
       fact = fact(x),
       check = FALSE
     )
@@ -103,8 +64,7 @@ res <- bench::press(
 )
 ```
 
-
-```{r}
+```{r table}
 res[1:9] |> 
   transform(expression = sapply(expression, deparse1)) |> 
   gt::gt("expression", "value_type") |> 
@@ -112,7 +72,9 @@ res[1:9] |>
 ```
 
 
-```{r}
+```{r plot}
+#| fig-width: 12
+#| fig-height: 12
 f_plot <- function(x) {
   x$expression <- as.character(x$expression)
   # x$median <- log1p(x$median)
@@ -152,11 +114,6 @@ f_plot <- function(x) {
       title = "Median times across types and unique values"
     )
 }
-```
 
-
-```{r}
-#| fig-width: 12
-#| fig-height: 12
 f_plot(res)
 ```
