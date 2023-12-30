@@ -30,7 +30,17 @@ unique.fact <- function(x, incomparables = FALSE, ...) {
 
 #' @export
 as.Date.fact <- function(x, ...) {
-  as.Date(values(x), ...)[x]
+  vec_cast(values(x), new_date())[x]
+}
+
+#' @export
+as.POSIXct.fact <- function(x, ...) {
+  vec_cast(values(x), new_datetime())[x]
+}
+
+#' @export
+as.POSIXlt.fact <- function(x, ...) {
+  vec_cast(values(x), as.POSIXlt(new_datetime()))[x]
 }
 
 #' @export
@@ -61,9 +71,9 @@ pillar_shaft.fact <- function(x, ...) {
 #' @export
 print.fact <- function(
     x,
-  max_levels = getOption("facts.max_levels", TRUE),
-  width = getOption("width"),
-  ...
+    max_levels = getOption("facts.max_levels", TRUE),
+    width = getOption("width"),
+    ...
 ) {
   # mostly a reformatted base::print.factor()
   # TODO check for `range` attribute and print something a bit nicer
@@ -79,7 +89,8 @@ print.fact <- function(
     n <- length(lev)
     colsep <- if (ord) " < " else " "
 
-    if (length(range <- exattr(x, "range")) == 2L) {
+    range <- exattr(x, "range")
+    if (length(range) == 2L) {
       lab <- cat(
         "range: ", range[1L], " to ", range[2L],
         if (na <- exattr(x, "na")) c(", ", levels(x)[na]),
@@ -87,7 +98,7 @@ print.fact <- function(
         sep = ""
       )
     } else {
-      T0 <- "levels: "
+      T0 <- sprintf("levels (%s): ", vec_ptype_full(values(x)))
       if (is.logical(max_levels)) {
         max_levels <- {
           width <- width - (nchar(T0, "w") + 3L +  1L + 3L)
@@ -106,7 +117,11 @@ print.fact <- function(
         T0,
         paste(
           if (drop) {
-            c(lev[1L:max(1, max_levels - 1)], "...", if (max_levels >  1) lev[n])
+            c(
+              lev[1L:max(1, max_levels - 1)],
+              "...",
+              if (max_levels >  1) lev[n]
+            )
           } else {
             lev
           },
