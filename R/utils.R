@@ -3,7 +3,8 @@ is_integerish <- function(x, bool = getOption("facts.bool.integer", FALSE)) {
     return(TRUE)
   }
 
-  if (!is.double(x)) {
+  # Date, POSIXt return TRUE for is.double()
+  if (!is.numeric(x)) {
     return(FALSE)
   }
 
@@ -25,10 +26,10 @@ values <- function(x, strict = TRUE) {
   out <- exattr(x, "values") %||% exattr(x, "levels")
 
   if (!strict && is.null(out)) {
-    out <- vec_unique(x)
+    vec_unique(x)
+  } else {
+    out
   }
-
-  out
 }
 
 add_class <- function(x, cl, pos = 1L, from_last = TRUE) {
