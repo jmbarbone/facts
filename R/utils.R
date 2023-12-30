@@ -33,6 +33,9 @@ values <- function(x, strict = TRUE) {
 }
 
 add_class <- function(x, cl, pos = 1L, from_last = TRUE) {
-  class(x) <- unique(append(class(x), cl, after = pos - 1L), fromLast = from_last)
+  class(x) <- unique(
+    append(class(x), cl, after = pos - 1L),
+    fromLast = from_last
+  )
   x
 }
