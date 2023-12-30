@@ -151,7 +151,7 @@ fact.logical <- function(x, ...) {
 
   new_fact(
     out,
-    values = c(TRUE, FALSE, if (any(nas)) NA),
+    values = c(FALSE, TRUE, if (any(nas)) NA),
     na = if (any(nas)) 3L else 0L
   )
 }
