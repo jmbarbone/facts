@@ -165,3 +165,25 @@ vec_cast.integer.fact <- function(x, to, ...) { as.integer(x) }
 #' @export
 vec_cast.logical.fact <- function(x, to, ...) { as.logical(values(x)[x]) }
 
+
+# others ------------------------------------------------------------------
+
+#' @export
+is.na.fact <- function(x) {
+  as_values(x, is.na)
+}
+
+#' @export
+is.nan.fact <- function(x) {
+  as_values(x, is.nan)
+}
+
+#' @export
+is.finite.fact <- function(x) {
+  as_values(x, is.finite)
+}
+
+#' @export
+is.infinite.fact <- function(x) {
+  as_values(x, is.infinite)
+}

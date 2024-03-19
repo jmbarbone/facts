@@ -4,7 +4,7 @@
 #' Converter for objects that store some value
 #'
 #' @param x An object
-#' @param ... Additional paramters passed to methods
+#' @param ... Additional parameters passed to methods
 #' @return Values from `x`, of the same length as `x`
 as_values <- function(x, ...) {
   UseMethod("as_values")
@@ -12,22 +12,16 @@ as_values <- function(x, ...) {
 
 #' @export
 #' @rdname as_values
-as_values.default <- function(x, ...) {
-  x
-}
-
-#' @export
-#' @rdname as_values
 #' @param fun An optional function for transforming values
-as_values.pseudo_id <- function(x, fun = "identity", ...) {
-  fun <- match.fun(fun)
-  fun(values(x))[x]
+as_values.default <- function(x, fun = "identity", ...) {
+  match.fun(fun)(values(x), ...)
 }
-
 
 #' @export
 #' @rdname as_values
-as_values.fact <- as_values.pseudo_id
+as_values.fact <- function(x, ...) {
+  as_values(values(x), ...)[fact_to_pos(x)]
+}
 
 #' @export
 #' @rdname as_values
@@ -53,4 +47,29 @@ as_values.factor <- function(x, type = c("character", "double", "integer", "date
       type(levels(x))[x]
     }
   )
+}
+
+guess_class <- function(x) {
+  if (!is.character(x)) {
+    return(class(x))
+  }
+
+  if (length(x) > 3000) {
+    x <- sample(x, 2000)
+  }
+
+  if (all(is.na(x))) {
+    return("logical")
+  }
+
+  num <- suppressWarnings(as.numeric(x))
+  if (all(is.na(num))) {
+    return("character")
+  }
+
+  num <- num[!is.na(num)]
+
+  if (all(num %% 1 == 0)) {
+    return("integer")
+  }
 }

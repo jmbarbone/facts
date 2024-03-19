@@ -21,8 +21,7 @@ cat0 <- function(...) {
   cat(..., sep = "" )
 }
 
-values <- function(x, strict = TRUE) {
-  # TODO should this really grab from levels?
+values <- function(x, strict = FALSE) {
   out <- exattr(x, "values") %||% exattr(x, "levels")
 
   if (!strict && is.null(out)) {
