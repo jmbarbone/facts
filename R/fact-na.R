@@ -13,6 +13,8 @@
 #' @family factors
 #' @export
 fact_na <- function(x, remove = FALSE) {
+  # .Deprecated()
+  return(fact(x))
   x <- fact(x)
   na <- attr(x, "na")
 

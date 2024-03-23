@@ -69,7 +69,7 @@ fact.numeric <- function(x, ...) {
   }
 
   # Don't bother NaN
-  x[is.nan(x)] <- NA
+  # x[is.nan(x)] <- NA
   u <- vec_sort(vec_unique(x))
   new_fact(vec_match(x, u), u)
 }
@@ -143,9 +143,7 @@ fact.POSIXt <- fact.numeric
 #' @rdname fact
 #' @export
 fact.logical <- function(x, ...) {
-  out <- as.integer(x)
-  w <- which(!x)
-  out[w] <- out[w] + 2L
+  out <- as.integer(x) + 1L
   nas <- is.na(x)
   out[nas] <- 3L
 

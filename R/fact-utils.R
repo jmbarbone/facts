@@ -21,16 +21,30 @@ try_numeric <- function(x) {
 }
 
 # Safely transform values into labels and use a replacement for NA values
-to_levels <- function(x, na = NULL) {
+to_levels <- function(x, na = NULL, nan = NULL) {
   na <- fact_na_label(na)
+  nan <- fact_nan_label(nan)
   nas <- is.na(x)
-  x <- as.character(x)
+  nans <- is.nan(x)
+  x <- format(x, trim = TRUE)
   x[nas] <- na
+  x[nans] <- nan
   x
 }
 
 fact_na_label <- function(na = NULL) {
   na <- na %||% getOption("facts.na.label", "(na)")
+  na <- as.character(na)
+
+  if (length(na) != 1) {
+    stop(fact_na_condition())
+  }
+
+  na
+}
+
+fact_nan_label <- function(na = NULL) {
+  na <- na %||% getOption("facts.nan.label", "(nan)")
   na <- as.character(na)
 
   if (length(na) != 1) {
@@ -119,4 +133,13 @@ check_fact <- function(x) {
   }
 
   invisible(x)
+}
+
+fact_to_pos <- function(x) {
+  na <- attr(x, "na") %||% 0L
+  x <- as.integer(unclass(x))
+  if (na) {
+    x[is.na(x)] <- na
+  }
+  x
 }
