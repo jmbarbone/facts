@@ -68,7 +68,7 @@ fact_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
     )
   }
 
-  if (is.factor(x) & is.factor(y)) {
+  if (is.factor(x) && is.factor(y)) {
     fact(mold)
   } else {
     mold[0]
