@@ -30,7 +30,8 @@ unique.fact <- function(x, incomparables = FALSE, ...) {
 
 #' @export
 as.Date.fact <- function(x, ...) {
-  vec_cast(values(x), new_date())[x]
+  as_values(x, as.Date, ...)
+  # as.Date(values(x), new_date())[x]
 }
 
 #' @export
@@ -59,7 +60,7 @@ levels.fact <- function(x) {
 format.fact <- function(x, ...) {
   vals <- values(x)
   ints <- seq_along(vals)
-  sprintf("%s [%s]", format(ints), prettyNum(vals))[x]
+  sprintf("%s [%s]", format(ints), prettyNum(vals, ...))[x]
 }
 
 #' @importFrom pillar pillar_shaft

@@ -34,8 +34,8 @@ as_ordered <- function(x) {
 
 #' @rdname as_ordered
 #' @export
-as_ordered.default <- function(x) {
-  res <- fact_na(x, remove = TRUE)
+as_ordered.default <- function(x, ...) {
+  res <- fact(x, ...)
 
   if (!is.ordered(x)) {
     # TODO add_class(pos = 2)
