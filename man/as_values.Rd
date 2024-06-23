@@ -3,25 +3,22 @@
 \name{as_values}
 \alias{as_values}
 \alias{as_values.default}
-\alias{as_values.pseudo_id}
 \alias{as_values.fact}
 \alias{as_values.factor}
 \title{Object to values}
 \usage{
 as_values(x, ...)
 
-\method{as_values}{default}(x, ...)
+\method{as_values}{default}(x, fun = "identity", ...)
 
-\method{as_values}{pseudo_id}(x, fun = "identity", ...)
-
-\method{as_values}{fact}(x, fun = "identity", ...)
+\method{as_values}{fact}(x, ...)
 
 \method{as_values}{factor}(x, type = c("character", "double", "integer", "date"), ...)
 }
 \arguments{
 \item{x}{An object}
 
-\item{...}{Additional paramters passed to methods}
+\item{...}{Additional parameters passed to methods}
 
 \item{fun}{An optional function for transforming values}
 

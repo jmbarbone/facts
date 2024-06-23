@@ -28,7 +28,7 @@ Drop unused levels of a factor
 
 Other factors: 
 \code{\link{as_ordered}()},
-\code{\link{fact_na}()},
-\code{\link{fact}()}
+\code{\link{fact}()},
+\code{\link{fact_na}()}
 }
 \concept{factors}
