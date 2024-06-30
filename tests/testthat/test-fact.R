@@ -5,17 +5,22 @@ test_that("fact.default() fails", {
 
 test_that("fact.logical()", {
   x <- fact(c(TRUE, FALSE, NA))
-  expect_message(capture.output(print(x)), NA)
+  expect_message(expect_output(print(x)), NA)
 
   x <- fact(c(FALSE, NA, NA, TRUE, FALSE))
-  res <- new_fact(c(2L, 3L, 3L, 1L, 2L), c(TRUE, FALSE, NA))
+  res <- new_fact(c(1L, 3L, 3L, 2L, 1L), c(FALSE, TRUE, NA))
   expect_identical(x, res)
 
-  expect_false(anyNA(x))
+  expect_true(anyNA(x))
 })
 
 test_that("fact.pseudo_id()", {
-  expect_message(capture.output(print(fact(pseudo_id(c("a", "a", "b", NA_character_))))), NA)
+  expect_message(
+    expect_output(
+      print(fact(pseudo_id(c("a", "a", "b", NA_character_))))
+    ),
+    NA
+  )
 
   # Should appropriately order numeric values
   x <- c(0L, 10L, 10L, NA, 0L, 5L)
@@ -25,9 +30,7 @@ test_that("fact.pseudo_id()", {
 
   expect_identical(fact(x), f)
   expect_identical(fact(x), res)
-
-  # Shouldn't have any NA
-  expect_false(anyNA(fact(x)))
+  expect_true(anyNA(fact(x)))
 
   # pseudo_id() ordered by appearance, fact() has pre-set ordering
   expect_identical(pseudo_id(f), id)
@@ -84,10 +87,10 @@ test_that("fact() ignores NaN", {
   # ignore NaN
   obj <- fact(c(1, 2, NA, 3, NaN))
   exp <- struct(
-    c(1L, 2L, 4L, 3L, 4L),
+    c(1L, 2L, 4L, 3L, 5L),
     class = c("fact", "factor", "vctrs_vctr"),
-    values = c(1, 2, 3, NA),
-    levels = c("1", "2", "3", "(na)"),
+    values = c(1, 2, 3, NA, NaN),
+    levels = c("1", "2", "3", "(na)", "(nan)"),
     na = 4L
   )
 

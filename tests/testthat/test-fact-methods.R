@@ -9,7 +9,7 @@ test_that("[.fact() works", {
 test_that("is.na.fact(), works", {
   x <- fact(c(1, 2, NA, 3))
   res <- is.na(x)
-  exp <- c(FALSE, FALSE, FALSE, FALSE)
+  exp <- c(FALSE, FALSE, TRUE, FALSE)
   expect_identical(res, exp)
 
   x <- fact_na(c(1, 2, NA, 3))

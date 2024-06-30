@@ -13,11 +13,11 @@ test_that("fact_reverse() works", {
 
   res <- fact_reverse(as_ordered(c(1:3, NA)))
   exp <- struct(
-    c(3:1, NA),
+    c(3:1, 4L),
     class = c("fact", "ordered", "factor", "vctrs_vctr"),
-    values = 3:1,
-    levels = c("3", "2", "1"),
-    na = 0L
+    values = c(3:1, NA),
+    levels = c("3", "2", "1", "(na)"),
+    na = 4L
   )
 
   expect_identical(res, exp)
