@@ -134,12 +134,3 @@ check_fact <- function(x) {
 
   invisible(x)
 }
-
-fact_to_pos <- function(x) {
-  na <- attr(x, "na") %||% 0L
-  x <- as.integer(unclass(x))
-  if (na) {
-    x[is.na(x)] <- na
-  }
-  x
-}
