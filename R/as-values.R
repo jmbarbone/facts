@@ -20,7 +20,7 @@ as_values.default <- function(x, fun = "identity", ...) {
 #' @export
 #' @rdname as_values
 as_values.fact <- function(x, ...) {
-  as_values(values(x), ...)[fact_to_pos(x)]
+  as_values(values(x), ...)[unclass(x)]
 }
 
 #' @export
