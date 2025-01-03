@@ -26,7 +26,7 @@ to_levels <- function(x, na = NULL, nan = NULL) {
   nan <- fact_nan_label(nan)
   nas <- is.na(x)
   nans <- is.nan(x)
-  x <- format(x, trim = TRUE)
+  x <- format(x, trim = TRUE, justify = "none")
   x[nas] <- na
   x[nans] <- nan
   x
@@ -107,7 +107,7 @@ fact_coerce_levels <- function(x) {
 }
 
 fact_set_levels <- function(x, levels = NULL, range = NULL) {
-
+  stop("not implemented")
 }
 
 `fact_levels<-` <- function(x, value) {
@@ -121,6 +121,7 @@ fact_set_levels <- function(x, levels = NULL, range = NULL) {
   )
 }
 
+# TODO export is.fact
 is.fact <- function(x) {
   inherits(x, "fact")
 }
