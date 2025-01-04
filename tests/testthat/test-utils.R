@@ -23,6 +23,6 @@ test_that("values()", {
   expect_identical(values(factor("a")), "a")
   expect_identical(values(fact("a")), "a")
 
-  expect_null(values("a"))
+  expect_null(values("a", strict = TRUE))
   expect_identical(values("a", strict = FALSE), "a")
 })

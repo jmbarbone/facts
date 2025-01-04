@@ -91,7 +91,7 @@ test_that("fact() ignores NaN", {
     class = c("fact", "factor", "vctrs_vctr"),
     values = c(1, 2, 3, NA, NaN),
     levels = c("1", "2", "3", "(na)", "(nan)"),
-    na = 4L
+    na = 4:5
   )
 
   expect_identical(obj, exp)
