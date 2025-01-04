@@ -144,13 +144,16 @@ fact.POSIXt <- fact.numeric
 #' @export
 fact.logical <- function(x, ...) {
   out <- as.integer(x) + 1L
-  nas <- is.na(x)
-  out[nas] <- 3L
+  na <- anyNA(x)
+
+  if (na) {
+    out[is.na(x)] <- 3L
+  }
 
   new_fact(
     out,
-    values = c(FALSE, TRUE, if (any(nas)) NA),
-    na = if (any(nas)) 3L else 0L
+    values = c(FALSE, TRUE, if (na) NA),
+    na = if (na) 3L else 0L
   )
 }
 

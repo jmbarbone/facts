@@ -27,9 +27,9 @@ new_fact <- function(
     levels = NULL,
     ordered = FALSE,
     range = NULL,
-    na = if (anyNA(values)) length(values) else 0L
+    na = if (anyNA(values)) which(is.na(values)) else 0L
 ) {
-  values <- values %||% unique(x)
+  values <- values %||% vec_unique(x)
   struct(
     as.integer(x),
     class = c("fact", if (ordered) "ordered", "factor", "vctrs_vctr"),

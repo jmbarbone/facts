@@ -18,7 +18,7 @@ fact_na <- function(x, remove = FALSE) {
   x <- fact(x)
   na <- attr(x, "na")
 
-  if (na == 0L) {
+  if (isTRUE(na == 0L)) {
     return(x)
   }
 
