@@ -18,7 +18,7 @@ is_integerish <- function(x, bool = getOption("facts.bool.integer", FALSE)) {
 }
 
 cat0 <- function(...) {
-  cat(..., sep = "" )
+  cat(..., sep = "")
 }
 
 values <- function(x, strict = FALSE) {

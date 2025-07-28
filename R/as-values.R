@@ -72,4 +72,6 @@ guess_class <- function(x) {
   if (all(num %% 1 == 0)) {
     return("integer")
   }
+
+  NULL
 }

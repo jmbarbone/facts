@@ -162,7 +162,7 @@ fact.logical <- function(x, ...) {
 fact.factor <- function(x, ...) {
   lvls <- levels(x)
 
-  if (!anyNA(lvls) & anyNA(x)) {
+  if (!anyNA(lvls) && anyNA(x)) {
     lvls <- c(lvls, NA_character_)
   }
 

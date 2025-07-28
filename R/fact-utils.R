@@ -68,13 +68,19 @@ fact_coerce_levels <- function(x) {
     numbers <- as.numeric(x[!nas])
     dates <- as.Date(x[!nas], optional = TRUE)
     posix <- as.POSIXct(
-      x          = x[!nas],
-      tryFormats = c("%Y-%m-%d %H:%M:%OS", "%Y/%m/%d %H:%M:%OS",
-                     "%Y-%m-%d %H %M %S", "%Y %m %d %H %M %S",
-                     "%Y-%m-%d %H%M%S", "%Y %m %d %H%M%S",
-                     "%Y%m%d %H %M %S", "%Y%m%d %H%M%S"),
-      tz         = tz,
-      optional   = TRUE
+      x = x[!nas],
+      tryFormats = c(
+        "%Y-%m-%d %H:%M:%OS",
+        "%Y/%m/%d %H:%M:%OS",
+        "%Y-%m-%d %H %M %S",
+        "%Y %m %d %H %M %S",
+        "%Y-%m-%d %H%M%S",
+        "%Y %m %d %H%M%S",
+        "%Y%m%d %H %M %S",
+        "%Y%m%d %H%M%S"
+      ),
+      tz = tz,
+      optional = TRUE
     )
   })
 
@@ -87,11 +93,7 @@ fact_coerce_levels <- function(x) {
     x <- rep(NA_real_, n)
     stopifnot(all(!nas))
     x[] <- as.double(posix)
-    x <- as.POSIXct(
-      x          = x,
-      origin     = "1970-01-01",
-      tz         = tz
-    )
+    x <- as.POSIXct(x, origin = "1970-01-01", tz = tz)
   } else if (!anyNA(numbers)) {
 
     if (is_integerish(numbers)) {
@@ -113,7 +115,7 @@ fact_set_levels <- function(x, levels = NULL, range = NULL) {
 `fact_levels<-` <- function(x, value) {
   x <- fact(x)
   levels <- levels(x)
-  value <- vec_c(value, if (!anyNA(value) & (anyNA(x) | anyNA(levels))) NA)
+  value <- vec_c(value, if (!anyNA(value) && (anyNA(x) || anyNA(levels))) NA)
   new_fact(
     x = vec_match(levels, as.character(value))[x],
     values = value,
@@ -121,11 +123,17 @@ fact_set_levels <- function(x, levels = NULL, range = NULL) {
   )
 }
 
-# TODO export is.fact
+#' Is factor of class 'fact'?
+#'
+#' @param x Object to test
+#' @return Logical indicating if `x` is of class 'fact'
+#' @export
 is.fact <- function(x) {
   inherits(x, "fact")
 }
 
+#' @export
+#' @rdname is_fact
 is_fact <- is.fact
 
 check_fact <- function(x) {
