@@ -91,7 +91,7 @@ fact_coerce_levels <- function(x) {
     x[!nas] <- dates
   } else if (!anyNA(posix)) {
     x <- rep(NA_real_, n)
-    stopifnot(all(!nas))
+    stopifnot(!nas)
     x[] <- as.double(posix)
     x <- as.POSIXct(x, origin = "1970-01-01", tz = tz)
   } else if (!anyNA(numbers)) {

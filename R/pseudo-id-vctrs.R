@@ -140,4 +140,3 @@ vec_cast.integer.pseudo_id <- function(x, to, ...) { struct(x, "integer") }
 vec_cast.double.pseudo_id <- function(x, to, ...) { struct(x, "double") }
 #' @export
 vec_cast.numeric.pseudo_id <- function(x, to, ...) { struct(x, "numeric") } # nocov
-

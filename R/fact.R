@@ -59,13 +59,11 @@ fact.character <- function(x, levels = NULL, ...) {
 #' @rdname fact
 #' @export
 fact.numeric <- function(x, ...) {
-  if (isTRUE(getOption("facts.guess.integer", FALSE))) {
-    if (is_integerish(x)) {
-      old <- class(x) %wo% c("double", "numeric")
-      x <- as.integer(x)
-      x <- add_class(x, old)
-      return(fact(x, ...))
-    }
+  if (isTRUE(getOption("facts.guess.integer", FALSE)) && is_integerish(x)) {
+    old <- class(x) %wo% c("double", "numeric")
+    x <- as.integer(x)
+    x <- add_class(x, old)
+    return(fact(x, ...))
   }
 
   # Don't bother NaN

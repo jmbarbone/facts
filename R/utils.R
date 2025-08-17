@@ -1,5 +1,5 @@
 is_integerish <- function(x, bool = getOption("facts.bool.integer", FALSE)) {
-  if (is.integer(x) | (isTRUE(bool) & is.logical(x))) {
+  if (is.integer(x) || (isTRUE(bool) && is.logical(x))) {
     return(TRUE)
   }
 
