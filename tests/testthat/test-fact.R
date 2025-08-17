@@ -49,19 +49,15 @@ test_that("fact.integer()", {
 })
 
 test_that("fact.numeric()", {
-  op <- options()
-
-  options(facts.guess.integer = FALSE)
+  withr::local_options(list(facts.guess.integer = NULL))
   obj <- fact(struct(1, c("foo", "numeric")))
   exp <- new_fact(1, struct(1, c("foo", "numeric")))
   expect_equal(obj, exp)
 
-  options(facts.guess.integer = TRUE)
+  withr::local_options(list(facts.guess.integer = NULL))
   obj <- fact(struct(1, c("foo", "numeric")))
   exp <- new_fact(1L, struct(1L, c("foo", "integer")))
   expect_equal(obj, exp)
-
-  options(op)
 })
 
 test_that("fact.factor()", {

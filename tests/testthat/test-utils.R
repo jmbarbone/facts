@@ -6,17 +6,13 @@ test_that("is_integerish()", {
   expect_false(is_integerish("a"))
   expect_false(is_integerish(1.1))
 
-  op <- options()
-
-  options(facts.bool.integer = FALSE)
+  withr::local_options(list(facts.bool.integer = FALSE))
   expect_false(is_integerish(NA))
   expect_false(is_integerish(TRUE))
 
-  options(facts.bool.integer = TRUE)
+  withr::local_options(list(facts.bool.integer = TRUE))
   expect_true(is_integerish(NA))
   expect_true(is_integerish(TRUE))
-
-  options(op)
 })
 
 test_that("values()", {
