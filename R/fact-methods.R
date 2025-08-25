@@ -99,6 +99,7 @@ print.fact <- function(
         sep = ""
       )
     } else {
+      # nolint next: object_name_linter. Could probably rename
       T0 <- sprintf("levels (%s): ", vec_ptype_full(values(x)))
       if (is.logical(max_levels)) {
         max_levels <- {

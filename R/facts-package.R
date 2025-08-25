@@ -7,6 +7,7 @@
 ## usethis namespace: end
 NULL
 
+# nolint next: object_name_linter.
 op.facts <- list0(
   facts.bool.integer = FALSE,
   facts.factor.convert = FALSE,

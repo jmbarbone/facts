@@ -128,6 +128,7 @@ fact_set_levels <- function(x, levels = NULL, range = NULL) {
 #' @param x Object to test
 #' @return Logical indicating if `x` is of class 'fact'
 #' @export
+# nolint next: object_name_linter.
 is.fact <- function(x) {
   inherits(x, "fact")
 }

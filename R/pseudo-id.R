@@ -65,6 +65,7 @@ is_pseudo_id <- function(x) {
   inherits(x, "pseudo_id")
 }
 
+# nolint next: object_name_linter.
 is.pseudo_id <- is_pseudo_id
 
 na_last <- function(x) {
