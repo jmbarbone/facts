@@ -7,10 +7,12 @@
 \usage{
 as_ordered(x)
 
-\method{as_ordered}{default}(x)
+\method{as_ordered}{default}(x, ...)
 }
 \arguments{
 \item{x}{A vector of values}
+
+\item{...}{Additional arguments passed to methods}
 }
 \value{
 An `ordered` vector

@@ -11,7 +11,7 @@ new_fact(
   levels = NULL,
   ordered = FALSE,
   range = NULL,
-  na = if (anyNA(values)) length(values) else 0L
+  na = if (anyNA(values)) which(is.na(values)) else 0L
 )
 }
 \arguments{
