@@ -78,21 +78,21 @@ vec_ptype2.fact.logical <- fact_ptypes
 # cast --------------------------------------------------------------------
 
 ## values to facts ----
-#
-# vec_cast_fact_levels <- function(x, to, ...) {
-#   values <- values(to)
-#   values <- values(fact(values))
-#   new_fact(
-#     vec_match(values(x)[x], values),
-#     values = values,
-#     ordered = is.ordered(x)
-#   )
-# }
-#
-# vec_cast_fact_default <- function(x, to, ...) {
-#   res <- fact(vec_c(x, values(to)))
-#   res[vec_match(x, values(res))]
-# }
+
+vec_cast_fact_levels <- function(x, to, ...) {
+  values <- values(to)
+  values <- values(fact(values))
+  new_fact(
+    vec_match(values(x)[x], values),
+    values = values,
+    ordered = is.ordered(x)
+  )
+}
+
+vec_cast_fact_default <- function(x, to, ...) {
+  res <- fact(vec_c(x, values(to)))
+  res[vec_match(x, values(res))]
+}
 
 #' @export
 vec_cast.fact.fact <- vec_cast_fact_levels
