@@ -144,20 +144,20 @@ vec_cast.logical.fact <- function(x, to, ...) {
 
 #' @export
 is.na.fact <- function(x) {
-  as_values(x, is.na)
+  get_values(x, is.na)
 }
 
 #' @export
 is.nan.fact <- function(x) {
-  as_values(x, is.nan)
+  get_values(x, is.nan)
 }
 
 #' @export
 is.finite.fact <- function(x) {
-  as_values(x, is.finite)
+  get_values(x, is.infinite)
 }
 
 #' @export
 is.infinite.fact <- function(x) {
-  as_values(x, is.infinite)
+  get_values(x, is.infinite)
 }

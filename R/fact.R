@@ -1,6 +1,3 @@
-#' @importFrom cnd value_error, class_error
-#' @importFrom fuj match_arg, struct, exattr
-
 # fact --------------------------------------------------------------------
 
 #' Factor
@@ -48,55 +45,64 @@ fact.default <- function(x) {
 
 #' @rdname fact
 #' @export
+fact.logical <- function(x) {
+  if (move_na_last()) {
+    u <- c(FALSE, TRUE, if (anyNA(x)) NA)
+  } else {
+    u <- c(if (anyNA(x)) NA, FALSE, TRUE)
+  }
+  new_fact(as.integer(x) + 1L, u, logical())
+}
+
+#' @rdname fact
+#' @export
 fact.character <- function(x) {
   u <- unique(x)
   if (anyNA(u)) {
-    m <- match(NA, u)
+    m <- vec_match(NA, u)
     if (move_na_last()) {
       u <- c(u[-m], NA)
     } else {
       u <- c(NA, u[-m])
     }
   }
-  new_fact(match(x, u), u, identity)
+  new_fact(vec_match(x, u), u, character())
 }
 
 #' @rdname fact
 #' @export
 fact.numeric <- function(x) {
-  fact_numeric(x, as.numeric)
+  fact_numeric(x)
 }
 
 #' @rdname fact
 #' @export
 fact.integer <- function(x) {
-  fact_numeric(x, as.integer)
+  fact_numeric(x)
+}
+
+#' @rdname fact
+#' @export
+fact.complex <- function(x) {
+  fact_numeric(x)
 }
 
 #' @rdname fact
 #' @export
 fact.Date <- function(x) {
-  fact_numeric(x, as.Date)
+  fact_numeric(x)
 }
 
 #' @rdname fact
 #' @export
 fact.POSIXct <- function(x) {
-  fact_numeric(x, as.POSIXct)
+  fact_numeric(x)
 }
 
 #' @rdname fact
 #' @export
 fact.POSIXlt <- function(x) {
-  fact_numeric(x, as.POSIXlt)
-}
-
-#' @rdname fact
-#' @export
-fact.logical <- function(x) {
-  u <- if (move_na_last()) c(FALSE, TRUE, NA) else c(NA, FALSE, TRUE)
-  u <- u[u %in% x]
-  new_fact(match(x, u), u, as.logical)
+  fact_numeric(x)
 }
 
 #' @rdname fact
@@ -110,9 +116,9 @@ fact.factor <- function(x) {
       old <- maybe
     }
   }
-  o <- order(old, na.last = move_na_last())
-  new <- old[o]
-  x <- match(old, new)[x]
+
+  new <- vec_order(o, na_value = if (move_na_last()) "largest" else "smallest")
+  x <- vec_match(old, new)[x]
   for (c in class(old)) {
     fun <- get0(sprintf("as.%s", c))
     if (!is.null(fun)) {
@@ -128,64 +134,25 @@ fact.fact <- function(x) {
   x
 }
 
-# others ------------------------------------------------------------------
-
-#' @export
-#' @name fact
-as_values <- function(x) {
-  values(x)[x]
-}
-
-#' @export
-#' @name fact
-as.values <- as_values # nolint: object_name_linter.
-
-#' @export
-#' @name fact
-values <- function(x) {
-  converter(x)(levels(x))
-}
-
-#' @export
-#' @name fact
-converter <- function(x) {
-  exattr(x, "converter")
-}
-
-#' @export
-#' @name fact
-`converter<-` <- function(x, value) {
-  attr(x, "converter") <- match.fun(value)
-}
-
-#' @export
-#' @name fact
-is_fact <- function(x) {
-  inherits(x, "fact")
-}
-
-#' @export
-#' @name fact
-is.fact <- is_fact # nolint: object_name_linter.
-
 # helpers -----------------------------------------------------------------
 
-new_fact <- function(x, levels, fun) {
+new_fact <- function(x, levels, ptype) {
   levels(x) <- as.character(levels)
-  converter(x) <- fun
+  attr(x, "ptype") <- ptype
   # assign "factor" class _after_ levels()
   class(x) <- c("fact", "factor")
   x
 }
 
-fact_numeric <- function(x, converter) {
-  u <- unique(x)
-  u <- u[order(u, method = "radix", na.last = move_na_last())]
+fact_numeric <- function(x) {
+  p <- vec_ptype(x)
+  u <- vec_unique(x)
+  u <- vec_sort(u, na_value = if (move_na_last()) "largest" else "smallest")
   l <- as.character(u)
-  d <- !duplicated(l)
+  d <- !vec_duplicate_detect(l)
   u <- u[d]
   l <- l[d]
-  new_fact(match(x, u), l, converter)
+  new_fact(vec_match(x, u), l, p)
 }
 
 move_na_last <- function() {
@@ -197,9 +164,7 @@ move_na_last <- function() {
     ),
     first = FALSE,
     last = TRUE,
-    stop(value_error(
-      "options(fact.na.position) must be 'first' or 'last'"
-    ))
+    stop("somthing went wrong") # nocov
   )
 }
 
@@ -214,17 +179,24 @@ generics::as.ordered
 generics::as.factor
 
 #' @export
-as.ordered.fact <- function(x, ...) {
+as.ordered.fact <- function(x) {
   if (is.ordered(x)) {
     return(x)
   }
-  v <- values(x)
-  class(x) <- c("ordered", class(x))
-  values(x) <- v
+
+  x <- fact(x)
+  lev <- levels(x)
+  if (anyNA(levels(x))) {
+    # NA values just need to be shifted
+    m <- which(is.na(lev))
+    x <- as.integer(x)
+    x[x == m] <- NA_integer_
+    x <- x - (x > m)
+    levels(x) <- lev[-m]
+  }
+  class(x) <- c("ordered", "fact", "factor")
   x
 }
 
 #' @export
-as.factor.fact <- function(x, ...) {
-  struct(x, c(if (is.ordered(x)) "ordered", "factor"), levels = levels(x))
-}
+as.factor.fact <- identity
