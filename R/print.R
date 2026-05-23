@@ -10,7 +10,7 @@ print.fact <- function(
   if (length(x) == 0L) {
     cat(if (ord) "ordered" else "factor", "(0)\n", sep = "")
   } else {
-    print(as.character(x), quote = FALSE, ...)
+    print(values(x), quote = FALSE, ...)
   }
 
   if (max_levels) {
