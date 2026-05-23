@@ -1,5 +1,6 @@
 #' @import vctrs
 #' @import fuj
+#' @import cnd
 #' @keywords internal
 "_PACKAGE"
 
@@ -15,6 +16,6 @@ op.facts <- list0(
   facts.na.value = "(na)",
 )
 
-.onAttach <- function(libname, pkgname) {
+.onLoad <- function(libname, pkgname) {
   options(op.facts[names(op.facts) %out% names(options())])
 }
