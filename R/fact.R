@@ -1,5 +1,9 @@
 # fact --------------------------------------------------------------------
 
+fact_ptype <- function(levels) {
+  fact(levels)[0]
+}
+
 #' Factor
 #'
 #' Quickly create a factor
@@ -72,38 +76,37 @@ fact.character <- function(x) {
 #' @rdname fact
 #' @export
 fact.numeric <- function(x) {
-  fact_numeric(x)
+  u <- vec_sort(
+    vec_unique(x),
+    na_value = if (move_na_last()) "largest" else "smallest"
+  )
+  # l <- as.character(u)
+  # d <- !vec_duplicate_detect(l)
+  # u <- u[d]
+  # l <- l[d]
+  # new_fact(vec_match(x, u), l, vec_ptype(x))
+  new_fact(vec_match(x, u), as.character(u), vec_ptype(x))
 }
 
 #' @rdname fact
 #' @export
-fact.integer <- function(x) {
-  fact_numeric(x)
-}
+fact.integer <- fact.numeric
 
 #' @rdname fact
 #' @export
-fact.complex <- function(x) {
-  fact_numeric(x)
-}
+fact.complex <- fact.numeric
 
 #' @rdname fact
 #' @export
-fact.Date <- function(x) {
-  fact_numeric(x)
-}
+fact.Date <- fact.numeric
 
 #' @rdname fact
 #' @export
-fact.POSIXct <- function(x) {
-  fact_numeric(x)
-}
+fact.POSIXct <- fact.numeric
 
 #' @rdname fact
 #' @export
-fact.POSIXlt <- function(x) {
-  fact_numeric(x)
-}
+fact.POSIXlt <- fact.numeric
 
 #' @rdname fact
 #' @export
@@ -139,20 +142,8 @@ fact.fact <- function(x) {
 new_fact <- function(x, levels, ptype) {
   levels(x) <- as.character(levels)
   attr(x, "ptype") <- ptype
-  # assign "factor" class _after_ levels()
   class(x) <- c("fact", "factor")
   x
-}
-
-fact_numeric <- function(x) {
-  p <- vec_ptype(x)
-  u <- vec_unique(x)
-  u <- vec_sort(u, na_value = if (move_na_last()) "largest" else "smallest")
-  l <- as.character(u)
-  d <- !vec_duplicate_detect(l)
-  u <- u[d]
-  l <- l[d]
-  new_fact(vec_match(x, u), l, p)
 }
 
 move_na_last <- function() {
@@ -167,36 +158,3 @@ move_na_last <- function() {
     stop("somthing went wrong") # nocov
   )
 }
-
-# other methods -----------------------------------------------------------
-
-#' @importFrom generics as.ordered
-#' @export
-generics::as.ordered
-
-#' @importFrom generics as.factor
-#' @export
-generics::as.factor
-
-#' @export
-as.ordered.fact <- function(x) {
-  if (is.ordered(x)) {
-    return(x)
-  }
-
-  x <- fact(x)
-  lev <- levels(x)
-  if (anyNA(levels(x))) {
-    # NA values just need to be shifted
-    m <- which(is.na(lev))
-    x <- as.integer(x)
-    x[x == m] <- NA_integer_
-    x <- x - (x > m)
-    levels(x) <- lev[-m]
-  }
-  class(x) <- c("ordered", "fact", "factor")
-  x
-}
-
-#' @export
-as.factor.fact <- identity
