@@ -8,7 +8,7 @@ print.fact <- function(
   # mostly a reformatted base::print.factor()
   ord <- is.ordered(x)
   if (length(x) == 0L) {
-    cat(if (ord) "ordered" else "factor", "(0)\n", sep = "")
+    cat(if (ord) "ordered" else "fact", "(0)\n", sep = "")
   } else {
     print(values(x), quote = FALSE, ...)
   }
