@@ -23,6 +23,11 @@ cast.double <- function(x, y) {
 }
 
 #' @export
+cast.numeric <- function(x, y) {
+  as.numeric(x)
+}
+
+#' @export
 cast.Date <- function(x, y) {
   as.Date(x)
 }
