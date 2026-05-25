@@ -5,7 +5,11 @@ values <- function(x) {
 }
 
 get_values <- function(x, fun = identity) {
-  fun(cast(levels(x), exattr(x, "ptype")))[x]
+  fun(.values(x))[x]
+}
+
+.values <- function(x) {
+  cast(levels(x), exattr(x, "ptype"))
 }
 
 #' @export
