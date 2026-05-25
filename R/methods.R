@@ -61,3 +61,14 @@ droplevels <- function(x, ...) {
 `[[.fact` <- function(x, i, ...) {
   NextMethod(x)
 }
+
+#' @export
+unique.fact <- function(x, incomparables = FALSE, ...) {
+  if (isTRUE(incomparables)) {
+    stop(input_error(
+      "`incomparables = TRUE` is not supported for `fact` objects"
+    ))
+  }
+
+  x[vec_sort(vec_match(.values(x), x))]
+}
