@@ -17,11 +17,11 @@ print.fact <- function(
     lev <- encodeString(levels(x), quote = "")
     n <- length(lev)
     colsep <- if (ord) " < " else " "
-    # instead of "Labels: "
-    T0 <- "Values: " # nolint: object_name_linter.
+
+    valstring <- sprintf("<%s>: ", vec_ptype_full(exattr(x, "ptype")))
     if (is.logical(max_levels)) {
       max_levels <- {
-        width <- width - (nchar(T0, "w") + 3L + 1L + 3L)
+        width <- width - (nchar(valstring, "w") + 3L + 1L + 3L)
         lenl <- cumsum(nchar(lev, "w") + nchar(colsep, "w"))
 
         if (n <= 1L || lenl[n] <= width) {
@@ -34,7 +34,7 @@ print.fact <- function(
     drop <- n > max_levels
     cat(
       if (drop) paste(format(n), ""),
-      T0,
+      valstring,
       paste(
         if (drop) {
           c(
@@ -50,12 +50,6 @@ print.fact <- function(
       "\n",
       sep = ""
     )
-
-    # Be nice to haven_labelled
-    # lab <- exattr(x, "label")
-    # if (!is.null(lab)) {
-    #   cat("Label: ", paste(format(lab), ""), "\n", sep = "")
-    # }
   }
 
   invisible(x)

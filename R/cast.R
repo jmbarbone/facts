@@ -3,6 +3,14 @@ cast <- function(x, y) {
 }
 
 #' @export
+cast.default <- function(x, y) {
+  if (is.null(y)) {
+    stop(input_error("No ptype specified for 'y'"))
+  }
+  stop(class_error("No cast() method for class ", class(y)))
+}
+
+#' @export
 cast.character <- function(x, y) {
   x
 }

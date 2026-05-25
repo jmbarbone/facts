@@ -50,12 +50,22 @@ fact.default <- function(x) {
 #' @rdname fact
 #' @export
 fact.logical <- function(x) {
-  if (move_na_last()) {
-    u <- c(FALSE, TRUE, if (anyNA(x)) NA)
+  x <- as.integer(x)
+  if (anyNA(x)) {
+    if (move_na_last()) {
+      u <- c(FALSE, TRUE, NA)
+      x <- x + 1L
+      x[is.na(x)] <- 1L
+    } else {
+      u <- c(NA, FALSE, TRUE)
+      x <- x + 2L
+      x[is.na(x)] <- 1L
+    }
   } else {
-    u <- c(if (anyNA(x)) NA, FALSE, TRUE)
+    x <- x + 1L
+    u <- c(FALSE, TRUE)
   }
-  new_fact(as.integer(x) + 1L, u, logical())
+  new_fact(x, as.character(u), logical())
 }
 
 #' @rdname fact
@@ -111,24 +121,15 @@ fact.POSIXlt <- fact.numeric
 #' @rdname fact
 #' @export
 fact.factor <- function(x) {
-  old <- levels(x)
-  old <- utils::type.convert(old, as.is = TRUE, tryLogical = FALSE)
-  if (is.character(old)) {
+  converted <- utils::type.convert(levels(x), as.is = TRUE, tryLogical = TRUE)
+  if (is.character(converted)) {
     maybe <- as.POSIXlt(x, optional = TRUE)
     if (!all(is.na(maybe))) {
-      old <- maybe
+      converted <- maybe
     }
   }
 
-  new <- vec_order(o, na_value = if (move_na_last()) "largest" else "smallest")
-  x <- vec_match(old, new)[x]
-  for (c in class(old)) {
-    fun <- get0(sprintf("as.%s", c))
-    if (!is.null(fun)) {
-      break
-    }
-  }
-  new_fact(x, new, fun %||% identity)
+  fact(converted[x])
 }
 
 #' @rdname fact
@@ -139,7 +140,7 @@ fact.fact <- function(x) {
 
 # helpers -----------------------------------------------------------------
 
-new_fact <- function(x, levels, ptype) {
+new_fact <- function(x = integer(), levels = character(), ptype = character()) {
   levels(x) <- as.character(levels)
   attr(x, "ptype") <- ptype
   class(x) <- c("fact", "factor")

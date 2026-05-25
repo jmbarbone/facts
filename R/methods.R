@@ -70,5 +70,32 @@ unique.fact <- function(x, incomparables = FALSE, ...) {
     ))
   }
 
-  x[vec_sort(vec_match(.values(x), x))]
+  vec_unique(x)
+}
+
+#' @export
+format.fact <- function(x, ..., trim = TRUE) {
+  sprintf(
+    "%s [%s]",
+    format(as.integer(x)),
+    format(.values(x), ..., trim = TRUE)[x]
+  )
+}
+
+#' @importFrom pillar pillar_shaft
+#' @export
+pillar_shaft.fact <- function(x, ...) {
+  pillar::new_pillar_shaft_simple(format(x, ...))
+}
+
+#' @importFrom vctrs vec_ptype_abbr
+#' @export
+vec_ptype_abbr.fact <- function(x, ...) {
+  sprintf("fct<%s>", vec_ptype_abbr(exattr(x, "ptype")))
+}
+
+#' @importFrom vctrs vec_ptype_full
+#' @export
+vec_ptype_full.fact <- function(x, ...) {
+  sprintf("fact<%s>", vec_ptype_full(exattr(x, "ptype")))
 }

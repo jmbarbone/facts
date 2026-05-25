@@ -5,6 +5,9 @@ values <- function(x) {
 }
 
 get_values <- function(x, fun = identity) {
+  if (!is_fact(x)) {
+    stop(class_error("values() only works with fact objects"))
+  }
   fun(.values(x))[x]
 }
 
