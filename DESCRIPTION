@@ -16,9 +16,8 @@ Description: Implement and use the 'fact' class, an alternative to the 'factor'
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.3
 Remotes: 
-    fuj=local::/home/jordan/git/jmbarbone/fuj, 
+    fuj=local::/home/jordan/git/jmbarbone/fuj,
     cnd=local::/home/jordan/git/jmbarbone/cnd
 Imports: 
     cnd,
@@ -29,3 +28,4 @@ Suggests:
     covr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0

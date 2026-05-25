@@ -9,4 +9,5 @@
 library(testthat)
 library(facts)
 
+unloadNamespace("mark")
 test_check("facts")
