@@ -7,7 +7,7 @@ generics::as.ordered
 generics::as.factor
 
 #' @export
-as.ordered.fact <- function(x) {
+as.ordered.fact <- function(x, ...) {
   if (is.ordered(x)) {
     return(x)
   }
@@ -27,7 +27,7 @@ as.ordered.fact <- function(x) {
 }
 
 #' @export
-as.integer.fact <- function(x) {
+as.integer.fact <- function(x, ...) {
   # this might not be needed after it's removed from {mark}
   class(x) <- "integer"
   attr(x, "levels") <- NULL
@@ -36,7 +36,9 @@ as.integer.fact <- function(x) {
 }
 
 #' @export
-as.factor.fact <- identity
+as.factor.fact <- function(x, ...) {
+  x
+}
 
 #' @export
 levels.fact <- function(x) {
@@ -44,7 +46,7 @@ levels.fact <- function(x) {
 }
 
 #' @export
-droplevels <- function(x, ...) {
+droplevels.fact <- function(x, ...) {
   fact(values(x))
 }
 

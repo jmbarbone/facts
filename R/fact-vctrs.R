@@ -93,7 +93,7 @@ vec_ptype2.fact.double <- vec_fact_ptype2
 #' @export
 vec_ptype2.Date.fact <- vec_fact_ptype2
 #' @export
-vec_ptype2_fact.Date <- vec_fact_ptype2
+vec_ptype2.fact.Date <- vec_fact_ptype2
 #' @export
 vec_ptype2.POSIXct.fact <- vec_fact_ptype2
 #' @export
