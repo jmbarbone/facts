@@ -17,8 +17,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Remotes: 
-    fuj=local::/home/jordan/git/jmbarbone/fuj,
-    cnd=local::/home/jordan/git/jmbarbone/cnd
+    fuj=github::jmbarbone/fuj@105-defaults,
+    cnd=github::jmbarbone/cnd@v0.1.1.9002
 Imports: 
     cnd,
     fuj,
