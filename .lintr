@@ -9,4 +9,7 @@ linters: linters_with_tags(
   spaces_inside_linter = NULL,
   commented_code_linter = NULL
   )
+exclusions: list(
+  "tests/testthat.R"
+  )
 encoding: "UTF-8"
