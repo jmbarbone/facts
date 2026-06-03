@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/jmbarbone/facts/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jmbarbone/facts?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/jmbarbone/facts/graph/badge.svg)](https://app.codecov.io/gh/jmbarbone/facts)
 <!-- badges: end -->
 
 The goal of facts is to simplify how the `factor` class is created, modified, and coerced.
@@ -77,15 +78,12 @@ fact(x)   # Sorted TRUE, FALSE, NA
 
 ## Modifying facts
 
-One benefit of `factor()` is that you an recode on the fly.
+One benefit of `factor()` is that you can recode on the fly.
 This adds additional overhead to the function because there is a necessity in checking the `levels` and `labels` and matching up appropriate values.
 The philosophy taken in `{facts}` is that the additional work of modifying the object should take place prior to `facts()`.
-However, some cases, these sort of manipulations can benefit from reducing the number of unique values.
+As such, `recode()` is included, and can be used prior to `facts()` or after.
 
 ```{r}
-x <- c("blue", "green", "red", "purple", "black", "white")
-x <- sample(x, 100, TRUE)
-id <- pseudo_id(x)
-id
+recode(fact(c(1, 1, 3, 0, 2)), 1 ~ -1, 2 ~ NA, .nomatch = "keep")
 ```
 
