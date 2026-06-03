@@ -18,6 +18,7 @@ test_that("fact.logical()", {
 
 test_that("fact.integer()", {
   obj <- fact(struct(1L, c("foo", "integer")))
+  # nolint next: undesirable_function_linter.
   p <- structure(integer(0), class = c("foo", "integer"))
   exp <- new_fact(1L, "1", p)
   expect_equal(obj, exp)

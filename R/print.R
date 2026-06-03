@@ -31,7 +31,7 @@ print.fact <- function(
         }
       }
     }
-    drop <- n > max_levels
+    drop <- n > max_levels # nolint: object_overwrite_linter.
     cat(
       if (drop) paste(format(n), ""),
       valstring,

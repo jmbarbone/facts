@@ -1,6 +1,8 @@
 test_that("[.fact() works", {
   x <- fact(1:3)
+  # nolint next: undesirable_function_linter.
   x1 <- do.call(structure, c(1, attributes(x)))
+  # nolint next: undesirable_function_linter.
   x2 <- do.call(structure, c(2, attributes(x)))
   expect_identical(x[1], x1)
   expect_identical(x[2], x2)

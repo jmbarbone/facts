@@ -2,7 +2,7 @@
 % Please edit documentation in R/fact-vctrs.R
 \name{fact-vctrs}
 \alias{fact-vctrs}
-\title{Internal [{vctrs}] methods}
+\title{Internal [vctrs] methods}
 \description{
 Create `fact` vectors.
 }

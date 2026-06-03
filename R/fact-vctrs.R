@@ -1,4 +1,4 @@
-#' Internal [{vctrs}] methods
+#' Internal [vctrs] methods
 #'
 #' Create `fact` vectors.
 #'

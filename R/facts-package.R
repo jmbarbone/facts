@@ -1,6 +1,5 @@
-#' @import vctrs
 #' @import fuj
-#' @import cnd
+#' @import vctrs
 #' @keywords internal
 "_PACKAGE"
 
@@ -17,5 +16,10 @@ op.facts <- list0(
 )
 
 .onLoad <- function(libname, pkgname) {
+  # nolint next: undesirable_function_linter.
   options(op.facts[names(op.facts) %out% names(options())])
+}
+
+.force_namespaces <- function() {
+  cnd::cnd # maybe I'll use it
 }
