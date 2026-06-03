@@ -90,7 +90,6 @@ format.fact <- function(x, ..., digits = 2, trim = TRUE) {
 #' @importFrom pillar pillar_shaft
 #' @export
 pillar_shaft.fact <- function(x, ..., digits = 2, trim = TRUE) {
-  require_namespace("pillar")
   pillar::new_pillar_shaft_simple(sprintf(
     "%s [%s]",
     format(as.integer(x)),
