@@ -76,18 +76,29 @@ unique.fact <- function(x, incomparables = FALSE, ...) {
 }
 
 #' @export
-format.fact <- function(x, ..., trim = TRUE) {
+format.fact <- function(x, ..., digits = 2, trim = TRUE) {
+  if (!isTRUE(trim)) {
+    warning(input_warning("`trim = FALSE` is not supported for `fact` objects"))
+  }
   sprintf(
     "%s [%s]",
     format(as.integer(x)),
-    format(.values(x), ..., trim = TRUE)[x]
+    format(.values(x), ..., digits = digits, trim = TRUE)[x]
   )
 }
 
 #' @importFrom pillar pillar_shaft
 #' @export
-pillar_shaft.fact <- function(x, ...) {
-  pillar::new_pillar_shaft_simple(format(x, ...))
+pillar_shaft.fact <- function(x, ..., digits = 2, trim = TRUE) {
+  require_namespace("pillar")
+  pillar::new_pillar_shaft_simple(sprintf(
+    "%s [%s]",
+    format(as.integer(x)),
+    vap_chr(
+      format(.values(x), ..., digits = digits, trim = TRUE)[x],
+      pillar::style_subtle
+    )
+  ))
 }
 
 #' @importFrom vctrs vec_ptype_abbr
