@@ -57,13 +57,13 @@ recode_vec <- function(x, from, to, nomatch = c("na", "keep")) {
     stop(internal_error()) # nocov
   )
 
-  replace <- to[remove_na(m)]
+  replacement <- to[remove_na(m)]
 
   if (!is.list(x)) {
-    replace <- unlist(replace)
+    replacement <- unlist(replacement)
   }
 
-  x[which(!is.na(m))] <- replace
+  x[which(!is.na(m))] <- replacement
   x
 }
 
