@@ -9,7 +9,8 @@ linters: linters_with_tags(
   spaces_inside_linter = NULL,
   commented_code_linter = NULL,
   todo_comment_linter = NULL, # it's going to happen
-  unnecessary_lambda_linter = NULL # disagree
+  unnecessary_lambda_linter = NULL, # disagree
+  cyclocomp_linter = NULL # not used
   )
 exclusions: list(
   "tests/testthat.R"
