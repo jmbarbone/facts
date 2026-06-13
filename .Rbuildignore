@@ -5,3 +5,6 @@
 ^\.github$
 ^codecov\.yml$
 ^LICENSE\.md$
+^\.positai$
+^\.claude$
+^\.lintr$

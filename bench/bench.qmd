@@ -2,33 +2,27 @@
 output: github_document
 editor_options: 
   chunk_output_type: console
+knitr:
+  opts_chunk:
+    comment: "#>"
+    fig.path: "bench/figures/bench-"
+    out.width: "100%"
+    fig.height: 6
+    code.fold: true
+    collapse: true
 ---
-
-<!-- bench/bench.md is generated from bench/bench.Rmd. Please edit that file -->
-
-```{r}
-#| label: setup
-#| include: false
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "bench/figures/bench-",
-  out.width = "100%",
-  fig.height = 6,
-  code.fold = TRUE,
-  collapse = TRUE
-)
-```
 
 ```{r}
 #| label: packages-functions
+library(fuj)
 fuj::require_namespace("bench")
 fuj::require_namespace("stringi")
 fuj::require_namespace("ggplot2")
 fuj::require_namespace("ggbeeswarm")
 fuj::require_namespace("gt")
 
-library(facts)
+# library(facts)
+devtools::load_all()
 library(forcats, include.only = "as_factor")
 
 # assuming it's the same as numeric
@@ -63,7 +57,7 @@ f_plot <- function(x) {
       breaks = 10^(2:6)
     ) +
     ggplot2::scale_y_continuous(trans = "log1p") +
-    ggplot2::coord_trans("log1p", "log1p") +
+    ggplot2::coord_transform("log1p", "log1p") +
     ggplot2::theme_light() +
     ggplot2::theme(
       axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)
@@ -141,7 +135,7 @@ res <- bench::press(
       double = seq_len(n_unique) / n_unique,
       integer = seq_len(n_unique),
       date = Sys.Date() + seq_len(n_unique),
-      stop("Unknown value typeL ", value_type)
+      stop("Unknown value type ", value_type)
     )
     x <- sample(x, n_values, TRUE)
     bench::mark(

@@ -1,4 +1,4 @@
-#' Internal [{vctrs}] methods
+#' Internal [vctrs] methods
 #'
 #' Create `fact` vectors.
 #'
@@ -7,183 +7,137 @@
 #' @name fact-vctrs
 NULL
 
-#' @export
-#' @rdname fact-vctrs
-#' @param x A vector of integers denoting the `value`
-#' @param values Unique values of `x`; if `NULL` are derived from `unique(x)`
-#' @param levels Character values of `x`; if `NULL` are derived from `values`
-#' @param ordered Logical, if `TRUE` appended `"ordered"` class to output
-#' @param range Integer vector of ranges
-#' @param na Integer placement of `NA` value in `values`
-#' @returns An object with classes `"fact"`, `"ordered"` (if `ordered = TRUE`),
-#'   `"fact"`, and `"vctrs_vctr"`
-#' @examples
-#' new_fact()
-#' new_fact(1:3, 7:9)
-#' new_fact(1:3, c("j", "m", "b"))
-new_fact <- function(
-    x = integer(),
-    values = NULL,
-    levels = NULL,
-    ordered = FALSE,
-    range = NULL,
-    na = if (anyNA(values)) which(is.na(values)) else 0L
-) {
-  values <- values %||% vec_unique(x)
-  struct(
-    as.integer(x),
-    class = c("fact", if (ordered) "ordered", "factor", "vctrs_vctr"),
-    levels = to_levels(levels %||% values),
-    values = values,
-    range = range,
-    na = na
+# ptype2 ------------------------------------------------------------------
+
+vec_ptype2_fact_fact <- function(x, y, ..., x_arg = "", y_arg = "") {
+  tryCatch(
+    vec_ptype2(
+      exattr(x, "ptype"),
+      exattr(y, "ptype"),
+      ...,
+      x_arg = x_arg,
+      y_arg = y_arg
+    ),
+    vctrs_error_incompatible_type = function(err) {
+      stop_incompatible_type(x, y, ..., x_arg = x_arg, y_arg = y_arg)
+    }
+  )
+
+  fact(c(.values(x), .values(y)))
+}
+
+vec_ptype2_fact_factor <- function(x, y, ..., x_arg = "", y_arg = "") {
+  # ignore x_arg and y_arg
+  if (is.fact(x)) {
+    x2 <- exattr(x, "ptype")
+    y2 <- character()
+  } else {
+    x2 <- character()
+    y2 <- exattr(x, "ptype")
+  }
+
+  tryCatch(
+    vec_ptype2(x2, y2, ..., x_arg = x_arg, y_arg = y_arg),
+    vctrs_error_incompatible_type = function(err) {
+      stop_incompatible_type(x, y, ..., x_arg = x_arg, y_arg = y_arg)
+    }
   )
 }
 
 #' @export
-vec_ptype_abbr.fact <- function(x, ...) {
-  if (is.ordered(x)) "fctor" else "fct"
-}
+vec_ptype2.fact.fact <- vec_ptype2_fact_fact
+#' @export
+vec_ptype2.fact.factor <- vec_ptype2_fact_factor
+#' @export
+vec_ptype2.factor.fact <- vec_ptype2_fact_factor
 
-fact_ptypes <- function(x, y, ..., x_arg = "", y_arg = "") {
-  x_val <- values(x)
-  y_val <- values(y)
-  mold <- try(vec_c(x_val, y_val), silent = TRUE)
-
-  if (inherits(mold, "try-error")) {
-    msg <- sprintf(
-      fmt = c(
-        "unable to convert values of the `fact` objects",
-        "attr(%s, \"value\") and attr(%s, \"value\") are not compatible"
-      ),
-      x_arg,
-      y_arg
-    )
-    stop_incompatible_type(
-      x = x_val,
-      y = y_val,
-      x_arg = x_arg,
-      y_arg = y_arg,
-      details = msg
-    )
-  }
-
-  if (is.factor(x) && is.factor(y)) {
-    fact(mold)
+vec_fact_ptype2 <- function(x, y, ..., x_arg = "", y_arg = "") {
+  # ignore x_arg and y_arg
+  if (is.fact(x)) {
+    x2 <- exattr(x, "ptype")
   } else {
-    mold[0]
+    x2 <- x
   }
+
+  if (is.fact(y)) {
+    y2 <- exattr(y, "ptype")
+  } else {
+    y2 <- y
+  }
+
+  tryCatch(
+    vec_ptype2(x2, y2, ..., x_arg = x_arg, y_arg = y_arg),
+    vctrs_error_incompatible_type = function(err) {
+      stop_incompatible_type(x, y, ..., x_arg = x_arg, y_arg = y_arg)
+    }
+  )
 }
 
-# ptype2 ------------------------------------------------------------------
-
-# TODO rethink this...
-# choose richer one
 
 #' @export
-vec_ptype2.fact.fact <- fact_ptypes
-
+vec_ptype2.character.fact <- vec_fact_ptype2
 #' @export
-vec_ptype2.character.fact <- fact_ptypes
+vec_ptype2.fact.character <- vec_fact_ptype2
 #' @export
-vec_ptype2.fact.character <- fact_ptypes
-
+vec_ptype2.logical.fact <- vec_fact_ptype2
 #' @export
-vec_ptype2.Date.fact <- fact_ptypes
+vec_ptype2.fact.logical <- vec_fact_ptype2
 #' @export
-vec_ptype2.fact.Date <- fact_ptypes
-
+vec_ptype2.integer.fact <- vec_fact_ptype2
 #' @export
-vec_ptype2.double.fact <- fact_ptypes
+vec_ptype2.fact.integer <- vec_fact_ptype2
 #' @export
-vec_ptype2.fact.double <- fact_ptypes
-
+vec_ptype2.double.fact <- vec_fact_ptype2
 #' @export
-vec_ptype2.factor.fact <- fact_ptypes
+vec_ptype2.fact.double <- vec_fact_ptype2
 #' @export
-vec_ptype2.fact.factor <- fact_ptypes
-
+vec_ptype2.Date.fact <- vec_fact_ptype2
 #' @export
-vec_ptype2.integer.fact <- fact_ptypes
+vec_ptype2.fact.Date <- vec_fact_ptype2
 #' @export
-vec_ptype2.fact.integer <- fact_ptypes
-
+vec_ptype2.POSIXct.fact <- vec_fact_ptype2
 #' @export
-vec_ptype2.logical.fact <- fact_ptypes
+vec_ptype2.fact.POSIXct <- vec_fact_ptype2
 #' @export
-vec_ptype2.fact.logical <- fact_ptypes
+vec_ptype2.POSIXlt.fact <- vec_fact_ptype2
+#' @export
+vec_ptype2.fact.POSIXlt <- vec_fact_ptype2
+#' @export
+vec_ptype2.complex.fact <- vec_fact_ptype2
+#' @export
+vec_ptype2.fact.complex <- vec_fact_ptype2
 
 # cast --------------------------------------------------------------------
 
-## values to facts ----
-
-vec_cast_fact_levels <- function(x, to, ...) {
-  values <- values(to)
-  values <- values(fact(values))
+#' @export
+#' @export
+vec_cast.fact.fact <- function(x, to, ...) {
+  # 'to' is the mold
   new_fact(
-    vec_match(values(x)[x], values),
-    values = values,
-    ordered = is.ordered(x)
+    vec_match(.values(x), .values(to))[x],
+    levels(to),
+    ptype = exattr(to, "ptype")
   )
 }
-
-vec_cast_fact_default <- function(x, to, ...) {
-  res <- fact(vec_c(x, values(to)))
-  res[vec_match(x, values(res))]
-}
-
-#' @export
-vec_cast.fact.fact <- vec_cast_fact_levels
-#' @export
-vec_cast.fact.factor <- vec_cast_fact_levels
-
-#' @export
-vec_cast.fact.character <- vec_cast_fact_default
-#' @export
-vec_cast.fact.Date <- vec_cast_fact_default
-#' @export
-vec_cast.fact.double <- vec_cast_fact_default
-#' @export
-vec_cast.fact.integer <- vec_cast_fact_default
-#' @export
-vec_cast.fact.logical <- vec_cast_fact_default
-#' @export
-vec_cast.fact.POSIXlt <- vec_cast_fact_default
-
-## fact to values ----
-
-#' @export
-vec_cast.character.fact <- function(x, to, ...) { levels(x)[x] }
-#' @export
-vec_cast.Date.fact <- function(x, to, ...) { as.Date(values(x)[x], ...) }
-#' @export
-vec_cast.factor.fact <- function(x, to, ...) { factor(values(x), labels = levels(x))[x] }
-#' @export
-vec_cast.double.fact <- function(x, to, ...) { as.double(values(x))[x] }
-#' @export
-vec_cast.integer.fact <- function(x, to, ...) { as.integer(x) }
-#' @export
-vec_cast.logical.fact <- function(x, to, ...) { as.logical(values(x)[x]) }
-
 
 # others ------------------------------------------------------------------
 
 #' @export
 is.na.fact <- function(x) {
-  as_values(x, is.na)
+  get_values(x, is.na)
 }
 
 #' @export
 is.nan.fact <- function(x) {
-  as_values(x, is.nan)
+  get_values(x, is.nan)
 }
 
 #' @export
 is.finite.fact <- function(x) {
-  as_values(x, is.finite)
+  get_values(x, is.infinite)
 }
 
 #' @export
 is.infinite.fact <- function(x) {
-  as_values(x, is.infinite)
+  get_values(x, is.infinite)
 }

@@ -8,6 +8,8 @@
 [![R-CMD-check](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmbarbone/facts/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/jmbarbone/facts/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jmbarbone/facts?branch=main)
+[![Codecov test
+coverage](https://codecov.io/gh/jmbarbone/facts/graph/badge.svg)](https://app.codecov.io/gh/jmbarbone/facts)
 <!-- badges: end -->
 
 The goal of facts is to simplify how the `factor` class is created,
@@ -29,6 +31,11 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(facts)
+#> 
+#> Attaching package: 'facts'
+#> The following objects are masked from 'package:base':
+#> 
+#>     as.factor, as.ordered
 ```
 
 A `facts` object looks very much like a `factor` object, with a few
@@ -42,24 +49,24 @@ f1
 #> [1] 1    <NA>
 #> Levels: 1
 f2
-#> [1] 1    <NA>
-#> levels: 1 (na)
+#> [1]  1 NA
+#> <double>: <NA> 1
 
 str(f1)
 #>  Factor w/ 1 level "1": 1 NA
 str(f2)
-#>  fct [1:2] 1 [1], 2 [NA]
-#>  @ levels: chr [1:2] "1" "(na)"
-#>  @ values: num [1:2] 1 NA
-#>  @ na    : int 2
+#>  Factor w/ 2 levels NA,"1": 2 1
+#>  - attr(*, "ptype")= num(0)
 
 f2
-#> [1] 1    <NA>
-#> levels: 1 (na)
+#> [1]  1 NA
+#> <double>: <NA> 1
 levels(f2) <- c(1, "(null)")
 f2
-#> [1] 1    <NA>
-#> levels: 1 (null)
+#> Warning in cast.double(levels(x), exattr(x, "ptype")): NAs introduced by
+#> coercion
+#> [1] NA  1
+#> <double>: 1 (null)
 ```
 
 In general, `factor()` will always sort `x` and by default doesn’t add
@@ -74,42 +81,36 @@ factor(x) # sorted, NA removed by default
 #> Levels: a b c
 fact(x)   # unsorted, NA retained by default
 #> [1] a    c    <NA> a    b    <NA> a    c   
-#> levels: a c b (na)
+#> <character>: <NA> a c b
 
 x <- c(-1, 5, 2, NA, 3)
 factor(x) # sorted
 #> [1] -1   5    2    <NA> 3   
 #> Levels: -1 2 3 5
 fact(x)   # sorted, but NA retained by default
-#> [1] -1   5    2    <NA> 3   
-#> levels: -1 2 3 5 (na)
+#> [1] -1  5  2 NA  3
+#> <double>: <NA> -1 2 3 5
 
 x <- c(NA, FALSE, TRUE, FALSE, TRUE, NA)
 factor(x)
 #> [1] <NA>  FALSE TRUE  FALSE TRUE  <NA> 
 #> Levels: FALSE TRUE
 fact(x)   # Sorted TRUE, FALSE, NA
-#> [1] <NA>  FALSE TRUE  FALSE TRUE  <NA> 
-#> levels: TRUE FALSE (na)
+#> [1]    NA FALSE  TRUE FALSE  TRUE    NA
+#> <logical>: <NA> FALSE TRUE
 ```
 
 ## Modifying facts
 
-One benefit of `factor()` is that you an recode on the fly. This adds
+One benefit of `factor()` is that you can recode on the fly. This adds
 additional overhead to the function because there is a necessity in
 checking the `levels` and `labels` and matching up appropriate values.
 The philosophy taken in `{facts}` is that the additional work of
-modifying the object should take place prior to `facts()`. However, some
-cases, these sort of manipulations can benefit from reducing the number
-of unique values.
+modifying the object should take place prior to `facts()`. As such,
+`recode()` is included, and can be used prior to `facts()` or after.
 
 ``` r
-x <- c("blue", "green", "red", "purple", "black", "white")
-x <- sample(x, 100, TRUE)
-id <- pseudo_id(x)
-id
-#>   [1] 1 2 2 3 4 3 2 5 5 5 6 1 5 5 2 5 1 6 5 6 1 5 6 3 3 2 5 3 1 4 5 1 1 1 2 6 1
-#>  [38] 1 4 2 1 4 6 6 3 2 6 1 2 6 5 3 2 1 1 6 6 1 6 6 2 3 6 2 2 2 4 4 5 4 6 3 6 1
-#>  [75] 5 4 2 3 2 6 1 2 1 5 6 5 2 4 3 1 4 4 6 5 2 6 1 3 2 5
-#> values: green white black blue red purple
+recode(fact(c(1, 1, 3, 0, 2)), 1 ~ -1, 2 ~ NA, .nomatch = "keep")
+#> [1] -1 -1  3  0 NA
+#> <double>: 0 -1 3
 ```

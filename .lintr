@@ -7,6 +7,12 @@ linters: linters_with_tags(
   brace_linter = NULL,
   indentation_linter = NULL,
   spaces_inside_linter = NULL,
-  commented_code_linter = NULL
+  commented_code_linter = NULL,
+  todo_comment_linter = NULL, # it's going to happen
+  unnecessary_lambda_linter = NULL, # disagree
+  cyclocomp_linter = NULL # not used
+  )
+exclusions: list(
+  "tests/testthat.R"
   )
 encoding: "UTF-8"
